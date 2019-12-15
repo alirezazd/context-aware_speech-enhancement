@@ -50,7 +50,7 @@ count =0;
 while(dspb_vad.point < 512)
     count = count + 1;
     dspb_vad.bus_addr_in(1,count) = 1;
-    dspb_vad.point = dspb_vad.point + 1;
+    dspb_vad.point = dspb_vad.point + 1;p
     dspb_vad.bus_data_in(1,count) = dspb_vad.sampledata(1,dspb_vad.point);
     dspb_vad.bus_wen(1,count)=1;
     count = count + 1;
