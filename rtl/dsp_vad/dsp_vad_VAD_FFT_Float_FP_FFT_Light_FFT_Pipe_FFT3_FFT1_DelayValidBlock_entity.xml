@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<entity name='dsp_vad_VAD_FFT_Float_FP_FFT_Light_FFT_Pipe_FFT3_FFT1_DelayValidBlock' floating-point-script-prefix='dsp_vad_VAD_FFT_Float_FP_FFT_Light_FFT_Pipe_FFT3_FFT1_DelayValidBlock_fpc'>
+  <clock name='sys' port='clk' reset='areset' reset-type='high' />
+</entity>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href="file:///T:/IntelFPGA/quartus/dspba/Blocksets/BaseBlocks/modelip.xsl"?>
+<MODEL>
+<NAME>dsp_vad/Control
+</NAME>
+<BUILD_YEAR>2019</BUILD_YEAR>
+<DOCPATH>file:///T:/IntelFPGA/quartus/dspba/Docs/Help/</DOCPATH>
+<DESCRIPTION>
+This help page relates to the specific instance 'Control_x' of the CONTROL block
+</DESCRIPTION>
+<HELP>file:///T:/IntelFPGA/quartus/dspba/Docs/Help/CONTROL_help.html</HELP>
+<BLOCKTYPE>CONTROL</BLOCKTYPE>
+<MEMORYMAPS path="dsp_vad">
+  <REGS numregs="1" desc="Description of what is stored in this field" origin="dsp_vad/VAD/sys_mm_in/fft_out_pop" clashes="false" rwmode="Read/Write" bitwidth="32" fracwidth="23" privatespace="false">
+    <REG numregparts="1" desc="Description of what is stored in this field" clashes="false" double_init="0.000000" sint_init="0">
+      <REGPART part_init="0" part_double_init="0.000000" clashes="false" width="32" msb="31" lsb="0" addr="3"/>
+    </REG>
+  </REGS>
+  <REGS numregs="1" desc="Description of what is stored in this field" origin="dsp_vad/VAD/sys_mm_in/sample_data" clashes="false" rwmode="Read/Write" bitwidth="32" fracwidth="23" privatespace="false">
+    <REG numregparts="1" desc="Description of what is stored in this field" clashes="false" double_init="0.000000" sint_init="0">
+      <REGPART part_init="0" part_double_init="0.000000" clashes="false" width="32" msb="31" lsb="0" addr="1"/>
+    </REG>
+  </REGS>
+  <REGS numregs="1" desc="Description of what is stored in this field" origin="dsp_vad/VAD/sys_mm_in/sample_in _valid" clashes="false" rwmode="Read/Write" bitwidth="32" fracwidth="23" privatespace="false">
+    <REG numregparts="1" desc="Description of what is stored in this field" clashes="false" double_init="0.000000" sint_init="0">
+      <REGPART part_init="0" part_double_init="0.000000" clashes="false" width="32" msb="31" lsb="0" addr="0"/>
+    </REG>
+  </REGS>
+</MEMORYMAPS>
+<RESOURCES>
+<FUNIT>
+ <FUNAME>dsp_vad/VAD</FUNAME>
+ <FUTYPE>SYNTH</FUTYPE>
+ <LUT4>116</LUT4>
+ <MULT>0</MULT>
+ <BITS>0</BITS>
+ <BLOCKS>0</BLOCKS>
+</FUNIT>
+</RESOURCES>
+</MODEL>
