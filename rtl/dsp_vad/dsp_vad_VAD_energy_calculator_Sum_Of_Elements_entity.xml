@@ -1,4 +1,0 @@
-<?xml version='1.0' encoding='ISO-8859-1' ?>
-<entity name='dsp_vad_VAD_energy_calculator_Sum_Of_Elements' floating-point-script-prefix='dsp_vad_VAD_energy_calculator_Sum_Of_Elements_fpc'>
-  <clock name='sys' port='clk' reset='areset' reset-type='high' />
-</entity>

@@ -1,4 +1,0 @@
-<?xml version='1.0' encoding='ISO-8859-1' ?>
-<entity name='dsp_vad_VAD_decision_unit_min_detector_mdfc' floating-point-script-prefix='dsp_vad_VAD_decision_unit_min_detector_mdfc_fpc'>
-  <clock name='sys' port='clk' reset='areset' reset-type='high' />
-</entity>

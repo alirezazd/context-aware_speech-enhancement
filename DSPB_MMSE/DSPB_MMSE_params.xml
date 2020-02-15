@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<design>
+		<device id="dspba">
+			<param name="part" value="5CSEBA6U23I7" />
+			<param name="deviceMember" value="" />
+			<param name="family" value="Cyclone V" />
+			<param name="speedGrade" value="7" />
+			<param name="max10NoMemInit" value="false" />
+		</device>
+		<avalonmmslave id="dspba">
+			<param name="busClockFreq" value="240" />
+			<param name="separateBusClock" value="false" />
+			<param name="addressWidth" value="8" />
+			<param name="busClockSynchronous" value="true" />
+			<param name="interfaceName" value="MMSE_BUS" />
+			<param name="dataWidth" value="32" />
+			<param name="busEndian" value="Big Endian" />
+		</avalonmmslave>
+		<param name="clockMargin" value="0" />
+		<param name="floatMismatchZeroTolerance" value="0.0" />
+		<param name="dualMemMediumLargeThreshold" value="-1" />
+		<param name="useSeparateQuartusDirectory" value="false" />
+		<param name="createTrace" value="false" />
+		<param name="hardwareDestinationDirectory" value="./rtl" />
+		<param name="clockFrequency" value="50" />
+		<param name="quartusWorkDirectory" value="../rtl" />
+		<param name="errorOnChanMismatch" value="false" />
+		<param name="validMapVariable" value="" />
+		<param name="cycleAccurate" value="false" />
+		<param name="generateHardware" value="true" />
+		<param name="dualMemSmallMediumThreshold" value="-1" />
+		<param name="reinterpretCastMult" value="false" />
+		<param name="errorOnGPIOMismatch" value="false" />
+		<param name="verificationFunction" value="" />
+		<param name="floatMismatchTolerance" value="0.0" />
+		<param name="clock" value="clk" />
+		<param name="createATBs" value="true" />
+		<param name="registerRAMBlockThreshold" value="-1" />
+		<param name="multiplierLogicDSPThreshold" value="0" />
+		<param name="deviceOutputVariable" value="" />
+		<param name="resetActive" value="High" />
+		<param name="reset" value="areset" />
+		<param name="hardwareDescriptionLanguage" value="VHDL" />
+		<param name="importModelSimResults" value="false" />
+	</design>
+</parameters>
