@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.620"
+    ComputedModelVersion    "1.675"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -34,7 +34,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [-8.0, 0.0, 2576.0, 1416.0]
+      Location		      [-53.0, 174.0, 2576.0, 809.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -51,16 +51,28 @@ Model {
 	$ClassName		"Simulink.ExplorerBarInfo"
 	Visible			[1]
       }
-      Object {
-	$PropName		"EditorsInfo"
-	$ObjectID		5
-	$ClassName		"Simulink.EditorInfo"
-	IsActive		[1]
-	ViewObjType		"SimulinkSubsys"
-	LoadSaveID		"11"
-	Extents			[2526.0, 1241.0]
-	ZoomFactor		[1.5]
-	Offset			[98.062147362433151, -96.61065262839972]
+      Array {
+	Type			"Simulink.EditorInfo"
+	Dimension		2
+	Object {
+	  $ObjectID		  5
+	  IsActive		  [1]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [2526.0, 631.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-569.44357135330165, 56.181144819816751]
+	}
+	Object {
+	  $ObjectID		  6
+	  IsActive		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "11"
+	  Extents		  [2526.0, 631.0]
+	  ZoomFactor		  [1.25]
+	  Offset		  [0.0, 0.0]
+	}
+	PropName		"EditorsInfo"
       }
     }
   }
@@ -70,9 +82,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "AliReza"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Feb 20 16:02:19 2020"
-  RTWModifiedTimeStamp	  504115178
-  ModelVersionFormat	  "1.%<AutoIncrement:620>"
+  LastModifiedDate	  "Thu Mar 05 04:28:24 2020"
+  RTWModifiedTimeStamp	  505282826
+  ModelVersionFormat	  "1.%<AutoIncrement:675>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -107,7 +119,7 @@ Model {
   TryForcingSFcnDF	  off
   Object {
     $PropName		    "DataLoggingOverride"
-    $ObjectID		    6
+    $ObjectID		    7
     $ClassName		    "Simulink.SimulationData.ModelLoggingInfo"
     model_		    "DSPB_MMSE"
     Array {
@@ -165,16 +177,16 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      7
+      $ObjectID		      8
       Version		      "1.13.0"
       Array {
 	Type			"Handle"
 	Dimension		8
 	Simulink.SolverCC {
-	  $ObjectID		  8
+	  $ObjectID		  9
 	  Version		  "1.13.0"
 	  StartTime		  "0.0"
-	  StopTime		  "5000"
+	  StopTime		  "DSPB_MMSE_param.endTime"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -206,7 +218,7 @@ Model {
 	  InsertRTBMode		  "Whenever possible"
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  9
+	  $ObjectID		  10
 	  Version		  "1.13.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
@@ -238,7 +250,7 @@ Model {
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  10
+	  $ObjectID		  11
 	  Version		  "1.13.0"
 	  Array {
 	    Type		    "Cell"
@@ -294,7 +306,7 @@ Model {
 	  ParallelExecutionInRapidAccelerator on
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  11
+	  $ObjectID		  12
 	  Version		  "1.13.0"
 	  Array {
 	    Type		    "Cell"
@@ -390,7 +402,7 @@ Model {
 	  SFTransitionActionBeforeConditionDiag	"warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  12
+	  $ObjectID		  13
 	  Version		  "1.13.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -431,7 +443,7 @@ Model {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  13
+	  $ObjectID		  14
 	  Version		  "1.13.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
@@ -446,7 +458,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  14
+	  $ObjectID		  15
 	  Version		  "1.13.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
@@ -461,7 +473,7 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  15
+	  $ObjectID		  16
 	  Version		  "1.13.0"
 	  Array {
 	    Type		    "Cell"
@@ -532,7 +544,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      16
+	      $ObjectID		      17
 	      Version		      "1.13.0"
 	      Array {
 		Type			"Cell"
@@ -606,7 +618,7 @@ Model {
 	    }
 	    Simulink.GRTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      17
+	      $ObjectID		      18
 	      Version		      "1.13.0"
 	      Array {
 		Type			"Cell"
@@ -700,11 +712,11 @@ Model {
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    7
+    $ObjectID		    8
   }
   Object {
     $PropName		    "DataTransfer"
-    $ObjectID		    18
+    $ObjectID		    19
     $ClassName		    "Simulink.GlobalDataTransfer"
     DefaultTransitionBetweenSyncTasks "Ensure deterministic transfer (maximum delay)"
     DefaultTransitionBetweenAsyncTasks "Ensure data integrity only"
@@ -869,8 +881,8 @@ Model {
   }
   System {
     Name		    "DSPB_MMSE"
-    Location		    [-8, 0, 2568, 1416]
-    Open		    off
+    Location		    [-53, 174, 2523, 983]
+    Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
     ScreenColor		    "white"
@@ -881,15 +893,15 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "150"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "4752"
+    SIDHighWatermark	    "4816"
     Block {
       BlockType		      SubSystem
       Name		      "Altera DSP Builder Advanced"
       SID		      "43"
       Ports		      []
-      Position		      [30, 20, 148, 108]
+      Position		      [15, 20, 133, 108]
       ZOrder		      5913
       ShowName		      off
       OpenFcn		      "web('http://www.altera.com', '-new');"
@@ -902,7 +914,7 @@ Model {
       MaskHideContents	      off
       Object {
 	$PropName		"MaskObject"
-	$ObjectID		19
+	$ObjectID		20
 	$ClassName		"Simulink.Mask"
 	Type			"DSP Builder Advanced Blockset Ignored Block"
 	Display			"image(imread('intellogo.tif'));"
@@ -931,7 +943,7 @@ Model {
       Name		      "AvalonMMSlaveSettings"
       SID		      "44"
       Ports		      []
-      Position		      [230, 205, 382, 266]
+      Position		      [525, 200, 677, 261]
       ZOrder		      5914
       BackgroundColor	      "[0.000000, 0.317647, 0.584314]"
       LibraryVersion	      "1.163"
@@ -943,7 +955,7 @@ Model {
       Name		      "Control\n"
       SID		      "46"
       Ports		      []
-      Position		      [33, 202, 174, 266]
+      Position		      [358, 202, 499, 266]
       ZOrder		      5912
       LibraryVersion	      "1.163"
       SourceBlock	      "DSPBABase/Control"
@@ -979,7 +991,7 @@ Model {
       BlockType		      DataTypeConversion
       Name		      "Data Type Conversion"
       SID		      "183"
-      Position		      [140, 453, 215, 487]
+      Position		      [135, 498, 210, 532]
       ZOrder		      5918
       OutDataTypeStr	      "single"
       RndMeth		      "Floor"
@@ -990,7 +1002,7 @@ Model {
       Name		      "EditParams1"
       SID		      "48"
       Ports		      []
-      Position		      [410, 210, 457, 266]
+      Position		      [65, 215, 112, 271]
       ZOrder		      5911
       BackgroundColor	      "[0.925490, 1.000000, 1.000000]"
       ShowName		      off
@@ -1004,7 +1016,7 @@ Model {
       Name		      "LocalThreshold"
       SID		      "2144"
       Ports		      []
-      Position		      [565, 201, 719, 275]
+      Position		      [180, 196, 334, 270]
       ZOrder		      5919
       BackgroundColor	      "[0.843137, 0.839216, 0.666667]"
       LibraryVersion	      "1.163"
@@ -1019,11 +1031,41 @@ Model {
       version		      "0"
     }
     Block {
+      BlockType		      Reference
+      Name		      "ReinterpretCast"
+      SID		      "4771"
+      Ports		      [1, 1]
+      Position		      [565, 434, 615, 486]
+      ZOrder		      5924
+      LibraryVersion	      "1.433"
+      SourceBlock	      "DSPBAPrim/ReinterpretCast"
+      SourceType	      "DSP Builder Advanced Blockset primitive"
+      primtype		      "reinterpret"
+      nInputs		      "1"
+      nOutputs		      "1"
+      omode		      "single"
+      otype		      "sfix(16)"
+      scale		      "2^-15"
+      rndmethod		      "Unbiased"
+      factor		      "1"
+      satmethod		      "Symmetric"
+      shift_vec		      "[0 1 2 -1]"
+      value		      "0"
+      inPortNames	      "[' '; ' ';]"
+      outPortNames	      "[' ']"
+      dspbaimage	      "dspba_prim.jpg"
+      text		      "fprintf('Reinterp\\nCast', value);"
+      style		      "Optimised"
+      visibilities	      "8"
+      floatPrecision	      "float32_m23"
+      version		      "20120601"
+    }
+    Block {
       BlockType		      Scope
       Name		      "Scope\nOutputs"
       SID		      "6"
       Ports		      [2]
-      Position		      [660, 389, 695, 491]
+      Position		      [660, 434, 695, 536]
       ZOrder		      -6
       Floating		      off
       Location		      [188, 365, 1083, 1161]
@@ -1053,13 +1095,13 @@ Model {
       Name		      "Scope Design Inputs"
       SID		      "7"
       Ports		      [3]
-      Position		      [217, 620, 273, 650]
+      Position		      [217, 665, 273, 695]
       ZOrder		      -7
       BlockRotation	      270
       BlockMirror	      on
       NamePlacement	      "alternate"
       Floating		      off
-      Location		      [188, 365, 1483, 1260]
+      Location		      [213, 1001, 1508, 1896]
       Open		      off
       NumInputPorts	      "3"
       List {
@@ -1079,15 +1121,15 @@ Model {
 	MarkerStyles		"none|none|none|none|none|none"
       }
       ShowLegends	      off
-      YMin		      "-5~-5~-5"
-      YMax		      "5~5~5"
+      YMin		      "0~-0.05~-5"
+      YMax		      "1~1~5"
     }
     Block {
       BlockType		      Reference
       Name		      "addr_in"
       SID		      "34"
       Ports		      [0, 1]
-      Position		      [45, 380, 75, 410]
+      Position		      [45, 425, 75, 455]
       ZOrder		      5402
       LibraryVersion	      "1.274"
       SourceBlock	      "simulink/Sources/Repeating\nSequence\nStair"
@@ -1108,7 +1150,7 @@ Model {
       Name		      "bus_stimulus"
       SID		      "32"
       Ports		      [3, 2]
-      Position		      [310, 358, 520, 582]
+      Position		      [310, 403, 520, 627]
       ZOrder		      5400
       LibraryVersion	      "1.84"
       SourceBlock	      "DSPBAModelBus/BusStimulus"
@@ -1122,7 +1164,7 @@ Model {
       Name		      "data_in"
       SID		      "35"
       Ports		      [0, 1]
-      Position		      [45, 455, 75, 485]
+      Position		      [45, 500, 75, 530]
       ZOrder		      5404
       LibraryVersion	      "1.274"
       SourceBlock	      "simulink/Sources/Repeating\nSequence\nStair"
@@ -1143,7 +1185,7 @@ Model {
       Name		      "dut"
       SID		      "11"
       Ports		      []
-      Position		      [750, 389, 880, 541]
+      Position		      [750, 434, 880, 586]
       ZOrder		      -11
       BackgroundColor	      "yellow"
       MinAlgLoopOccurrences   off
@@ -1155,7 +1197,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"dut"
-	Location		[-8, 0, 2568, 1416]
+	Location		[-53, 174, 2523, 983]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1167,7 +1209,7 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"150"
+	ZoomFactor		"125"
 	Block {
 	  BlockType		  Reference
 	  Name			  "Device"
@@ -1226,7 +1268,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "MMSE_TOP"
-	    Location		    [-8, 0, 2568, 1416]
+	    Location		    [-8, 0, 2568, 1407]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1238,21 +1280,21 @@ Model {
 	    TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "125"
+	    ZoomFactor		    "100"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "valid"
 	      SID		      "4742"
-	      Position		      [765, 353, 795, 367]
-	      ZOrder		      6564
+	      Position		      [780, 353, 810, 367]
+	      ZOrder		      6569
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "sample_in"
 	      SID		      "4744"
-	      Position		      [765, 448, 795, 462]
-	      ZOrder		      6566
+	      Position		      [780, 448, 810, 462]
+	      ZOrder		      6568
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
@@ -1286,7 +1328,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"100"
+		ZoomFactor		"125"
 		Block {
 		  BlockType		  Inport
 		  Name			  "input_mag_valid"
@@ -3035,7 +3077,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"100"
+		ZoomFactor		"125"
 		Block {
 		  BlockType		  Inport
 		  Name			  "valid"
@@ -3081,7 +3123,7 @@ Model {
 		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "100"
+		    ZoomFactor		    "125"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "est_noise"
@@ -4558,7 +4600,7 @@ Model {
 		    Name		    "req_to_adress"
 		    SID			    "3467"
 		    Ports		    [1, 1]
-		    Position		    [1060, 752, 1125, 828]
+		    Position		    [1060, 762, 1125, 838]
 		    ZOrder		    6542
 		    MinAlgLoopOccurrences   off
 		    PropExecContextOutsideSubsystem off
@@ -4569,7 +4611,7 @@ Model {
 		    MaskHideContents	    off
 		    System {
 		    Name		    "req_to_adress"
-		    Location		    [-8, -8, 2568, 1408]
+		    Location		    [-8, 0, 2568, 1416]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -5163,7 +5205,7 @@ Model {
 		    Line {
 		    SrcBlock		    "GPIn"
 		    SrcPort		    2
-		    Points		    [0, 0; 95, 0]
+		    Points		    [95, 0]
 		    Branch {
 		    Points		    [0, 228]
 		    Branch {
@@ -5298,7 +5340,7 @@ Model {
 		    DstPort		    5
 		    }
 		    Branch {
-		    Points		    [0, -75]
+		    Points		    [0, -65]
 		    DstBlock		    "req_to_adress"
 		    DstPort		    1
 		    }
@@ -6423,7 +6465,7 @@ Model {
 		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
-		    ZoomFactor		    "150"
+		    ZoomFactor		    "125"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "valid"
@@ -7068,7 +7110,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"100"
+		ZoomFactor		"125"
 		Block {
 		  BlockType		  Inport
 		  Name			  "a_posteriori_snr_valid"
@@ -7766,42 +7808,42 @@ Model {
 		  BlockType		  Terminator
 		  Name			  "Terminator"
 		  SID			  "735"
-		  Position		  [845, 345, 865, 365]
+		  Position		  [730, 345, 750, 365]
 		  ZOrder		  6196
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  "Terminator1"
 		  SID			  "736"
-		  Position		  [845, 385, 865, 405]
+		  Position		  [730, 395, 750, 415]
 		  ZOrder		  6197
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  "Terminator2"
 		  SID			  "737"
-		  Position		  [845, 420, 865, 440]
+		  Position		  [730, 420, 750, 440]
 		  ZOrder		  6198
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  "Terminator3"
 		  SID			  "738"
-		  Position		  [845, 505, 865, 525]
+		  Position		  [730, 505, 750, 525]
 		  ZOrder		  6199
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  "Terminator4"
 		  SID			  "739"
-		  Position		  [845, 545, 865, 565]
+		  Position		  [730, 555, 750, 575]
 		  ZOrder		  6200
 		}
 		Block {
 		  BlockType		  Terminator
 		  Name			  "Terminator5"
 		  SID			  "740"
-		  Position		  [845, 580, 865, 600]
+		  Position		  [730, 580, 750, 600]
 		  ZOrder		  6201
 		}
 		Block {
@@ -8122,7 +8164,6 @@ Model {
 		Line {
 		  SrcBlock		  "GPIn"
 		  SrcPort		  3
-		  Points		  [0, 0]
 		  DstBlock		  "FIFO1"
 		  DstPort		  2
 		}
@@ -8203,7 +8244,6 @@ Model {
 		Line {
 		  SrcBlock		  "FIFO"
 		  SrcPort		  3
-		  Points		  [122, 0; 0, -10]
 		  DstBlock		  "Terminator1"
 		  DstPort		  1
 		}
@@ -8222,7 +8262,6 @@ Model {
 		Line {
 		  SrcBlock		  "FIFO1"
 		  SrcPort		  3
-		  Points		  [115, 0; 0, -10]
 		  DstBlock		  "Terminator4"
 		  DstPort		  1
 		}
@@ -8350,7 +8389,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"fft"
-		Location		[-8, -8, 2568, 1408]
+		Location		[-8, 0, 2568, 1407]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -8635,7 +8674,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"fft_output_adapter"
-		Location		[-8, 0, 2568, 1416]
+		Location		[-8, 0, 2568, 1407]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -8647,7 +8686,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"125"
+		ZoomFactor		"100"
 		Block {
 		  BlockType		  Inport
 		  Name			  "valid"
@@ -9148,7 +9187,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"125"
+		ZoomFactor		"100"
 		Block {
 		  BlockType		  Inport
 		  Name			  "pahse_valid"
@@ -9235,7 +9274,7 @@ Model {
 		    Name		    "Complex to\nReal-Imag1"
 		    SID			    "4733"
 		    Ports		    [1, 2]
-		    Position		    [810, 290, 845, 385]
+		    Position		    [790, 290, 825, 385]
 		    ZOrder		    6368
 		    }
 		    Block {
@@ -9243,7 +9282,7 @@ Model {
 		    Name		    "Convert"
 		    SID			    "2727"
 		    Ports		    [1, 1]
-		    Position		    [665, 328, 740, 352]
+		    Position		    [660, 328, 735, 352]
 		    ZOrder		    6101
 		    LibraryVersion	    "1.433"
 		    SourceBlock		    "DSPBAPrim/Convert"
@@ -9329,7 +9368,7 @@ Model {
 		    Name		    "GPOut"
 		    SID			    "2953"
 		    Ports		    [2, 2]
-		    Position		    [990, 255, 1040, 370]
+		    Position		    [950, 255, 1000, 370]
 		    ZOrder		    5985
 		    LibraryVersion	    "1.433"
 		    SourceBlock		    "DSPBAPrim/GPOut"
@@ -9407,7 +9446,7 @@ Model {
 		    BlockType		    Terminator
 		    Name		    "Terminator2"
 		    SID			    "4751"
-		    Position		    [885, 350, 905, 370]
+		    Position		    [860, 350, 880, 370]
 		    ZOrder		    6369
 		    }
 		    Block {
@@ -9427,7 +9466,7 @@ Model {
 		    BlockType		    Outport
 		    Name		    "_valid"
 		    SID			    "2958"
-		    Position		    [1090, 278, 1120, 292]
+		    Position		    [1050, 278, 1080, 292]
 		    ZOrder		    5977
 		    IconDisplay		    "Port number"
 		    }
@@ -9435,7 +9474,7 @@ Model {
 		    BlockType		    Outport
 		    Name		    "ifft"
 		    SID			    "2959"
-		    Position		    [1090, 333, 1120, 347]
+		    Position		    [1050, 333, 1080, 347]
 		    ZOrder		    5978
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -9489,12 +9528,6 @@ Model {
 		    DstPort		    2
 		    }
 		    Line {
-		    SrcBlock		    "Transpose"
-		    SrcPort		    1
-		    DstBlock		    "GPOut"
-		    DstPort		    1
-		    }
-		    Line {
 		    SrcBlock		    "FP FFT Light"
 		    SrcPort		    1
 		    DstBlock		    "Transpose"
@@ -9521,15 +9554,21 @@ Model {
 		    }
 		    Line {
 		    SrcBlock		    "Complex to\nReal-Imag1"
+		    SrcPort		    2
+		    DstBlock		    "Terminator2"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Complex to\nReal-Imag1"
 		    SrcPort		    1
-		    Points		    [67, 0; 0, 25]
+		    Points		    [32, 0; 0, 25]
 		    DstBlock		    "GPOut"
 		    DstPort		    2
 		    }
 		    Line {
-		    SrcBlock		    "Complex to\nReal-Imag1"
-		    SrcPort		    2
-		    DstBlock		    "Terminator2"
+		    SrcBlock		    "Transpose"
+		    SrcPort		    1
+		    DstBlock		    "GPOut"
 		    DstPort		    1
 		    }
 		  }
@@ -9550,7 +9589,7 @@ Model {
 		  MaskHideContents	  off
 		  System {
 		    Name		    "ifft_input_adapter"
-		    Location		    [-8, -8, 2568, 1408]
+		    Location		    [-8, 0, 2568, 1416]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -11330,13 +11369,6 @@ Model {
 		    DstPort		    2
 		    }
 		    Line {
-		    SrcBlock		    "Mult1"
-		    SrcPort		    1
-		    Points		    [117, 0; 0, -20]
-		    DstBlock		    "Real-Imag to\nComplex"
-		    DstPort		    1
-		    }
-		    Line {
 		    SrcBlock		    "Mult"
 		    SrcPort		    1
 		    DstBlock		    "Real-Imag to\nComplex"
@@ -11355,6 +11387,34 @@ Model {
 		    DstBlock		    "Mult1"
 		    DstPort		    1
 		    }
+		    }
+		    Line {
+		    SrcBlock		    "CmpEQ1"
+		    SrcPort		    1
+		    Points		    [17, 0; 0, 45]
+		    DstBlock		    "Mux1"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Mux1"
+		    SrcPort		    1
+		    Points		    [17, 0; 0, 30]
+		    DstBlock		    "DualMem"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "Const2"
+		    SrcPort		    1
+		    Points		    [25, 0; 0, -35]
+		    DstBlock		    "Mux1"
+		    DstPort		    3
+		    }
+		    Line {
+		    SrcBlock		    "Mult1"
+		    SrcPort		    1
+		    Points		    [117, 0; 0, -20]
+		    DstBlock		    "Real-Imag to\nComplex"
+		    DstPort		    1
 		    }
 		    Line {
 		    SrcBlock		    "SampleDelay"
@@ -11385,27 +11445,6 @@ Model {
 		    }
 		    }
 		    }
-		    Line {
-		    SrcBlock		    "CmpEQ1"
-		    SrcPort		    1
-		    Points		    [17, 0; 0, 45]
-		    DstBlock		    "Mux1"
-		    DstPort		    1
-		    }
-		    Line {
-		    SrcBlock		    "Mux1"
-		    SrcPort		    1
-		    Points		    [17, 0; 0, 30]
-		    DstBlock		    "DualMem"
-		    DstPort		    2
-		    }
-		    Line {
-		    SrcBlock		    "Const2"
-		    SrcPort		    1
-		    Points		    [25, 0; 0, -35]
-		    DstBlock		    "Mux1"
-		    DstPort		    3
-		    }
 		  }
 		}
 		Block {
@@ -11426,12 +11465,6 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  SrcBlock		  "phase"
-		  SrcPort		  1
-		  DstBlock		  "ifft_input_adapter"
-		  DstPort		  4
-		}
-		Line {
 		  SrcBlock		  "ifft"
 		  SrcPort		  2
 		  DstBlock		  "output"
@@ -11447,12 +11480,6 @@ Model {
 		  SrcBlock		  "ifft"
 		  SrcPort		  1
 		  DstBlock		  "_valid"
-		  DstPort		  1
-		}
-		Line {
-		  SrcBlock		  "pahse_valid"
-		  SrcPort		  1
-		  DstBlock		  "ifft_input_adapter"
 		  DstPort		  1
 		}
 		Line {
@@ -11472,6 +11499,18 @@ Model {
 		  SrcPort		  1
 		  DstBlock		  "ifft_input_adapter"
 		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "pahse_valid"
+		  SrcPort		  1
+		  DstBlock		  "ifft_input_adapter"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "phase"
+		  SrcPort		  1
+		  DstBlock		  "ifft_input_adapter"
+		  DstPort		  4
 		}
 	      }
 	    }
@@ -11577,18 +11616,6 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "valid"
-	      SrcPort		      1
-	      DstBlock		      "fft"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "sample_in"
-	      SrcPort		      1
-	      DstBlock		      "fft"
-	      DstPort		      2
-	    }
-	    Line {
 	      SrcBlock		      "MMSE"
 	      SrcPort		      2
 	      Points		      [77, 0]
@@ -11636,14 +11663,26 @@ Model {
 	      DstBlock		      "MMSE"
 	      DstPort		      2
 	    }
+	    Line {
+	      SrcBlock		      "valid"
+	      SrcPort		      1
+	      DstBlock		      "fft"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "sample_in"
+	      SrcPort		      1
+	      DstBlock		      "fft"
+	      DstPort		      2
+	    }
 	  }
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "MM_in"
 	  SID			  "956"
-	  Ports			  [0, 3]
-	  Position		  [445, 216, 570, 504]
+	  Ports			  [0, 2]
+	  Position		  [455, 160, 590, 455]
 	  ZOrder		  6563
 	  BackgroundColor	  "green"
 	  MinAlgLoopOccurrences	  off
@@ -11655,7 +11694,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "MM_in"
-	    Location		    [-8, 0, 2568, 1416]
+	    Location		    [-53, 174, 2523, 983]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -11667,13 +11706,13 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "150"
+	    ZoomFactor		    "125"
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Convert1"
 	      SID		      "990"
 	      Ports		      [1, 1]
-	      Position		      [1065, 423, 1140, 447]
+	      Position		      [1065, 443, 1140, 467]
 	      ZOrder		      5973
 	      LibraryVersion	      "1.433"
 	      SourceBlock	      "DSPBAPrim/Convert"
@@ -11702,42 +11741,10 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Reference
-	      Name		      "Convert2"
-	      SID		      "4749"
-	      Ports		      [1, 1]
-	      Position		      [1065, 618, 1140, 642]
-	      ZOrder		      6374
-	      LibraryVersion	      "1.433"
-	      SourceBlock	      "DSPBAPrim/Convert"
-	      SourceType	      "DSP Builder Advanced Blockset primitive"
-	      primtype		      "convert"
-	      nInputs		      "1"
-	      nOutputs		      "1"
-	      omode		      "Specify via dialog"
-	      otype		      "ufix(9)"
-	      scale		      "2^-0"
-	      rndmethod		      "Biased"
-	      factor		      "1"
-	      satmethod		      "None"
-	      shift_vec		      "[0 1 2 -1]"
-	      value		      "round([0:255]/17)"
-	      inPortNames	      "[' '; ' ';]"
-	      outPortNames	      "[' '; 'c']"
-	      dspbaimage	      "dspba_prim.jpg"
-	      text		      "fprintf('convert');"
-	      style		      "Optimised"
-	      visibilities	      "8+64+256+2^17"
-	      clipdetect	      off
-	      floatPrecision	      "float32_m23"
-	      advOptions	      "[]"
-	      version		      "20130211"
-	    }
-	    Block {
-	      BlockType		      Reference
 	      Name		      "EdgeDetect1"
 	      SID		      "991"
 	      Ports		      [1, 1]
-	      Position		      [1195, 414, 1265, 456]
+	      Position		      [1195, 434, 1265, 476]
 	      ZOrder		      5974
 	      LibraryVersion	      "1.1674"
 	      SourceBlock	      "DspbAdvFftLibrary/Common/EdgeDetect"
@@ -11747,8 +11754,8 @@ Model {
 	      BlockType		      Reference
 	      Name		      "GPOut"
 	      SID		      "992"
-	      Ports		      [3, 3]
-	      Position		      [1345, 389, 1370, 681]
+	      Ports		      [2, 2]
+	      Position		      [1345, 381, 1385, 679]
 	      ZOrder		      5975
 	      LibraryVersion	      "1.433"
 	      SourceBlock	      "DSPBAPrim/GPOut"
@@ -11763,7 +11770,7 @@ Model {
 	      factor		      "1"
 	      satmethod		      "Symmetric"
 	      shift_vec		      "[0 1 2 -1]"
-	      value		      "3"
+	      value		      "2"
 	      inPortNames	      "[' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '"
 	      " ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ']'"
 	      outPortNames	      "[' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' "
@@ -11780,7 +11787,7 @@ Model {
 	      Name		      "SynthesisInfo"
 	      SID		      "994"
 	      Ports		      []
-	      Position		      [885, 265, 995, 304]
+	      Position		      [885, 280, 995, 319]
 	      ZOrder		      5978
 	      ShowName		      off
 	      LibraryVersion	      "1.433"
@@ -11811,42 +11818,10 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Reference
-	      Name		      "adress"
-	      SID		      "4746"
-	      Ports		      [0, 1]
-	      Position		      [880, 610, 1005, 650]
-	      ZOrder		      6372
-	      LibraryVersion	      "1.84"
-	      SourceBlock	      "DSPBAModelBus/RegField"
-	      SourceType	      "DSP Builder Advanced Blockset RegField"
-	      reg_name		      "3"
-	      reg_rwmode	      "Write"
-	      reg_msb		      "31"
-	      reg_lsb		      "0"
-	      reg_mode		      "Specify via dialog"
-	      reg_type		      "uint(32)"
-	      reg_scale		      "2^-0"
-	      reg_init		      "0"
-	      reg_desc		      "adress"
-	      reg_modal		      off
-	      reg_desc0		      "0"
-	      reg_desc1		      "0"
-	      reg_desc2		      "0"
-	      reg_desc3		      "0"
-	      reg_desc4		      "0"
-	      reg_desc5		      "0"
-	      reg_desc6		      "0"
-	      reg_desc7		      "0"
-	      reg_addr		      "3"
-	      SampleTime	      "-1"
-	      version		      "20090407"
-	    }
-	    Block {
-	      BlockType		      Reference
 	      Name		      "sample_data"
 	      SID		      "996"
 	      Ports		      [0, 1]
-	      Position		      [880, 510, 1005, 550]
+	      Position		      [880, 585, 1005, 625]
 	      ZOrder		      5977
 	      LibraryVersion	      "1.84"
 	      SourceBlock	      "DSPBAModelBus/RegField"
@@ -11859,7 +11834,7 @@ Model {
 	      reg_type		      "ufix(16)"
 	      reg_scale		      "2^-15"
 	      reg_init		      "0"
-	      reg_desc		      "Description of what is stored in this field"
+	      reg_desc		      "input data"
 	      reg_modal		      off
 	      reg_desc0		      "0"
 	      reg_desc1		      "0"
@@ -11875,11 +11850,11 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Reference
-	      Name		      "sample_in _valid"
-	      SID		      "997"
+	      Name		      "valid"
+	      SID		      "4774"
 	      Ports		      [0, 1]
-	      Position		      [880, 415, 1005, 455]
-	      ZOrder		      5967
+	      Position		      [880, 435, 1005, 475]
+	      ZOrder		      6660
 	      LibraryVersion	      "1.84"
 	      SourceBlock	      "DSPBAModelBus/RegField"
 	      SourceType	      "DSP Builder Advanced Blockset RegField"
@@ -11887,11 +11862,11 @@ Model {
 	      reg_rwmode	      "Read/Write"
 	      reg_msb		      "31"
 	      reg_lsb		      "0"
-	      reg_mode		      "Specify via dialog"
+	      reg_mode		      "single"
 	      reg_type		      "uint(32)"
 	      reg_scale		      "2^-0"
 	      reg_init		      "0"
-	      reg_desc		      "Description of what is stored in this field"
+	      reg_desc		      "input valid"
 	      reg_modal		      off
 	      reg_desc0		      "0"
 	      reg_desc1		      "0"
@@ -11909,7 +11884,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "time_sample_valid"
 	      SID		      "998"
-	      Position		      [1425, 433, 1455, 447]
+	      Position		      [1425, 448, 1455, 462]
 	      ZOrder		      5969
 	      IconDisplay	      "Port number"
 	    }
@@ -11917,31 +11892,10 @@ Model {
 	      BlockType		      Outport
 	      Name		      "time_sample_input"
 	      SID		      "999"
-	      Position		      [1425, 528, 1455, 542]
+	      Position		      [1425, 598, 1455, 612]
 	      ZOrder		      5970
 	      Port		      "2"
 	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "adress_in"
-	      SID		      "4735"
-	      Position		      [1425, 623, 1455, 637]
-	      ZOrder		      6371
-	      Port		      "3"
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      SrcBlock		      "Convert1"
-	      SrcPort		      1
-	      DstBlock		      "EdgeDetect1"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "sample_in _valid"
-	      SrcPort		      1
-	      DstBlock		      "Convert1"
-	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "GPOut"
@@ -11956,36 +11910,28 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "sample_data"
-	      SrcPort		      1
-	      Points		      [320, 0]
-	      DstBlock		      "GPOut"
-	      DstPort		      2
-	    }
-	    Line {
 	      SrcBlock		      "EdgeDetect1"
 	      SrcPort		      1
-	      Points		      [60, 0]
 	      DstBlock		      "GPOut"
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "GPOut"
-	      SrcPort		      3
-	      DstBlock		      "adress_in"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "adress"
+	      SrcBlock		      "Convert1"
 	      SrcPort		      1
-	      DstBlock		      "Convert2"
+	      DstBlock		      "EdgeDetect1"
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "Convert2"
+	      SrcBlock		      "valid"
+	      SrcPort		      1
+	      DstBlock		      "Convert1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "sample_data"
 	      SrcPort		      1
 	      DstBlock		      "GPOut"
-	      DstPort		      3
+	      DstPort		      2
 	    }
 	  }
 	}
@@ -11993,8 +11939,8 @@ Model {
 	  BlockType		  SubSystem
 	  Name			  "MM_out"
 	  SID			  "1830"
-	  Ports			  [3]
-	  Position		  [1065, 218, 1200, 502]
+	  Ports			  [2]
+	  Position		  [1060, 163, 1200, 452]
 	  ZOrder		  6564
 	  BackgroundColor	  "green"
 	  MinAlgLoopOccurrences	  off
@@ -12006,7 +11952,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "MM_out"
-	    Location		    [-8, 0, 2568, 1416]
+	    Location		    [-53, 174, 2523, 983]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -12018,7 +11964,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "125"
+	    ZoomFactor		    "100"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "valid"
@@ -12031,18 +11977,9 @@ Model {
 	      BlockType		      Inport
 	      Name		      "time_sample_output"
 	      SID		      "1831"
-	      Position		      [60, 318, 90, 332]
+	      Position		      [60, 358, 90, 372]
 	      ZOrder		      6080
 	      Port		      "2"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "adress"
-	      SID		      "4738"
-	      Position		      [60, 403, 90, 417]
-	      ZOrder		      6371
-	      Port		      "3"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
@@ -12050,7 +11987,7 @@ Model {
 	      Name		      "CmpEQ"
 	      SID		      "4718"
 	      Ports		      [2, 1]
-	      Position		      [495, 118, 545, 167]
+	      Position		      [450, 113, 500, 162]
 	      ZOrder		      6352
 	      LibraryVersion	      "1.433"
 	      SourceBlock	      "DSPBAPrim/CmpEQ"
@@ -12077,25 +12014,25 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Reference
-	      Name		      "Const2"
-	      SID		      "4719"
+	      Name		      "Const1"
+	      SID		      "4761"
 	      Ports		      [0, 1]
-	      Position		      [345, 105, 395, 155]
-	      ZOrder		      6353
+	      Position		      [345, 100, 395, 150]
+	      ZOrder		      6379
 	      LibraryVersion	      "1.433"
 	      SourceBlock	      "DSPBAPrim/Const"
 	      SourceType	      "DSP Builder Advanced Blockset primitive"
 	      primtype		      "const"
 	      nInputs		      "0"
 	      nOutputs		      "1"
-	      omode		      "Specify via dialog"
-	      otype		      "ufix(DSPB_MMSE_param.FS)"
+	      omode		      "Inherit via internal rule"
+	      otype		      "ufix(DSPB_MMSE_param.FS + 1)"
 	      scale		      "2^-0"
 	      rndmethod		      "Unbiased"
 	      factor		      "1"
 	      satmethod		      "Symmetric"
 	      shift_vec		      "[0 1 2 -1]"
-	      value		      "0"
+	      value		      "511"
 	      inPortNames	      "['+'; '+';]"
 	      outPortNames	      "[' ']"
 	      dspbaimage	      "dspba_prim.jpg"
@@ -12107,11 +12044,11 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Reference
-	      Name		      "Const3"
-	      SID		      "4730"
+	      Name		      "Const2"
+	      SID		      "4815"
 	      Ports		      [0, 1]
-	      Position		      [585, 170, 635, 220]
-	      ZOrder		      6364
+	      Position		      [450, 180, 500, 230]
+	      ZOrder		      6382
 	      LibraryVersion	      "1.433"
 	      SourceBlock	      "DSPBAPrim/Const"
 	      SourceType	      "DSP Builder Advanced Blockset primitive"
@@ -12139,8 +12076,8 @@ Model {
 	      BlockType		      Reference
 	      Name		      "GPIn"
 	      SID		      "1834"
-	      Ports		      [3, 3]
-	      Position		      [150, 199, 190, 451]
+	      Ports		      [2, 2]
+	      Position		      [150, 176, 190, 429]
 	      ZOrder		      6083
 	      BackgroundColor	      "yellow"
 	      LibraryVersion	      "1.433"
@@ -12156,7 +12093,7 @@ Model {
 	      factor		      "1"
 	      satmethod		      "Symmetric"
 	      shift_vec		      "[0 1 2 -1]"
-	      value		      "3"
+	      value		      "2"
 	      inPortNames	      "[' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' '"
 	      " ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ']'"
 	      outPortNames	      "[' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' ' "
@@ -12167,56 +12104,6 @@ Model {
 	      visibilities	      "1024"
 	      latencyCorrection	      "0"
 	      scheduleOrigin	      on
-	      version		      "20090407"
-	    }
-	    Block {
-	      BlockType		      Reference
-	      Name		      "Mux"
-	      SID		      "4707"
-	      Ports		      [3, 1]
-	      Position		      [495, 188, 545, 292]
-	      ZOrder		      6340
-	      LibraryVersion	      "1.433"
-	      SourceBlock	      "DSPBAPrim/Mux"
-	      SourceType	      "DSP Builder Advanced Blockset primitive"
-	      primtype		      "mux"
-	      nInputs		      "evalAionMaskParam(gcb,'value',1)+1"
-	      nOutputs		      "1"
-	      omode		      "Inherit via internal rule"
-	      otype		      "sfix(16)"
-	      scale		      "2^-15"
-	      rndmethod		      "Unbiased"
-	      factor		      "1"
-	      satmethod		      "Symmetric"
-	      shift_vec		      "[0 1 2 -1]"
-	      value		      "2"
-	      inPortNames	      "['s '; 'd0'; 'd1'; 'd2'; 'd3'; 'd4'; 'd5'; 'd6'; 'd7'; 'd8'; 'd9';]"
-	      outPortNames	      "[' ']"
-	      dspbaimage	      "dspba_prim.jpg"
-	      text		      "fprintf('%s', primtype);"
-	      style		      "Optimised"
-	      visibilities	      "1032"
-	      version		      "20131025"
-	    }
-	    Block {
-	      BlockType		      Reference
-	      Name		      "SharedMem"
-	      SID		      "4694"
-	      Ports		      [3, 1]
-	      Position		      [705, 231, 830, 289]
-	      ZOrder		      6110
-	      LibraryVersion	      "1.84"
-	      SourceBlock	      "DSPBAModelBus/SharedMem"
-	      SourceType	      "DSP Builder Advanced Blockset SharedMem"
-	      mem_addr		      "5"
-	      mem_rwmode	      "Read/Write"
-	      mem_data		      "666*ones(1,512)"
-	      mem_init		      on
-	      mem_desc		      "Description of what is in this shared memory"
-	      mem_mode		      "single"
-	      mem_type		      "sfix(16)"
-	      mem_scale		      "2^-8"
-	      SampleTime	      "-1"
 	      version		      "20090407"
 	    }
 	    Block {
@@ -12254,11 +12141,18 @@ Model {
 	      version		      "20150220"
 	    }
 	    Block {
+	      BlockType		      Terminator
+	      Name		      "Terminator"
+	      SID		      "4812"
+	      Position		      [745, 250, 765, 270]
+	      ZOrder		      6380
+	    }
+	    Block {
 	      BlockType		      Reference
 	      Name		      "_valid"
 	      SID		      "4712"
 	      Ports		      [2]
-	      Position		      [705, 135, 830, 175]
+	      Position		      [580, 175, 705, 215]
 	      ZOrder		      6346
 	      LibraryVersion	      "1.84"
 	      SourceBlock	      "DSPBAModelBus/RegOut"
@@ -12267,17 +12161,17 @@ Model {
 	      reg_rwmode	      "Read"
 	      reg_msb		      "31"
 	      reg_lsb		      "0"
-	      reg_desc		      "Description of what is stored in this register"
+	      reg_desc		      "output fifo full"
 	      reg_addr		      "2"
 	      SampleTime	      "-1"
 	      version		      "20090407"
 	    }
 	    Block {
 	      BlockType		      SubSystem
-	      Name		      "addr_counter1"
+	      Name		      "addr_counter"
 	      SID		      "4695"
 	      Ports		      [1, 1]
-	      Position		      [345, 250, 395, 300]
+	      Position		      [345, 215, 395, 265]
 	      ZOrder		      6343
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
@@ -12287,8 +12181,8 @@ Model {
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      System {
-		Name			"addr_counter1"
-		Location		[-8, 0, 2568, 1416]
+		Name			"addr_counter"
+		Location		[-8, 0, 2568, 1407]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -12300,7 +12194,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"150"
+		ZoomFactor		"125"
 		Block {
 		  BlockType		  Inport
 		  Name			  "en"
@@ -12670,20 +12564,22 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Reference
-	      Name		      "real"
-	      SID		      "1061"
-	      Ports		      [2]
-	      Position		      [935, 247, 1060, 298]
-	      ZOrder		      6079
+	      Name		      "output_mem"
+	      SID		      "4694"
+	      Ports		      [3, 1]
+	      Position		      [580, 231, 705, 289]
+	      ZOrder		      6110
 	      LibraryVersion	      "1.84"
-	      SourceBlock	      "DSPBAModelBus/RegOut"
-	      SourceType	      "DSP Builder Advanced Blockset RegOut"
-	      reg_name		      "4"
-	      reg_rwmode	      "Read"
-	      reg_msb		      "31"
-	      reg_lsb		      "0"
-	      reg_desc		      "Description of what is stored in this register"
-	      reg_addr		      "4"
+	      SourceBlock	      "DSPBAModelBus/SharedMem"
+	      SourceType	      "DSP Builder Advanced Blockset SharedMem"
+	      mem_addr		      "3"
+	      mem_rwmode	      "Read/Write"
+	      mem_data		      "1234*ones(1,512)"
+	      mem_init		      on
+	      mem_desc		      "output fifo"
+	      mem_mode		      "single"
+	      mem_type		      "sfix(16)"
+	      mem_scale		      "2^-8"
 	      SampleTime	      "-1"
 	      version		      "20090407"
 	    }
@@ -12700,136 +12596,90 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "GPIn"
+	      SrcBlock		      "addr_counter"
 	      SrcPort		      1
-	      Points		      [88, 0]
+	      Points		      [13, 0]
 	      Branch {
-		Points			[0, 35]
-		Branch {
-		  Points		  [0, 93; 358, 0; 0, -88]
-		  DstBlock		  "SharedMem"
-		  DstPort		  3
-		}
-		Branch {
-		  DstBlock		  "addr_counter1"
-		  DstPort		  1
-		}
-	      }
-	      Branch {
-		Points			[0, -35]
-		DstBlock		"Mux"
+		DstBlock		"output_mem"
 		DstPort			1
 	      }
-	    }
-	    Line {
-	      SrcBlock		      "addr_counter1"
-	      SrcPort		      1
-	      Points		      [53, 0]
 	      Branch {
-		DstBlock		"Mux"
-		DstPort			3
-	      }
-	      Branch {
-		Points			[0, -120]
+		Points			[0, -90]
 		DstBlock		"CmpEQ"
 		DstPort			2
 	      }
 	    }
 	    Line {
-	      SrcBlock		      "SharedMem"
-	      SrcPort		      1
-	      DstBlock		      "real"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Mux"
-	      SrcPort		      1
-	      DstBlock		      "SharedMem"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Const2"
+	      SrcBlock		      "Const1"
 	      SrcPort		      1
 	      DstBlock		      "CmpEQ"
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "CmpEQ"
+	      SrcBlock		      "GPIn"
+	      SrcPort		      2
+	      Points		      [258, 0; 0, -105]
+	      DstBlock		      "output_mem"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "GPIn"
 	      SrcPort		      1
-	      Points		      [36, 0]
+	      Points		      [88, 0]
 	      Branch {
-		Points			[0, -25; 294, 0; 0, 165]
-		DstBlock		"real"
-		DstPort			2
+		Points			[0, 66; 201, 0; 0, -26]
+		DstBlock		"output_mem"
+		DstPort			3
 	      }
 	      Branch {
-		DstBlock		"_valid"
+		DstBlock		"addr_counter"
 		DstPort			1
 	      }
 	    }
 	    Line {
-	      SrcBlock		      "Const3"
+	      SrcBlock		      "output_mem"
 	      SrcPort		      1
-	      Points		      [50, 0]
+	      DstBlock		      "Terminator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Const2"
+	      SrcPort		      1
 	      DstBlock		      "_valid"
 	      DstPort		      2
 	    }
 	    Line {
-	      SrcBlock		      "adress"
+	      SrcBlock		      "CmpEQ"
 	      SrcPort		      1
-	      DstBlock		      "GPIn"
-	      DstPort		      3
-	    }
-	    Line {
-	      SrcBlock		      "GPIn"
-	      SrcPort		      3
-	      Points		      [21, 0; 0, -232; 209, 0; 0, 62]
-	      DstBlock		      "Mux"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "GPIn"
-	      SrcPort		      2
-	      Points		      [424, 0; 0, -65]
-	      DstBlock		      "SharedMem"
-	      DstPort		      2
+	      Points		      [35, 0; 0, 45]
+	      DstBlock		      "_valid"
+	      DstPort		      1
 	    }
 	  }
 	}
 	Line {
-	  SrcBlock		  "MM_in"
-	  SrcPort		  1
-	  Points		  [71, 0; 0, -30]
-	  DstBlock		  "MMSE_TOP"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "MM_in"
-	  SrcPort		  2
-	  Points		  [63, 0; 0, 20]
-	  DstBlock		  "MMSE_TOP"
-	  DstPort		  2
-	}
-	Line {
 	  SrcBlock		  "MMSE_TOP"
 	  SrcPort		  1
-	  Points		  [65, 0; 0, 30]
 	  DstBlock		  "MM_out"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "MMSE_TOP"
 	  SrcPort		  2
-	  Points		  [62, 0; 0, -20]
 	  DstBlock		  "MM_out"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "MM_in"
-	  SrcPort		  3
-	  Points		  [61, 0; 0, 27; 358, 0; 0, -27]
-	  DstBlock		  "MM_out"
-	  DstPort		  3
+	  SrcPort		  1
+	  DstBlock		  "MMSE_TOP"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "MM_in"
+	  SrcPort		  2
+	  DstBlock		  "MMSE_TOP"
+	  DstPort		  2
 	}
       }
     }
@@ -12838,7 +12688,7 @@ Model {
       Name		      "wen"
       SID		      "36"
       Ports		      [0, 1]
-      Position		      [45, 530, 75, 560]
+      Position		      [45, 575, 75, 605]
       ZOrder		      5403
       LibraryVersion	      "1.274"
       SourceBlock	      "simulink/Sources/Repeating\nSequence\nStair"
@@ -12888,12 +12738,6 @@ Model {
       }
     }
     Line {
-      SrcBlock		      "bus_stimulus"
-      SrcPort		      1
-      DstBlock		      "Scope\nOutputs"
-      DstPort		      1
-    }
-    Line {
       SrcBlock		      "data_in"
       SrcPort		      1
       DstBlock		      "Data Type Conversion"
@@ -12902,7 +12746,7 @@ Model {
     Line {
       SrcBlock		      "Data Type Conversion"
       SrcPort		      1
-      Points		      [25, 0]
+      Points		      [30, 0]
       Branch {
 	DstBlock		"Scope Design Inputs"
 	DstPort			2
@@ -12912,10 +12756,30 @@ Model {
 	DstPort			2
       }
     }
+    Line {
+      SrcBlock		      "bus_stimulus"
+      SrcPort		      1
+      DstBlock		      "ReinterpretCast"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "ReinterpretCast"
+      SrcPort		      1
+      DstBlock		      "Scope\nOutputs"
+      DstPort		      1
+    }
     Annotation {
       SID		      "175"
       Name		      "MMSE"
-      Position		      [814, 351]
+      Position		      [814, 396]
+      ZOrder		      -1
+      FontSize		      48
+      FontWeight	      "bold"
+    }
+    Annotation {
+      SID		      "4772"
+      Name		      "TestBench"
+      Position		      [414, 366]
       ZOrder		      -1
       FontSize		      48
       FontWeight	      "bold"

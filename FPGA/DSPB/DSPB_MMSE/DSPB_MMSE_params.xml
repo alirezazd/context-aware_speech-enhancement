@@ -10,7 +10,7 @@
 		</device>
 		<avalonmmslave id="dspba">
 			<param name="dataWidth" value="32" />
-			<param name="addressWidth" value="8" />
+			<param name="addressWidth" value="10" />
 			<param name="interfaceName" value="MMSE_BUS" />
 			<param name="separateBusClock" value="false" />
 			<param name="busClockFreq" value="240" />

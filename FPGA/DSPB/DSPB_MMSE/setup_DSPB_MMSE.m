@@ -38,7 +38,7 @@ for i = 1 : (DSPB_MMSE_param.SF * ceil(length(wav_file)/DSPB_MMSE_param.SF))/DSP
     DSPB_MMSE_param.index = 0;
     while(DSPB_MMSE_param.index < 2^(DSPB_MMSE_param.FS))
     DSPB_MMSE_param.endTime = DSPB_MMSE_param.endTime + 1;
-    DSPB_MMSE_IO.bus_addr_in(1,DSPB_MMSE_param.endTime) = 1;
+    DSPB_MMSE_IO.bus_addr_in(1,DSPB_MMSE_param.endTime) = 2;
     DSPB_MMSE_param.index = DSPB_MMSE_param.index + 1;
     DSPB_MMSE_IO.bus_data_in(1,DSPB_MMSE_param.endTime) = DSPB_MMSE_param.sampledata(i,DSPB_MMSE_param.index);
     DSPB_MMSE_IO.bus_wen(1,DSPB_MMSE_param.endTime)=1;
