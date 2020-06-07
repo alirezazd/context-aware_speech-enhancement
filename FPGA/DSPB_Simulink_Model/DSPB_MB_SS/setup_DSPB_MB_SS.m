@@ -1,4 +1,4 @@
-%% DSPB_MB_SS_param - DSPBA Design Parameters Start
+% DSPB_MB_SS_param - DSPBA Design Parameters Start
 clear all; %clear workspace
 %% System Parameters
 DSPB_MB_SS_param.ChanCount = 1;                        % How many real data channels
@@ -16,10 +16,10 @@ DSPB_MB_SS_param.SS = DSPB_MB_SS_param.FL*(DSPB_MB_SS_param.SF/1000); %signal si
 DSPB_MB_SS_param.SampleTime  = 1;                    % One unit in Simulink simulation is one clock cycle 
 DSPB_MB_SS_param.endTime     = 0;                 % How many simulation clock cycles
 %% Stimulus data setup
-[wav_file, DSPB_MB_SS_param.SF] = audioread('m3rmenue.wav');
+[wav_file, DSPB_MB_SS_param.SF] = audioread('input.wav');
 wav_file = wav_file';
 wav_file(1,DSPB_MB_SS_param.SF * ceil(length(wav_file)/DSPB_MB_SS_param.SF)) = 0; %round input array size to nearest integer second
-wav_file = awgn(wav_file,5,'measured');  %add white noise, 5db SNR
+%wav_file = awgn(wav_file,0,'measured');  %add white noise, 10db SNR
 for i = 1:(DSPB_MB_SS_param.SF * ceil(length(wav_file)/DSPB_MB_SS_param.SF))/DSPB_MB_SS_param.SS %create aaray of DSPB_MB_SS_param.FL ms
     DSPB_MB_SS_param.sampledata(i,:)= wav_file(((i-1)*DSPB_MB_SS_param.SS)+1:i*DSPB_MB_SS_param.SS);
 end
