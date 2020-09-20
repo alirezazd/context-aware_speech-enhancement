@@ -37,8 +37,7 @@ arm-linux-gnueabihf-g++ hps.cpp -g -std=c++11 -Wall -Werror -Wno-pointer-arith -
 #define MAP_MASK 4095UL
 
 //Context-awareness variables
-float noise_th = 0.35; //noise threshold
-const float N = 3.85;	//Noise STD multiplier
+
 
 using namespace std;
 
@@ -107,46 +106,6 @@ vector<float> normalize_vect(vector<float> &sample_vect)
 	return sample_vect;
 }
 
-float calculate_SNR(queue<float> &signal_fifo)
-{
-	vector<float> noise_vect;
-	vector<float> speech_vect;
-	float SNR;
-	float noise_std;
-	float speech_std;
-	auto fast_std = [](vector<float> input) //https://stackoverflow.com/questions/7616511/calculate-mean-and-standard-deviation-from-a-vector-of-samples-in-c-using-boos/12405793#12405793
-	{
-		float mean, acc;
-		mean = accumulate(begin(input), end(input), 0.0)/input.size();
-		acc = 0.0;
-		for_each(begin(input), end(input), [&](const float d)
-		{
-			acc += (d - mean)*(d - mean);
-		});
-		return sqrt(acc/(input.size()-1));
-	};
-	
-	while(!signal_fifo.empty())	//Seprate speech and noise samples(fifo has the ABS of input signal)
-	{
-		if(signal_fifo.front() < noise_th)
-		{
-			noise_vect.push_back(signal_fifo.front());
-			signal_fifo.pop();
-		}
-		else
-		{
-			speech_vect.push_back(signal_fifo.front());
-			signal_fifo.pop();
-		}
-	}
-	
-	noise_std = fast_std(noise_vect);
-	speech_std = fast_std(speech_vect);
-	SNR = 20*log10(speech_std/noise_std);
-	noise_th = N*noise_std;		//Update threshold value
-	cout<<"\n"<<SNR;
-	return SNR;
-}
 
 /* vector<float> overlap_add(vector<float> windowed_sample, size_t length)
 {
@@ -202,7 +161,6 @@ vector<float> none_overlap_add(vector<float> sample_vect, size_t length)
 {
 	int IO_fd;
 	vector<float> output;
-	queue<float> signal_fifo;
 	void * input_virtual_base, * input_control_addr;
 	void * output_virtual_base, * output_control_addr;
 	IO_fd = open("/dev/mem", O_RDWR | O_SYNC);
@@ -227,10 +185,8 @@ vector<float> none_overlap_add(vector<float> sample_vect, size_t length)
 		for(size_t j = 0; j < length; j++)
 		{	
 			float * tmp = (&sample_vect[j+i]);
-			signal_fifo.push(sample_vect[j+i]);	//add to fifo for context-awareness
 			*((uint32_t *) (input_control_addr + (sizeof(float) * (j + 1))))= *reinterpret_cast<uint32_t*>(tmp);
 		}
-		if(signal_fifo.size() == 320000) calculate_SNR(signal_fifo);	//estimate SNR every 20 seconds
 		for(size_t k = length; k < pow(2,ceil(log2(length))); k++)	//Pad with zeros
 		{
 			float tmp = 0;
@@ -369,7 +325,7 @@ int main(int argc, const char * argv[])
 {
 	size_t length = 25;		//window size in ms
 	const char *wav_path = "input.wav";
-	const char *rbf_path = "MB_SS.rbf";
+	const char *rbf_path = "MMSE.rbf";
 	uint32_t SF = extract_SF(wav_path);
 	cout<<"\nInput sampling rate:	"<<SF<<"\n";
 	length = (SF/1000)*length;
