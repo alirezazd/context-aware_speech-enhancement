@@ -20,6 +20,9 @@
     <ClCompile Include="printm.cpp">
       <Filter>aux\functions</Filter>
     </ClCompile>
+    <ClCompile Include="alt_dma.c">
+      <Filter>altera_libs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="alt_fpga_manager.h">
@@ -58,6 +61,9 @@
     </ClInclude>
     <ClInclude Include="printm.h">
       <Filter>aux\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="alt_dma.h">
+      <Filter>altera_libs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

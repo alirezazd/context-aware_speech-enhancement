@@ -82,6 +82,7 @@
     <MultiProcNumber>2</MultiProcNumber>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="alt_dma.c" />
     <ClCompile Include="alt_fpga_manager.c" />
     <ClCompile Include="FPGA_mgr.cpp" />
     <ClCompile Include="dir.cpp" />
@@ -91,6 +92,7 @@
     <ClCompile Include="printm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="alt_dma.h" />
     <ClInclude Include="alt_fpgamgr.h" />
     <ClInclude Include="alt_fpga_manager.h" />
     <ClInclude Include="alt_printf.h" />
