@@ -82,26 +82,27 @@
     <MultiProcNumber>2</MultiProcNumber>
   </PropertyGroup>
   <ItemGroup>
-    <ClCompile Include="alt_dma.c" />
     <ClCompile Include="alt_fpga_manager.c" />
+    <ClCompile Include="classifier.cpp" />
+    <ClCompile Include="file_buffer.cpp" />
     <ClCompile Include="FPGA_mgr.cpp" />
     <ClCompile Include="dir.cpp" />
-    <ClCompile Include="Initialize.cpp" />
+    <ClCompile Include="initializer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="print_vect.cpp" />
     <ClCompile Include="printm.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="alt_dma.h" />
     <ClInclude Include="alt_fpgamgr.h" />
     <ClInclude Include="alt_fpga_manager.h" />
     <ClInclude Include="alt_printf.h" />
+    <ClInclude Include="classifier.h" />
+    <ClInclude Include="file_buffer.h" />
     <ClInclude Include="FPGA_mgr.h" />
     <ClInclude Include="dir.h" />
     <ClInclude Include="hps.h" />
     <ClInclude Include="hwlib.h" />
-    <ClInclude Include="Initialize.h" />
-    <ClInclude Include="main.h" />
+    <ClInclude Include="initializer.h" />
     <ClInclude Include="paths.h" />
     <ClInclude Include="printm.h" />
     <ClInclude Include="print_vect.h" />

@@ -14,15 +14,16 @@
     <ClCompile Include="print_vect.cpp">
       <Filter>aux\functions</Filter>
     </ClCompile>
-    <ClCompile Include="Initialize.cpp">
-      <Filter>aux\functions</Filter>
-    </ClCompile>
     <ClCompile Include="printm.cpp">
       <Filter>aux\functions</Filter>
     </ClCompile>
-    <ClCompile Include="alt_dma.c">
-      <Filter>altera_libs</Filter>
+    <ClCompile Include="file_buffer.cpp">
+      <Filter>aux\classes</Filter>
     </ClCompile>
+    <ClCompile Include="initializer.cpp">
+      <Filter>aux\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classifier.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="alt_fpga_manager.h">
@@ -43,7 +44,6 @@
     <ClInclude Include="socal.h">
       <Filter>altera_libs</Filter>
     </ClInclude>
-    <ClInclude Include="main.h" />
     <ClInclude Include="dir.h">
       <Filter>aux\functions</Filter>
     </ClInclude>
@@ -56,15 +56,16 @@
     <ClInclude Include="print_vect.h">
       <Filter>aux\functions</Filter>
     </ClInclude>
-    <ClInclude Include="Initialize.h">
-      <Filter>aux\functions</Filter>
-    </ClInclude>
     <ClInclude Include="printm.h">
       <Filter>aux\functions</Filter>
     </ClInclude>
-    <ClInclude Include="alt_dma.h">
-      <Filter>altera_libs</Filter>
+    <ClInclude Include="file_buffer.h">
+      <Filter>aux\classes</Filter>
     </ClInclude>
+    <ClInclude Include="initializer.h">
+      <Filter>aux\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classifier.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="altera_libs">
