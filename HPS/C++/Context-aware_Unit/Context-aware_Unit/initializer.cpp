@@ -1,10 +1,7 @@
 #include "initializer.h"
 
-initializer::initializer() {
-	rbf_storage_path = RBF_STORAGE_PATH;
-	classifier_model_path = TFLITE_MODEL_PATH;
-	is_initialized = false;
-}
+initializer::initializer()
+	:rbf_storage_path(RBF_STORAGE_PATH), classifier_model_path(TFLITE_MODEL_PATH){}
 
 bool initializer::Initialize() {
 	printm('c'); printm('i', "Initialization started...");
@@ -37,7 +34,7 @@ bool initializer::Check_rbf_storage(){
 bool initializer::Check_classifier_model() {
 	printm('i', "Checking classifier model directory:\t");
 	printm('r', classifier_model_path);
-	classifer_model_list = dir(classifier_model_path.c_str(), ".tflite");
+	std::vector<std::string> classifer_model_list = dir(classifier_model_path.c_str(), ".tflite");
 	if (classifer_model_list.size() == 0) {
 		printm('e', "No classifier model available in the model directory.");
 		return false;
@@ -68,14 +65,23 @@ bool initializer::Verify_rbfs() {
 	return true;
 }
 
-FPGA_mgr initializer::get_mgr() {
-	if (!is_initialized) {
-		printm('w', "get_mgr() called before initialization, initialization routine automatically called to create the FPGA_mgr object.");
-		Initialize();
-	}
-	return *mgr;
- }
+bool initializer::Is_initialized() {
+	return is_initialized;
+}
 
-initializer::~initializer() {
+std::vector<std::string>* initializer::Get_rbf_list() {
+	return &rbf_list;
+}
+
+std::string* initializer::Get_classifer_model_name() {
+	return &classifer_model_name;
+}
+
+FPGA_mgr* initializer::Get_FPGA_mgr() {
+	return mgr;
+}
+
+initializer::~initializer()
+{
 	delete mgr;
 }

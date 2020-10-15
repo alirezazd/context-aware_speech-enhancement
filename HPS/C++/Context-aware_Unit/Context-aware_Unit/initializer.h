@@ -7,26 +7,28 @@
 #include "print_vect.h"
 #include "FPGA_mgr.h"
 
+
 class initializer
 {
-	
 public:
 	initializer();
 	~initializer();
 	bool Initialize();
-	FPGA_mgr get_mgr();
+	bool Is_initialized();
+	std::string* Get_classifer_model_name();
+	std::vector<std::string>* Get_rbf_list();
+	FPGA_mgr* Get_FPGA_mgr();
 private:
 	bool Check_rbf_storage();
 	bool Check_classifier_model();
 	bool Verify_rbfs();
 	bool Check_MSEL_configuration();
-	bool is_initialized;
-
-	std::string classifier_model_path;
-	std::string rbf_storage_path;
-	std::vector<std::string> rbf_list;
-	std::vector<std::string> classifer_model_list;
+	
 	std::string classifer_model_name;
-	FPGA_mgr* mgr;
+	std::vector<std::string> rbf_list;
+	bool is_initialized;
+	std::string rbf_storage_path;
+	std::string classifier_model_path;
+	FPGA_mgr *mgr;
 };
 

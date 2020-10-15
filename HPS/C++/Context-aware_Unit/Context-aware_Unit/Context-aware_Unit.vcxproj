@@ -83,6 +83,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="alt_fpga_manager.c" />
+    <ClCompile Include="benchmark.cpp" />
     <ClCompile Include="classifier.cpp" />
     <ClCompile Include="file_buffer.cpp" />
     <ClCompile Include="FPGA_mgr.cpp" />
@@ -91,12 +92,15 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="print_vect.cpp" />
     <ClCompile Include="printm.cpp" />
+    <ClCompile Include="statistics.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="alt_fpgamgr.h" />
     <ClInclude Include="alt_fpga_manager.h" />
     <ClInclude Include="alt_printf.h" />
+    <ClInclude Include="benchmark.h" />
     <ClInclude Include="classifier.h" />
+    <ClInclude Include="cxxopts.hpp" />
     <ClInclude Include="file_buffer.h" />
     <ClInclude Include="FPGA_mgr.h" />
     <ClInclude Include="dir.h" />
@@ -107,6 +111,7 @@
     <ClInclude Include="printm.h" />
     <ClInclude Include="print_vect.h" />
     <ClInclude Include="socal.h" />
+    <ClInclude Include="statistics.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ClCompile>

@@ -24,6 +24,12 @@
       <Filter>aux\classes</Filter>
     </ClCompile>
     <ClCompile Include="classifier.cpp" />
+    <ClCompile Include="benchmark.cpp">
+      <Filter>aux\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="statistics.cpp">
+      <Filter>aux\classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="alt_fpga_manager.h">
@@ -66,6 +72,15 @@
       <Filter>aux\classes</Filter>
     </ClInclude>
     <ClInclude Include="classifier.h" />
+    <ClInclude Include="benchmark.h">
+      <Filter>aux\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="statistics.h">
+      <Filter>aux\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="cxxopts.hpp">
+      <Filter>aux\libs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="altera_libs">

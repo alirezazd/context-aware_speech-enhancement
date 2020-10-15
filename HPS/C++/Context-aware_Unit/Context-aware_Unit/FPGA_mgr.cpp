@@ -4,9 +4,9 @@ volatile void* __hps_virtualAdreess_FPGAMGR;
 volatile void* __hps_virtualAdreess_FPGAMFRDATA;
 volatile int __fd;
 
-FPGA_mgr::FPGA_mgr(){
-	rbf_storage_path = RBF_STORAGE_PATH;
-	printm('i', "Mapping FPGA-MANAGER adress space...");
+FPGA_mgr::FPGA_mgr()
+	:rbf_storage_path(RBF_STORAGE_PATH){
+	printm('i', "Mapping FPGA-MANAGER address space...");
 	__VIRTUALMEM_SPACE_INIT();
 }
 
@@ -51,7 +51,20 @@ bool FPGA_mgr::Check_MSEL() {
 	return true;
 }
 
-FPGA_mgr::~FPGA_mgr(){
-	printm('i', "Umapping FPGA-MANAGER adress space...");
+void FPGA_mgr::Reconfig_minimal(std::string rbf_name) {
+	file_buffer buf((rbf_storage_path + rbf_name).c_str());
+	alt_fpga_init();
+	alt_fpga_control_enable();
+	alt_fpga_configure(buf.data, buf.size);
+	alt_fpga_control_disable();
+	current_rbf = rbf_name;
+}
+
+std::string FPGA_mgr::Get_current_rbf() {
+	return current_rbf;
+}
+
+FPGA_mgr::~FPGA_mgr() {
+	printm('i', "Umapping FPGA-MANAGER address space...");
 	__VIRTUALMEM_SPACE_DEINIT();
 }

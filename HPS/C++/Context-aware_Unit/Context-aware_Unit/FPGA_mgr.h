@@ -16,12 +16,13 @@ private:
 	bool Check_status_code(ALT_STATUS_CODE status);
 	void Call_mgr();
 
+	std::string current_rbf;
 	std::string rbf_storage_path;
 public:
 	FPGA_mgr();
 	~FPGA_mgr();
 	bool Check_MSEL();
 	bool Reconfig(std::string rbf_name);
-
-	std::string current_rbf;
+	void Reconfig_minimal(std::string rbf_name);
+	std::string Get_current_rbf();
 };
