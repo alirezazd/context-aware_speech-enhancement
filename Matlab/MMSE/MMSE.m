@@ -1,5 +1,5 @@
-function [Output]= MMSE(Input,Plot)
-    [wav_file, SF] = audioread(string(Input)); %Read input
+function [Output]= MMSE(wav_file, SF, Plot)
+    %[wav_file, SF] = audioread(string(Input)); %Read input
     window_dur = 0.025;     %Window duration (Seconds)
     window_len = window_dur * SF;   %Window length (Samples)
     wav_file(ceil(length(wav_file)/window_len)*window_len) = 0; %Make total multiple of frame length
@@ -10,7 +10,7 @@ function [Output]= MMSE(Input,Plot)
         frame = wav_file(frame_nu : frame_nu + window_len - 1); %Extract processing frame
         frame(2^(ceil(log2(window_len)))) = 0;  %Zero pad
         frame = fft(frame,2^(ceil(log2(window_len))));  %FFT
-        [Noisy_Magnitude_Spectrum, Phase] = FFT_Adapter(frame);  %Extract single sided magnitude spectrum and phase 
+        [Noisy_Magnitude_Spectrum, Phase] = FFT_Adapter(frame);  %Extract single sided manitude spectrum and phase 
         [A_Pos_SNR , Noise_Power_Spectrum] = A_Posteriori_SNR(Noisy_Magnitude_Spectrum); %Estimate Noise power Spectrum & A Posteriori SNR
         [A_Pri_SNR] = A_Priori_SNR(Enhanced_Magnitude_Spectrum, Noise_Power_Spectrum, A_Pos_SNR); %Estimate A priori SNR
         Enhanced_Magnitude_Spectrum = Enhance_MMSE(A_Pos_SNR, A_Pri_SNR, Noisy_Magnitude_Spectrum); %Enhance
@@ -78,18 +78,18 @@ function [Enhanced_Magnitude_Spectrum] = Enhance_MMSE(A_Pos_SNR, A_Pri_SNR, Nois
     in = load ('LUT1.mat','LUT_Z1');
     LUT_Z1 = in.LUT_Z1;                 %Scaled Modified bessel function of the first kind first order lookup table
     function [Res] = SMBEssel0(Input)
-        if(Input > 3.42)        %When to calculate and when to use LUT
+        if(Input > 14)        %When to calculate and when to use LUT
             Res = 1/sqrt(Input*2*pi);
         else
-            Res = LUT_Z0(round((169/3.42)*Input)+1);    %Convert input to LUT index and return the output
+            Res = LUT_Z0(round(((2^7 - 1) / 15)*Input)+1);    %Convert input to LUT index and return the output
         end
     end
 
     function [Res] = SMBEssel1(Input)
-        if(Input > 6.3)     %When to calculate and when to use LUT
+        if(Input > 29)     %When to calculate and when to use LUT
             Res = 1/sqrt(Input*2*pi);
         else
-            Res = LUT_Z1(round((314/6.3)*Input)+1);     %Convert input to LUT index and return the output
+            Res = LUT_Z1(round(((2^8 - 1) / 30)*Input)+1);     %Convert input to LUT index and return the output
         end
     end
     V_k = A_Pos_SNR .* (A_Pri_SNR ./ (1 + A_Pri_SNR));

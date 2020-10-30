@@ -16,7 +16,7 @@ public:
 private:
 	void Init();
 
-	std::vector<double> time_measures;
+	std::vector<double> time_measures_vect;
 	int count;
 	statistics stat;
 	std::chrono::high_resolution_clock::time_point t1;

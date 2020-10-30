@@ -7,7 +7,6 @@
     <ClCompile Include="dir.cpp">
       <Filter>aux\functions</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="FPGA_mgr.cpp">
       <Filter>aux\classes</Filter>
     </ClCompile>
@@ -30,6 +29,7 @@
     <ClCompile Include="statistics.cpp">
       <Filter>aux\classes</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="alt_fpga_manager.h">

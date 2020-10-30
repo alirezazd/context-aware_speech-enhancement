@@ -1,5 +1,5 @@
-function [Output]= MBSS(Input,Plot)
-    [wav_file, SF] = audioread(string(Input)); %Read input
+function [Output]= MBSS(wav_file, SF, Plot)
+    %[wav_file, SF] = audioread(string(Input)); %Read input
     window_dur = 0.025;     %Window duration (Seconds)
     window_len = window_dur * SF;   %Window length (Samples)
     wav_file(ceil(length(wav_file)/window_len)*window_len) = 0; %Make total multiple of frame length
@@ -76,12 +76,16 @@ function [Enhanced_Magnitude_Spectrum] = Enhance_MBSS(Noisy_Power_Spectrum, Nois
         end
     end
     Enhanced_Magnitude_Spectrum = zeros(length(Noisy_Power_Spectrum),1);
+    Enhanced_Power_Spectrum = zeros(length(Noisy_Power_Spectrum),1);
     Band_size = length(Noisy_Power_Spectrum)/Band_nu;
+    noise_mask = 0.05;
     for count = 1:Band_nu
         N_Band = Noise_Power_Spectrum((count-1)*Band_size+1:count*Band_size);
         S_Band = Noisy_Power_Spectrum((count-1)*Band_size+1:count*Band_size);
         SNR = 10 * log10(sum(S_Band)/sum(N_Band));
-        fi = SF/2*length(Noisy_Power_Spectrum)*Band_size*count;
-        Enhanced_Magnitude_Spectrum((count-1)*Band_size+1:count*Band_size) = sqrt(Noisy_Power_Spectrum((count-1)*Band_size+1:count*Band_size) - oversubtraction(SNR)* Band_weight(SF, fi) * Noise_Power_Spectrum((count-1)*Band_size+1:count*Band_size));
+        fi = SF/(2*length(Noisy_Power_Spectrum))*Band_size*count;
+        Enhanced_Power_Spectrum((count-1)*Band_size+1:count*Band_size) = Noisy_Power_Spectrum((count-1)*Band_size+1:count*Band_size) - oversubtraction(SNR)* Band_weight(SF, fi) * Noise_Power_Spectrum((count-1)*Band_size+1:count*Band_size);
+        Enhanced_Power_Spectrum((count-1)*Band_size+1:count*Band_size) = Enhanced_Power_Spectrum((count-1)*Band_size+1:count*Band_size) + noise_mask * Noisy_Power_Spectrum((count-1)*Band_size+1:count*Band_size);
+        Enhanced_Magnitude_Spectrum((count-1)*Band_size+1:count*Band_size) = sqrt(Enhanced_Power_Spectrum((count-1)*Band_size+1:count*Band_size));
     end
 end
