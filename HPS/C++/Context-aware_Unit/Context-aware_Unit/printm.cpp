@@ -10,3 +10,4 @@ std::string printm(char _type, std::string _message, int lvl, bool visible) {
 	if (visible) std::cout << buffer.str();
 	return buffer.str();
 }
+//cooment

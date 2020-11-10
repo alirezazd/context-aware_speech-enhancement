@@ -16,3 +16,4 @@ public:
 	void manual_enhance(std::string wave_file_name, std::string algorithm_name);
 };
 
+//cooment

@@ -17,3 +17,4 @@ file_buffer::file_buffer(std::string path) {
 file_buffer::~file_buffer() {
 	delete data;
 }
+//cooment

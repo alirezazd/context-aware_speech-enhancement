@@ -11,3 +11,4 @@ public:
 	double Mean(std::vector<double> input_vect);
 };
 
+//cooment

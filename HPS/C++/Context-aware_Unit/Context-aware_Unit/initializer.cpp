@@ -3,7 +3,7 @@
 initializer::initializer()
 	:rbf_storage_path(RBF_STORAGE_PATH), classifier_model_path(TFLITE_MODEL_PATH) {
 	Initialize();
-}
+}//cooment
 
 void initializer::Initialize() {
 	printm('c'); printm('i', "Initialization started...");

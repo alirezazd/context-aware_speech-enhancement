@@ -1,5 +1,5 @@
 #include "IO_mgr.h"
-
+//cooment
 IO_mgr::IO_mgr()
 	:frame_length(DEFAULT_FRAME_LENGTH), frame_size((unsigned int)(frame_length* SF)), current_frame_index(0), is_IO_mapped(false) {
 	printm('i', "Default frame length is : " + std::to_string(DEFAULT_FRAME_LENGTH * 1000) + "s.");
