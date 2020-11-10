@@ -25,4 +25,4 @@ public:
 	void Reconfig(std::string rbf_name);
 	void Reconfig_minimal(std::string rbf_name);
 	std::string Get_current_rbf();
-};//cooment
+};

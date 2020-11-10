@@ -1,5 +1,5 @@
 #include "benchmark.h"
-//cooment
+
 benchmark::benchmark(FPGA_mgr* _mgr, std::vector<std::string>* _rbf_list)
 	:mgr(_mgr), rbf_list(_rbf_list){
 	Init();

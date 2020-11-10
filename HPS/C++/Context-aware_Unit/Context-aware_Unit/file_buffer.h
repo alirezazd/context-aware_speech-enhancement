@@ -12,5 +12,3 @@ public:
 	char* data;
 	long size;
 };
-
-//cooment

@@ -6,4 +6,3 @@ void print_vect(std::vector<std::string> const &input_vect, std::string title){
 		std::cout <<"\t"+input_vect.at(i)+"\t";
 	}
 	std::cout << std::endl;
-}//cooment

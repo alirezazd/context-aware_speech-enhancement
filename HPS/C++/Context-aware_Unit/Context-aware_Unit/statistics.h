@@ -10,5 +10,3 @@ public:
 	double Standard_error(std::vector<double> input_vect);
 	double Mean(std::vector<double> input_vect);
 };
-
-//cooment

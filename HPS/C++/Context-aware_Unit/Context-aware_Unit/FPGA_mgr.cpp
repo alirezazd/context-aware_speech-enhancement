@@ -1,5 +1,5 @@
 #include "FPGA_mgr.h"
-//cooment
+
 volatile void* __hps_virtualAdreess_FPGAMGR;
 volatile void* __hps_virtualAdreess_FPGAMFRDATA;
 volatile int __fd;

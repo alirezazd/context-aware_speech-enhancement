@@ -16,4 +16,3 @@ void context_Aware_Unit::manual_enhance(std::string wave_file_name, std::string 
 void context_Aware_Unit::set_operation_mode(bool mode) {
 	operation_mode = mode;
 }
-//cooment

@@ -32,5 +32,3 @@ public:
 	void Read(std::string wst_path);
 	void Write(std::string wst_path);
 };
-
-//cooment

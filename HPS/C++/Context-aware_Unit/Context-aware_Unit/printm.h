@@ -12,4 +12,3 @@
 /// <param name="visible">IF this is flase no output will be printed and only the string will be returned.</param>
 /// <returns>message string</returns>
 std::string printm(char _type, std::string _message = "", int lvl = 0, bool visible = true);
-//cooment

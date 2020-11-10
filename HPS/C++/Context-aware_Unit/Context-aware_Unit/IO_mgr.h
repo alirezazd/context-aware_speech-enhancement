@@ -12,7 +12,7 @@
 #include "fixdt.h"
 #include "config.h"
 #include "paths.h"
-//cooment
+
 class IO_mgr
 {
 private:

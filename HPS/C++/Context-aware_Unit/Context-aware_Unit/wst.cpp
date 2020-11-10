@@ -1,5 +1,5 @@
 #include "wst.h"
-//cooment
+
 void wst::Read(std::string _path) {
 	path = _path;
 	printm('i', "Reading wave stream file : ");

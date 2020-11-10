@@ -33,5 +33,3 @@ private:
 	FPGA_mgr *mgr;
 	IO_mgr* IO;
 };
-
-//cooment

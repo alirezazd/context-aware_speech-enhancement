@@ -4,4 +4,3 @@
 #define WST_FILE_INPUT_PATH "/home/root/Context-Aware_Unit/wst_input/"
 #define WST_FILE_OUTPUT_PATH "/home/root/Context-Aware_Unit/wst_output/"
 #define TFLITE_MODEL_PATH "/home/root/Context-Aware_Unit/tflite/"
-//cooment

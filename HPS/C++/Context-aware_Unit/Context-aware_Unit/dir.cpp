@@ -15,4 +15,4 @@ std::vector<std::string> dir(std::string path, std::string ext){
 	}
 	closedir(dir);
 	return file_list;
-}//cooment
+}
