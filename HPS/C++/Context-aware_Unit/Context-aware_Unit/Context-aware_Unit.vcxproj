@@ -85,14 +85,18 @@
     <ClCompile Include="alt_fpga_manager.c" />
     <ClCompile Include="benchmark.cpp" />
     <ClCompile Include="classifier.cpp" />
+    <ClCompile Include="context_aware_unit.cpp" />
     <ClCompile Include="file_buffer.cpp" />
+    <ClCompile Include="fixdt.cpp" />
     <ClCompile Include="FPGA_mgr.cpp" />
     <ClCompile Include="dir.cpp" />
     <ClCompile Include="initializer.cpp" />
+    <ClCompile Include="IO_mgr.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="print_vect.cpp" />
     <ClCompile Include="printm.cpp" />
     <ClCompile Include="statistics.cpp" />
+    <ClCompile Include="wst.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="alt_fpgamgr.h" />
@@ -100,18 +104,23 @@
     <ClInclude Include="alt_printf.h" />
     <ClInclude Include="benchmark.h" />
     <ClInclude Include="classifier.h" />
-    <ClInclude Include="cxxopts.hpp" />
+    <ClInclude Include="config.h" />
+    <ClInclude Include="context_aware_unit.h" />
     <ClInclude Include="file_buffer.h" />
+    <ClInclude Include="fixdt.h" />
     <ClInclude Include="FPGA_mgr.h" />
     <ClInclude Include="dir.h" />
+    <ClInclude Include="adresses.h" />
     <ClInclude Include="hps.h" />
     <ClInclude Include="hwlib.h" />
     <ClInclude Include="initializer.h" />
+    <ClInclude Include="IO_mgr.h" />
     <ClInclude Include="paths.h" />
     <ClInclude Include="printm.h" />
     <ClInclude Include="print_vect.h" />
     <ClInclude Include="socal.h" />
     <ClInclude Include="statistics.h" />
+    <ClInclude Include="wst.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ClCompile>
@@ -120,7 +129,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ClCompile>
-      <AdditionalOptions>-Wno-unknown-pragmas -Wno-sign-conversion -Ofast</AdditionalOptions>
+      <AdditionalOptions>-Wno-pointer-arith -Wno-unknown-pragmas -Wno-sign-conversion -Ofast</AdditionalOptions>
       <ShowIncludes>false</ShowIncludes>
       <TreatWarningAsError>true</TreatWarningAsError>
       <Optimization>Custom</Optimization>

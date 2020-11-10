@@ -22,7 +22,6 @@
     <ClCompile Include="initializer.cpp">
       <Filter>aux\classes</Filter>
     </ClCompile>
-    <ClCompile Include="classifier.cpp" />
     <ClCompile Include="benchmark.cpp">
       <Filter>aux\classes</Filter>
     </ClCompile>
@@ -30,6 +29,21 @@
       <Filter>aux\classes</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="IO_mgr.cpp">
+      <Filter>aux\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="classifier.cpp">
+      <Filter>aux\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="context_aware_unit.cpp">
+      <Filter>aux\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="fixdt.cpp">
+      <Filter>aux\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="wst.cpp">
+      <Filter>aux\classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="alt_fpga_manager.h">
@@ -71,15 +85,32 @@
     <ClInclude Include="initializer.h">
       <Filter>aux\classes</Filter>
     </ClInclude>
-    <ClInclude Include="classifier.h" />
     <ClInclude Include="benchmark.h">
       <Filter>aux\classes</Filter>
     </ClInclude>
     <ClInclude Include="statistics.h">
       <Filter>aux\classes</Filter>
     </ClInclude>
-    <ClInclude Include="cxxopts.hpp">
-      <Filter>aux\libs</Filter>
+    <ClInclude Include="IO_mgr.h">
+      <Filter>aux\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="classifier.h">
+      <Filter>aux\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="adresses.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="context_aware_unit.h">
+      <Filter>aux\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>misc</Filter>
+    </ClInclude>
+    <ClInclude Include="fixdt.h">
+      <Filter>aux\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="wst.h">
+      <Filter>aux\classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

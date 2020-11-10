@@ -13,7 +13,7 @@
 
 class FPGA_mgr{
 private:
-	bool Check_status_code(ALT_STATUS_CODE status);
+	void Check_status_code(ALT_STATUS_CODE status);
 	void Call_mgr();
 
 	std::string current_rbf;
@@ -21,8 +21,8 @@ private:
 public:
 	FPGA_mgr();
 	~FPGA_mgr();
-	bool Check_MSEL();
-	bool Reconfig(std::string rbf_name);
+	void Check_MSEL();
+	void Reconfig(std::string rbf_name);
 	void Reconfig_minimal(std::string rbf_name);
 	std::string Get_current_rbf();
 };

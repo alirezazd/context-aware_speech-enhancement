@@ -1,6 +1,6 @@
 #include "dir.h"
 
-std::vector<std::string> dir(std::string path, std::string ext = "NULL"){
+std::vector<std::string> dir(std::string path, std::string ext){
 	std::vector<std::string> file_list;
 	DIR* dir = opendir(path.c_str());
 	struct dirent* ent;
