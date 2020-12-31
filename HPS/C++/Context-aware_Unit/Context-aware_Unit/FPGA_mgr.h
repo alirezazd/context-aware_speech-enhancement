@@ -12,17 +12,17 @@
 #include "paths.h"
 
 class FPGA_mgr{
-private:
-	void Check_status_code(ALT_STATUS_CODE status);
-	void Call_mgr();
-
-	std::string current_rbf;
-	std::string rbf_storage_path;
 public:
 	FPGA_mgr();
 	~FPGA_mgr();
 	void Check_MSEL();
-	void Reconfig(std::string rbf_name);
-	void Reconfig_minimal(std::string rbf_name);
+	void Reconfig(std::string);
+	void Reconfig_minimal(std::string);
 	std::string Get_current_rbf();
+private:
+	std::string current_rbf;
+	std::string rbf_storage_path;
+
+	void Check_status_code(ALT_STATUS_CODE);
+	void Call_mgr();
 };

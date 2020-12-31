@@ -11,24 +11,24 @@
 
 class wst
 {
+public:
+	std::vector<int16_t> processed_samples_vect;
+	std::vector<int16_t> input_samples_vect;
+
+	void Read(std::string, std::string);
+	void Write(std::string, std::string);
+	size_t Get_samples_count();
 private:
 	bool read_flag;
-	std::string path;
+	std::string wst_full_path;
 	std::ifstream input_wst_file;
 	std::ofstream output_wst_file;
 	size_t samples_count;
 	size_t file_size_bytes;
-	int16_t sample_buf;
 
 	void Open_file();
 	void Read_properties();
 	void Write_file();
 	void Allocate_vectors();
 	void Load_samples();
-public:
-	std::vector<int16_t> processed_samples_vect;
-	std::vector<int16_t> input_samples_vect;
-
-	void Read(std::string wst_path);
-	void Write(std::string wst_path);
 };

@@ -47,7 +47,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
     <UseDebugLibraries>true</UseDebugLibraries>
-    <RemoteRootDir>/opt/remote_debug/VS19/projects</RemoteRootDir>
+    <RemoteRootDir>/home/root/remote_debug/VS19/projects</RemoteRootDir>
     <UseOfStl>libstdc++_static</UseOfStl>
     <UseCompiler>true</UseCompiler>
   </PropertyGroup>

@@ -7,7 +7,7 @@
 
 int main(int argc, const char* argv[]) {
 	initializer init;
-	context_Aware_Unit CAU(init.Get_FPGA_mgr(), init.Get_IO_mgr());
-	CAU.manual_enhance("m3rmenue.wst", "MBSS");
+	context_aware_unit CAU(init.Get_FPGA_mgr(), init.Get_IO_mgr());
+	CAU.Enhance_manual_single("m1ltenae_white_0dB.wst", "MMSE");
 	exit(0);
 }

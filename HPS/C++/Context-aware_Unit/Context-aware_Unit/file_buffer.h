@@ -6,7 +6,7 @@
 class file_buffer
 {
 public:
-	file_buffer(std::string path);
+	file_buffer(std::string);
 	~file_buffer();
 
 	char* data;

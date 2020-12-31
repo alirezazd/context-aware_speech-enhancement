@@ -1,9 +1,9 @@
 #include "wst.h"
 
-void wst::Read(std::string _path) {
-	path = _path;
+void wst::Read(std::string wst_path, std::string wst_name) {
+	wst_full_path = wst_path + wst_name;
 	printm('i', "Reading wave stream file : ");
-	printm('r', path);
+	printm('r', wst_full_path);
 	Open_file();
 	Read_properties();
 	Allocate_vectors();
@@ -11,9 +11,10 @@ void wst::Read(std::string _path) {
 }
 
 void wst::Open_file() {
-	input_wst_file.open(path.c_str(), std::ios::binary | std::ios::ate);
+
+	input_wst_file.open(wst_full_path.c_str(), std::ios::binary | std::ios::ate);
 	if (!input_wst_file.is_open()) {
-		printm('e', "Failed to open " + path);
+		printm('e', "Failed to open " + wst_full_path);
 		exit(1);
 	}
 }
@@ -39,20 +40,19 @@ void wst::Load_samples() {
 	memcpy(&input_samples_vect[0], &buffer[0] , file_size_bytes);
 }
 
-void wst::Write(std::string _path) {
-	path = _path.c_str();
+void wst::Write(std::string wst_path, std::string wst_name) {
+	wst_full_path = wst_path + wst_name;
 	printm('i', "Writing wave stream file : ");
-	printm('r', path);
+	printm('r', wst_full_path);
 	Write_file();
 }
-
 
 void wst::Write_file() {
 	char* buffer = new char[file_size_bytes];
 	memcpy(&buffer[0], &processed_samples_vect[0], file_size_bytes);
-	output_wst_file.open(path.c_str(), std::ios::binary);
+	output_wst_file.open(wst_full_path.c_str(), std::ios::binary);
 	if (!output_wst_file.is_open()) {
-		printm('e', "Failed to create " + path);
+		printm('e', "Failed to create " + wst_full_path);
 		exit(1);
 	}
 	output_wst_file.write(buffer, file_size_bytes);

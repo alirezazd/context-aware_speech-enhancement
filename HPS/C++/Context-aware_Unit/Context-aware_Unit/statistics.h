@@ -6,7 +6,7 @@
 class statistics
 {
 public:
-	double Fast_standard_deviation(std::vector<double> input_vect);
-	double Standard_error(std::vector<double> input_vect);
-	double Mean(std::vector<double> input_vect);
+	double Fast_standard_deviation(std::vector<double>);
+	double Standard_error(std::vector<double>);
+	double Mean(std::vector<double>);
 };

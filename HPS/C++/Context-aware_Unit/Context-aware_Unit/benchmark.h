@@ -9,13 +9,11 @@
 
 class benchmark{
 public:
-	benchmark(FPGA_mgr* _mgr, std::vector<std::string>* _rbf_list);
-	double FPGA_config_time();
-
 	double accuracy, mean, stde;
-private:
-	void Init();
 
+	benchmark(FPGA_mgr*, std::vector<std::string>*);
+	double FPGA_config_time();
+private:
 	std::vector<double> time_measures_vect;
 	int count;
 	statistics stat;
@@ -23,5 +21,7 @@ private:
 	std::chrono::high_resolution_clock::time_point t2;
 	FPGA_mgr* mgr;
 	std::vector<std::string>* rbf_list;
+
+	void Init();
 };
 

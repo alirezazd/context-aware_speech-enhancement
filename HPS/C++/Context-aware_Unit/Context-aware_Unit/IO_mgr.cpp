@@ -63,14 +63,14 @@ void IO_mgr::Clear_addresses() {
 }
 
 void IO_mgr::Load_wst_file(std::string wst_name) {
-	wst_file.Read(WST_FILE_INPUT_PATH + wst_name);
+	wst_file.Read(WST_FILE_INPUT_PATH, wst_name);
 	total_frames = (size_t)ceil(wst_file.processed_samples_vect.size() / frame_size);
 	Reset_frame_counter();
 }
 
 
 void IO_mgr::Write_wst_file(std::string wst_name) {
-	wst_file.Write(WST_FILE_OUTPUT_PATH + wst_name);
+	wst_file.Write(WST_FILE_OUTPUT_PATH, wst_name);
 }
 
 void IO_mgr::Process_next_wst_frame() {
@@ -164,6 +164,24 @@ size_t IO_mgr::Get_total_frames() {
 void IO_mgr::Reset_frame_counter() {
 	current_frame_index = 0;
 }
+
+void IO_mgr::Debug(size_t dbg_fs) {
+	while (current_frame_index < (2 * total_frames))
+	{
+		Write_next_wst_frame();
+		Wait_for_frame();
+		if (!is_IO_mapped) {
+			printm('e', "IO read request while FPGA IO IFs are not mapped.");
+			exit(1);
+		}
+		for (size_t i = current_frame_index * dbg_fs; i < (current_frame_index + 1) * dbg_fs; i++) {
+			wst_file.processed_samples_vect[i] = *((uint16_t*)(FPGA_output_IF_FIFO_DATA_ofst + (DATA_WIDTH_BYTES * (i - (current_frame_index * dbg_fs)))));
+		}
+		*((int16_t*)FPGA_output_IF_FIFO_CTRL_ofst) = 0;
+		current_frame_index++;
+	}
+}
+
 IO_mgr::~IO_mgr() {
 	close(fd);
 	if (is_IO_mapped) {

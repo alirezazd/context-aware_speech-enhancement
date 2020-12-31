@@ -15,6 +15,22 @@
 
 class IO_mgr
 {
+public:
+	IO_mgr();
+	~IO_mgr();
+	void Map_FPGA_IO();
+	void Umap_FPGA_IO();
+	void Load_wst_file(std::string);
+	void Write_wst_file(std::string);
+	void Write_vect_frame(std::vector<float>&);
+	std::vector<int16_t> Read_vect_frame();
+	void Process_next_wst_frame();
+	void Process_whole_wst_file();
+	float Get_SNR_dB();
+	void Reset_frame_counter();
+	size_t Get_current_frame_index();
+	size_t Get_total_frames();
+	void Debug(size_t);
 private:
 	void* virtual_base;
 	void* FPGA_input_IF_FIFO_CTRL_ofst;
@@ -36,20 +52,4 @@ private:
 	void Write_next_wst_frame();
 	void Read_wst_frame();
 	void Wait_for_frame();
-	
-public:
-	IO_mgr();
-	~IO_mgr();
-	void Map_FPGA_IO();
-	void Umap_FPGA_IO();
-	void Load_wst_file(std::string wst_name);
-	void Write_wst_file(std::string wst_name);
-	void Write_vect_frame(std::vector<float> &frame_buffer);
-	std::vector<int16_t> Read_vect_frame();
-	void Process_next_wst_frame();
-	void Process_whole_wst_file();
-	float Get_SNR_dB();
-	void Reset_frame_counter();
-	size_t Get_current_frame_index();
-	size_t Get_total_frames();
 };
