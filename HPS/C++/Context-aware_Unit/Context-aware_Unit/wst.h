@@ -17,7 +17,6 @@ public:
 
 	void Read(std::string, std::string);
 	void Write(std::string, std::string);
-	size_t Get_samples_count();
 private:
 	bool read_flag;
 	std::string wst_full_path;

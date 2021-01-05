@@ -4,7 +4,6 @@ file_buffer::file_buffer(std::string path) {
 	FILE* f = fopen(path.c_str(), "rb");
 	if (f == NULL) {
 		printm('e', "File buffer failed to load " + path + ".");
-		exit(1);
 	}
 	fseek(f, 0, SEEK_END);
 	size = ftell(f);

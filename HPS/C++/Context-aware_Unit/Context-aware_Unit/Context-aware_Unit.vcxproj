@@ -84,7 +84,7 @@
   <ItemGroup>
     <ClCompile Include="alt_fpga_manager.c" />
     <ClCompile Include="benchmark.cpp" />
-    <ClCompile Include="classifier.cpp" />
+    <ClCompile Include="Classifier.cpp" />
     <ClCompile Include="context_aware_unit.cpp" />
     <ClCompile Include="file_buffer.cpp" />
     <ClCompile Include="fixdt.cpp" />
@@ -103,7 +103,7 @@
     <ClInclude Include="alt_fpga_manager.h" />
     <ClInclude Include="alt_printf.h" />
     <ClInclude Include="benchmark.h" />
-    <ClInclude Include="classifier.h" />
+    <ClInclude Include="Classifier.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="context_aware_unit.h" />
     <ClInclude Include="file_buffer.h" />
@@ -135,7 +135,14 @@
       <Optimization>Custom</Optimization>
       <UnrollLoops>true</UnrollLoops>
       <LinkTimeOptimization>true</LinkTimeOptimization>
+      <AdditionalIncludeDirectories>/home/root/tensorflow_src/tensorflow/lite/tools/make/downloads/flatbuffers/include/;/home/root/tensorflow_src/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link />
+    <Link />
+    <Link>
+      <AdditionalOptions>-pthread</AdditionalOptions>
+      <LibraryDependencies>tensorflow-lite;dl</LibraryDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

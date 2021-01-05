@@ -1,18 +1,18 @@
 #pragma once
+#include <vector>
+#include <string>
 #include "FPGA_mgr.h"
 #include "IO_mgr.h"
+#include "Classifier.h"
 #include "paths.h"
-
 class context_aware_unit
 {
 private:
 	FPGA_mgr* fpga;
 	IO_mgr* IO;
-	std::string selected_algorithm;
+	Classifier* classifier;
 public:
-	context_aware_unit(FPGA_mgr*, IO_mgr*);
-	//void Enhance_manual_batch();
-	//void Enhance_manual_batch(std::string);
-	void Enhance_manual_single(std::string, std::string);
-	//void Enhance_manual_single(std::string);
+	context_aware_unit(FPGA_mgr*, IO_mgr*, Classifier*);
+	void Manual_enhance(std::vector<std::string>, std::vector<std::string>);
+	void debug(int , float);
 };

@@ -9,14 +9,13 @@
 
 class benchmark{
 public:
-	double accuracy, mean, stde;
+	float accuracy, mean, stde;
 
 	benchmark(FPGA_mgr*, std::vector<std::string>*);
-	double FPGA_config_time();
+	float FPGA_config_time();
 private:
-	std::vector<double> time_measures_vect;
+	std::vector<float> time_measures_vect;
 	int count;
-	statistics stat;
 	std::chrono::high_resolution_clock::time_point t1;
 	std::chrono::high_resolution_clock::time_point t2;
 	FPGA_mgr* mgr;

@@ -10,12 +10,12 @@ FPGA_mgr::FPGA_mgr()
 	__VIRTUALMEM_SPACE_INIT();
 }
 
-void FPGA_mgr::Call_mgr(){
+void FPGA_mgr::Call_mgr() {
 	alt_fpga_init();
 	alt_fpga_control_enable();
 }
 
-void FPGA_mgr::Reconfig(std::string rbf_name){
+void FPGA_mgr::Reconfig(std::string rbf_name) {
 	file_buffer buf((rbf_storage_path + rbf_name).c_str());
 	printm('i', "Configuring FPGA with:\t" + rbf_name);
 	Call_mgr();
@@ -25,12 +25,12 @@ void FPGA_mgr::Reconfig(std::string rbf_name){
 	current_rbf = rbf_name;
 }
 
-void FPGA_mgr::Check_status_code(ALT_STATUS_CODE status){
-	if (status != ALT_E_SUCCESS){
+void FPGA_mgr::Check_status_code(ALT_STATUS_CODE status) {
+	if (status != ALT_E_SUCCESS) {
 		printm('e', "FPGA configuration failed.");
-		exit(1);
+		
 	}
-	else{
+	else {
 		printm('i', "FPGA configured successfully.");
 	}
 }
@@ -42,7 +42,6 @@ void FPGA_mgr::Check_MSEL() {
 	if ((st != ALT_FPGA_CFG_MODE_PP16_SLOW_NOAES_NODC) && (st != ALT_FPGA_CFG_MODE_PP16_SLOW_AES_NODC))
 	{
 		printm('e', "Wrong MSEL switch configuration detected.\n\tFollowing MSEL selections are acceptable : \n\tMSEL = 00100:\tPP16 with no AES and no Data compression.\n\tMSEL = 00101:\tPP16 with AES and no Data compression.");
-		exit(1);
 	}
 	printm('i', "MSEL switch check passed.");
 }

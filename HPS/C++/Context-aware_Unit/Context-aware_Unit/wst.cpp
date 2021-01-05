@@ -15,7 +15,6 @@ void wst::Open_file() {
 	input_wst_file.open(wst_full_path.c_str(), std::ios::binary | std::ios::ate);
 	if (!input_wst_file.is_open()) {
 		printm('e', "Failed to open " + wst_full_path);
-		exit(1);
 	}
 }
 
@@ -26,7 +25,6 @@ void wst::Read_properties() {
 	printm('i', "Total Samples count = " + std::to_string(samples_count) + ".");
 	input_wst_file.seekg(0, std::ios::beg);
 }
-
 
 void wst::Allocate_vectors() {
 	input_samples_vect.resize(samples_count);
@@ -53,7 +51,6 @@ void wst::Write_file() {
 	output_wst_file.open(wst_full_path.c_str(), std::ios::binary);
 	if (!output_wst_file.is_open()) {
 		printm('e', "Failed to create " + wst_full_path);
-		exit(1);
 	}
 	output_wst_file.write(buffer, file_size_bytes);
 	delete buffer;

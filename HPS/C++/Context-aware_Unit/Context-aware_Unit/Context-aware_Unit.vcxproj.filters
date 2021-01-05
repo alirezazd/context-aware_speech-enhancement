@@ -25,14 +25,8 @@
     <ClCompile Include="benchmark.cpp">
       <Filter>aux\classes</Filter>
     </ClCompile>
-    <ClCompile Include="statistics.cpp">
-      <Filter>aux\classes</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="IO_mgr.cpp">
-      <Filter>aux\classes</Filter>
-    </ClCompile>
-    <ClCompile Include="classifier.cpp">
       <Filter>aux\classes</Filter>
     </ClCompile>
     <ClCompile Include="context_aware_unit.cpp">
@@ -43,6 +37,12 @@
     </ClCompile>
     <ClCompile Include="wst.cpp">
       <Filter>aux\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Classifier.cpp">
+      <Filter>aux\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="statistics.cpp">
+      <Filter>aux\functions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,13 +88,7 @@
     <ClInclude Include="benchmark.h">
       <Filter>aux\classes</Filter>
     </ClInclude>
-    <ClInclude Include="statistics.h">
-      <Filter>aux\classes</Filter>
-    </ClInclude>
     <ClInclude Include="IO_mgr.h">
-      <Filter>aux\classes</Filter>
-    </ClInclude>
-    <ClInclude Include="classifier.h">
       <Filter>aux\classes</Filter>
     </ClInclude>
     <ClInclude Include="adresses.h">
@@ -111,6 +105,12 @@
     </ClInclude>
     <ClInclude Include="wst.h">
       <Filter>aux\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Classifier.h">
+      <Filter>aux\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="statistics.h">
+      <Filter>aux\functions</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

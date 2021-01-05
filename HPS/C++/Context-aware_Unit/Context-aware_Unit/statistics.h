@@ -3,10 +3,9 @@
 #include <numeric>
 #include <algorithm>
 #include <cmath>
-class statistics
-{
-public:
-	double Fast_standard_deviation(std::vector<double>);
-	double Standard_error(std::vector<double>);
-	double Mean(std::vector<double>);
-};
+
+float Fast_standard_deviation(std::vector<float>);
+float Standard_error(std::vector<float>);
+float Mean(std::vector<float>);
+std::vector<float> Normalize(std::vector<float>);
+std::vector<float> Normalize(std::vector<float>, float);

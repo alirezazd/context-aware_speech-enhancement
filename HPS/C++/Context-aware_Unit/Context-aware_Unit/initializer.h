@@ -7,6 +7,8 @@
 #include "print_vect.h"
 #include "FPGA_mgr.h"
 #include "IO_mgr.h"
+#include "Classifier.h"
+
 
 class initializer
 {
@@ -15,10 +17,10 @@ public:
 	~initializer();
 	void Initialize();
 	bool Is_initialized();
-	std::string* Get_classifer_model_name();
-	std::vector<std::string>* Get_rbf_list();
+	std::vector<std::string> Get_rbf_list();
 	FPGA_mgr* Get_FPGA_mgr();
 	IO_mgr* Get_IO_mgr();
+	Classifier* Get_Classifier();
 private:
 	void Check_rbf_storage();
 	void Check_classifier_model();
@@ -32,4 +34,5 @@ private:
 	std::string classifier_model_path;
 	FPGA_mgr *mgr;
 	IO_mgr* IO;
+	Classifier* classifier;
 };

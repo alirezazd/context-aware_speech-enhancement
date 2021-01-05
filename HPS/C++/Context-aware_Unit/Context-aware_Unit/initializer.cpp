@@ -23,7 +23,6 @@ void initializer::Check_rbf_storage() {
 	rbf_list = dir(rbf_storage_path.c_str(), ".rbf");
 	if (rbf_list.size() == 0) {
 		printm('e', "No bitsreams available in the bitsream storage.");
-		exit(1);
 	}
 	print_vect(rbf_list, printm('i', "List of available bitsreams:", 0, false));
 }
@@ -36,7 +35,6 @@ void initializer::Check_rbf_compatibility() {
 	for (int16_t i = 1; i < (int16_t)(tmp.size()); i++) {
 		if (tmp[i] * (2 ^ FPGA_INPUT_IF_FRACTIONAL_BITS) != i) {
 			printm('e', mgr->Get_current_rbf() + "compability check failed:\t" + std::to_string(i));
-			exit(1);
 		}
 	}
 	IO->Umap_FPGA_IO();
@@ -49,7 +47,6 @@ void initializer::Check_classifier_model() {
 	std::vector<std::string> classifer_model_list = dir(classifier_model_path.c_str(), ".tflite");
 	if (classifer_model_list.size() == 0) {
 		printm('e', "No classifier model available in the model directory.");
-		exit(1);
 	}
 	if (classifer_model_list.size() > 1) {
 		printm('w', "Multiple Classifier models available in the model directory!");
@@ -57,6 +54,7 @@ void initializer::Check_classifier_model() {
 	}
 	printm('i', "Using following classifier model:\t" + classifer_model_list[0]);
 	classifer_model_name = classifer_model_list[0];
+	classifier = new Classifier(classifier_model_path + classifer_model_name);
 }
 
 void initializer::Verify_rbfs() {
@@ -72,12 +70,8 @@ bool initializer::Is_initialized() {
 	return is_initialized;
 }
 
-std::vector<std::string>* initializer::Get_rbf_list() {
-	return &rbf_list;
-}
-
-std::string* initializer::Get_classifer_model_name() {
-	return &classifer_model_name;
+std::vector<std::string> initializer::Get_rbf_list() {
+	return rbf_list;
 }
 
 FPGA_mgr* initializer::Get_FPGA_mgr() {
@@ -88,8 +82,13 @@ IO_mgr* initializer::Get_IO_mgr() {
 	return IO;
 }
 
+Classifier* initializer::Get_Classifier() {
+	return classifier;
+}
+
 initializer::~initializer()
 {
 	delete mgr;
 	delete IO;
+	delete classifier;
 }

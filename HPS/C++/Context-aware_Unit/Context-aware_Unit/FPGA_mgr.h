@@ -22,7 +22,6 @@ public:
 private:
 	std::string current_rbf;
 	std::string rbf_storage_path;
-
 	void Check_status_code(ALT_STATUS_CODE);
 	void Call_mgr();
 };
