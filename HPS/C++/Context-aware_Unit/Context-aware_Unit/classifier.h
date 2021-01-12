@@ -1,7 +1,7 @@
 #pragma once
 #include <cstdio>
 #include <string>
-#include "printm.h"
+#include "Printm.h"
 #include "statistics.h"
 #include "config.h"
 #include "tensorflow/lite/interpreter.h"

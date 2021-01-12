@@ -1,21 +1,21 @@
 /******************************************************************************
 *
 * Copyright 2013 Altera Corporation. All Rights Reserved.
-* 
+*
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are met:
-* 
+*
 * 1. Redistributions of source code must retain the above copyright notice,
 * this list of conditions and the following disclaimer.
-* 
+*
 * 2. Redistributions in binary form must reproduce the above copyright notice,
 * this list of conditions and the following disclaimer in the documentation
 * and/or other materials provided with the distribution.
-* 
+*
 * 3. Neither the name of the copyright holder nor the names of its contributors
 * may be used to endorse or promote products derived from this software without
 * specific prior written permission.
-* 
+*
 * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -27,7 +27,7 @@
 * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 * POSSIBILITY OF SUCH DAMAGE.
-* 
+*
 ******************************************************************************/
 
 /*
@@ -45,12 +45,12 @@
 
 
 #ifdef DEBUG_ALT_FPGA_MANAGER
- #define dprintf printf
+#define dprintf printf
 #else
-  #define dprintf  null_printf
+#define dprintf  null_printf
 #endif
 
-/* This is the timeout used when waiting for a state change in the FPGA monitor. */
+ /* This is the timeout used when waiting for a state change in the FPGA monitor. */
 #define _ALT_FPGA_TMO_STATE     2048
 
 /* This is the timeout used when waiting for the DCLK countdown to complete.
@@ -60,7 +60,7 @@
 
 #define _ALT_FPGA_TMO_CONFIG     8192
 
-/* This define is used to control whether to use the Configuration with DCLK steps */
+ /* This define is used to control whether to use the Configuration with DCLK steps */
 #ifndef _ALT_FPGA_USE_DCLK
 #define _ALT_FPGA_USE_DCLK 0
 #endif
@@ -72,12 +72,12 @@
 #define DISK_SECTOR_SIZE    512
 #define ISTREAM_CHUNK_SIZE  DISK_SECTOR_SIZE
 
-/*
- * FPGA Data Type identifier enum
-*/
+ /*
+  * FPGA Data Type identifier enum
+ */
 typedef enum FPGA_DATA_TYPE_e
 {
-    FPGA_DATA_FULL    = 1,
+    FPGA_DATA_FULL = 1,
     FPGA_DATA_ISTREAM = 2
 } FPGA_DATA_TYPE_t;
 
@@ -87,21 +87,21 @@ typedef enum FPGA_DATA_TYPE_e
 typedef struct FPGA_DATA_s
 {
     FPGA_DATA_TYPE_t type;
-    
+
     union
     {
         /* For FPGA_DATA_FULL */
         struct
         {
-            const void * buffer;
+            const void* buffer;
             size_t       length;
         } full;
-        
+
         /* FPGA_DATA_ISTREAM */
         struct
         {
             alt_fpga_istream_t stream;
-            void *             data;
+            void* data;
         } istream;
     } mode;
 
@@ -114,8 +114,8 @@ typedef struct FPGA_DATA_s
 
 #if ALT_FPGA_ENABLE_DMA_SUPPORT
 static ALT_STATUS_CODE alt_dma_channel_wait_for_state(ALT_DMA_CHANNEL_t channel,
-                                                      ALT_DMA_CHANNEL_STATE_t state,
-                                                      uint32_t count)
+    ALT_DMA_CHANNEL_STATE_t state,
+    uint32_t count)
 {
     ALT_STATUS_CODE status = ALT_E_SUCCESS;
 
@@ -138,8 +138,8 @@ static ALT_STATUS_CODE alt_dma_channel_wait_for_state(ALT_DMA_CHANNEL_t channel,
     if (i == 0)
     {
         dprintf("FPGA[AXI]: Timeout [count=%u] waiting for DMA state [%d]. Last state was [%d]",
-                (unsigned)count,
-                (int)state, (int)current);
+            (unsigned)count,
+            (int)state, (int)current);
         status = ALT_E_TMO;
     }
 
@@ -150,14 +150,14 @@ static ALT_STATUS_CODE alt_dma_channel_wait_for_state(ALT_DMA_CHANNEL_t channel,
 /*
  * Helper function which handles writing data to the AXI bus.
 */
-static ALT_STATUS_CODE alt_fpga_internal_writeaxi(const void * bufferv, uint32_t cfg_buf_len
+static ALT_STATUS_CODE alt_fpga_internal_writeaxi(const void* bufferv, uint32_t cfg_buf_len
 #if ALT_FPGA_ENABLE_DMA_SUPPORT
-                                                  ,
-                                                  bool use_dma, ALT_DMA_CHANNEL_t dma_channel
+    ,
+    bool use_dma, ALT_DMA_CHANNEL_t dma_channel
 #endif
-    )
+)
 {
-    const char * cfg_buf = bufferv;
+    const char* cfg_buf = bufferv;
     ALT_STATUS_CODE status = ALT_E_SUCCESS;
 
 #if ALT_FPGA_ENABLE_DMA_SUPPORT
@@ -174,11 +174,11 @@ static ALT_STATUS_CODE alt_fpga_internal_writeaxi(const void * bufferv, uint32_t
 
             dprintf("FPGA[AXI]: DMA mem-to-reg ...\n");
             status = alt_dma_memory_to_register(dma_channel, &program,
-                                                ALT_FPGAMGRDATA_ADDR,
-                                                cfg_buf,
-                                                (cfg_buf_len + 3) >> 2, /* we need the number uint32_t's */
-                                                32,
-                                                false, ALT_DMA_EVENT_0);
+                ALT_FPGAMGRDATA_ADDR,
+                cfg_buf,
+                (cfg_buf_len + 3) >> 2, /* we need the number uint32_t's */
+                32,
+                false, ALT_DMA_EVENT_0);
         }
         if (status == ALT_E_SUCCESS)
         {
@@ -192,8 +192,8 @@ static ALT_STATUS_CODE alt_fpga_internal_writeaxi(const void * bufferv, uint32_t
     else
 #endif
     {
-		uint32_t i = 0;
-        const uint32_t * buffer_32 = (const uint32_t *) cfg_buf;
+        uint32_t i = 0;
+        const uint32_t* buffer_32 = (const uint32_t*)cfg_buf;
 
         dprintf("FPGA[AXI]: PIO memcpy() ...\n");
 
@@ -208,7 +208,7 @@ static ALT_STATUS_CODE alt_fpga_internal_writeaxi(const void * bufferv, uint32_t
     /* Write out remaining non 32-bit chunks. */
     if ((status == ALT_E_SUCCESS) && (cfg_buf_len & 0x3))
     {
-        const uint32_t * buffer_32 = (const uint32_t *) (cfg_buf + (cfg_buf_len & ~0x3));
+        const uint32_t* buffer_32 = (const uint32_t*)(cfg_buf + (cfg_buf_len & ~0x3));
 
         dprintf("FPGA[AXI]: Copy non-aligned data ...\n");
 
@@ -269,8 +269,7 @@ static ALT_STATUS_CODE dclk_set_and_wait_clear(uint32_t count, uint32_t timeout)
             status = ALT_E_SUCCESS;
             break;
         }
-    }
-    while (timeout--);
+    } while (timeout--);
 
     dprintf("\n");
 
@@ -300,8 +299,7 @@ static ALT_STATUS_CODE wait_for_fpga_state(ALT_FPGA_STATE_t state, uint32_t time
             status = ALT_E_SUCCESS;
             break;
         }
-    }
-    while (timeout--);
+    } while (timeout--);
 
     dprintf("\n");
 
@@ -329,7 +327,7 @@ static ALT_STATUS_CODE wait_for_config_done(uint32_t timeout)
     {
         uint32_t status = alt_fpga_mon_status_get();
         bool conf_done = (status & ALT_FPGA_MON_CONF_DONE) != 0;
-        bool nstatus   = (status & ALT_FPGA_MON_nSTATUS)   != 0;
+        bool nstatus = (status & ALT_FPGA_MON_nSTATUS) != 0;
 
         dprintf(".");
 
@@ -352,8 +350,7 @@ static ALT_STATUS_CODE wait_for_config_done(uint32_t timeout)
             }
             break;
         }
-    }
-    while (timeout--);
+    } while (timeout--);
 
     dprintf("\n");
 
@@ -367,7 +364,7 @@ ALT_STATUS_CODE alt_fpga_init(void)
 
 ALT_STATUS_CODE alt_fpga_uninit(void)
 {
-	printf("Hallo from Intel HPS HAL running on Linux developed and debuged by VS");
+    printf("Hallo from Intel HPS HAL running on Linux developed and debuged by VS");
     return ALT_E_SUCCESS;
 }
 
@@ -413,7 +410,7 @@ ALT_FPGA_STATE_t alt_fpga_state_get(void)
     }
 
     /* The fpgamgrreg::stat::mode bits maps to the FPGA state enum. */
-    return (ALT_FPGA_STATE_t) ALT_FPGAMGR_STAT_MOD_GET(alt_read_word(ALT_FPGAMGR_STAT_ADDR));
+    return (ALT_FPGA_STATE_t)ALT_FPGAMGR_STAT_MOD_GET(alt_read_word(ALT_FPGAMGR_STAT_ADDR));
 }
 
 uint32_t alt_fpga_mon_status_get(void)
@@ -481,7 +478,7 @@ ALT_FPGA_CFG_MODE_t alt_fpga_cfg_mode_get(void)
     case ALT_FPGAMGR_STAT_MSEL_E_PP32_SLOW_AESOPT_DC:  /* SoCAL: 0xe */
         /* The definitions for the various msel's match up with the hardware
          * definitions, so just cast it to the enum type. */
-        return (ALT_FPGA_CFG_MODE_t) msel;
+        return (ALT_FPGA_CFG_MODE_t)msel;
     default:
         return ALT_FPGA_CFG_MODE_UNKNOWN;
     }
@@ -497,7 +494,7 @@ ALT_STATUS_CODE alt_fpga_cfg_mode_set(ALT_FPGA_CFG_MODE_t cfg_mode)
  * This function handles writing data to the FPGA data register and ensuring
  * the image was programmed correctly.
  * */
-static ALT_STATUS_CODE alt_fpga_internal_configure_idata(FPGA_DATA_t * fpga_data)
+static ALT_STATUS_CODE alt_fpga_internal_configure_idata(FPGA_DATA_t* fpga_data)
 {
     ALT_STATUS_CODE status = ALT_E_SUCCESS;
     /* From the A5 datasheet, it is 186 Mb => ~ 23 MiB. Thus cap the max
@@ -527,8 +524,8 @@ static ALT_STATUS_CODE alt_fpga_internal_configure_idata(FPGA_DATA_t * fpga_data
         {
             status = alt_fpga_internal_writeaxi(fpga_data->mode.full.buffer, fpga_data->mode.full.length
 #if ALT_FPGA_ENABLE_DMA_SUPPORT
-                                                ,
-                                                fpga_data->use_dma, fpga_data->dma_channel
+                ,
+                fpga_data->use_dma, fpga_data->dma_channel
 #endif
             );
         }
@@ -567,10 +564,10 @@ static ALT_STATUS_CODE alt_fpga_internal_configure_idata(FPGA_DATA_t * fpga_data
                 /* Copy in configuration data. */
                 status = alt_fpga_internal_writeaxi(buffer, cb_status
 #if ALT_FPGA_ENABLE_DMA_SUPPORT
-                                                    ,
-                                                    fpga_data->use_dma, fpga_data->dma_channel
+                    ,
+                    fpga_data->use_dma, fpga_data->dma_channel
 #endif
-                    );
+                );
 
                 data_limit -= cb_status;
             }
@@ -624,19 +621,19 @@ static ALT_STATUS_CODE alt_fpga_internal_configure_idata(FPGA_DATA_t * fpga_data
  * Helper function which does handles the common steps for Full Buffer or
  * IStream FPGA configuration.
  * */
-static ALT_STATUS_CODE alt_fpga_internal_configure(FPGA_DATA_t * fpga_data)
+static ALT_STATUS_CODE alt_fpga_internal_configure(FPGA_DATA_t* fpga_data)
 {
     ALT_STATUS_CODE status = ALT_E_SUCCESS;
     uint32_t ctrl_reg;
 
     int cfgwidth = 0;
-    int cdratio  = 0;
+    int cdratio = 0;
     ALT_STATUS_CODE data_status;
 
     /* Verify preconditions.
      * This is a minor difference from the configure instructions given by the NPP. */
 
-    /* Verify that HPS has control of the FPGA control block. */
+     /* Verify that HPS has control of the FPGA control block. */
     if (alt_fpga_control_is_enabled() != true)
     {
         return ALT_E_FPGA_NO_SOC_CTRL;
@@ -664,51 +661,51 @@ static ALT_STATUS_CODE alt_fpga_internal_configure(FPGA_DATA_t * fpga_data)
     {
     case ALT_FPGA_CFG_MODE_PP16_FAST_NOAES_NODC:
         cfgwidth = 16;
-        cdratio  = 1;
+        cdratio = 1;
         break;
     case ALT_FPGA_CFG_MODE_PP16_FAST_AES_NODC:
         cfgwidth = 16;
-        cdratio  = 2;
+        cdratio = 2;
         break;
     case ALT_FPGA_CFG_MODE_PP16_FAST_AESOPT_DC:
         cfgwidth = 16;
-        cdratio  = 4;
+        cdratio = 4;
         break;
     case ALT_FPGA_CFG_MODE_PP16_SLOW_NOAES_NODC:
         cfgwidth = 16;
-        cdratio  = 1;
+        cdratio = 1;
         break;
     case ALT_FPGA_CFG_MODE_PP16_SLOW_AES_NODC:
         cfgwidth = 16;
-        cdratio  = 2;
+        cdratio = 2;
         break;
     case ALT_FPGA_CFG_MODE_PP16_SLOW_AESOPT_DC:
         cfgwidth = 16;
-        cdratio  = 4;
+        cdratio = 4;
         break;
     case ALT_FPGA_CFG_MODE_PP32_FAST_NOAES_NODC:
         cfgwidth = 32;
-        cdratio  = 1;
+        cdratio = 1;
         break;
     case ALT_FPGA_CFG_MODE_PP32_FAST_AES_NODC:
         cfgwidth = 32;
-        cdratio  = 4;
+        cdratio = 4;
         break;
     case ALT_FPGA_CFG_MODE_PP32_FAST_AESOPT_DC:
         cfgwidth = 32;
-        cdratio  = 8;
+        cdratio = 8;
         break;
     case ALT_FPGA_CFG_MODE_PP32_SLOW_NOAES_NODC:
         cfgwidth = 32;
-        cdratio  = 1;
+        cdratio = 1;
         break;
     case ALT_FPGA_CFG_MODE_PP32_SLOW_AES_NODC:
         cfgwidth = 32;
-        cdratio  = 4;
+        cdratio = 4;
         break;
     case ALT_FPGA_CFG_MODE_PP32_SLOW_AESOPT_DC:
         cfgwidth = 32;
-        cdratio  = 8;
+        cdratio = 8;
         break;
     default:
         return ALT_E_ERROR;
@@ -810,7 +807,7 @@ static ALT_STATUS_CODE alt_fpga_internal_configure(FPGA_DATA_t * fpga_data)
     dprintf("FPGA: === Step 7 ===\n");
 
     alt_write_word(ALT_FPGAMGR_MON_GPIO_PORTA_EOI_ADDR,
-                   ALT_MON_GPIO_PORTA_EOI_NS_SET(ALT_MON_GPIO_PORTA_EOI_NS_E_CLR));
+        ALT_MON_GPIO_PORTA_EOI_NS_SET(ALT_MON_GPIO_PORTA_EOI_NS_E_CLR));
 
     /* Step 8:
      *  - Set CTRL.AXICFGEN to 1 to enable config data on AXI slave bus */
@@ -867,7 +864,7 @@ static ALT_STATUS_CODE alt_fpga_internal_configure(FPGA_DATA_t * fpga_data)
 
     dprintf("FPGA: === Step 14 (4.2.1.2) ===\n");
     dprintf("FPGA: === Step 15 (4.2.1.2) ===\n");
-    
+
     status = dclk_set_and_wait_clear(0x5000, _ALT_FPGA_TMO_DCLK_CONST + 0x5000 * _ALT_FPGA_TMO_DCLK_MUL);
     if (status == ALT_E_TMO)
     {
@@ -918,45 +915,45 @@ static ALT_STATUS_CODE alt_fpga_internal_configure(FPGA_DATA_t * fpga_data)
     return data_status;
 }
 
-ALT_STATUS_CODE alt_fpga_configure(const void* cfg_buf, 
-                                   size_t cfg_buf_len)
+ALT_STATUS_CODE alt_fpga_configure(const void* cfg_buf,
+    size_t cfg_buf_len)
 {
     FPGA_DATA_t fpga_data;
-    fpga_data.type             = FPGA_DATA_FULL;
+    fpga_data.type = FPGA_DATA_FULL;
     fpga_data.mode.full.buffer = cfg_buf;
     fpga_data.mode.full.length = cfg_buf_len;
 #if ALT_FPGA_ENABLE_DMA_SUPPORT
-    fpga_data.use_dma          = false;
+    fpga_data.use_dma = false;
 #endif
 
     return alt_fpga_internal_configure(&fpga_data);
 }
 
 #if ALT_FPGA_ENABLE_DMA_SUPPORT
-ALT_STATUS_CODE alt_fpga_configure_dma(const void* cfg_buf, 
-                                       size_t cfg_buf_len,
-                                       ALT_DMA_CHANNEL_t dma_channel)
+ALT_STATUS_CODE alt_fpga_configure_dma(const void* cfg_buf,
+    size_t cfg_buf_len,
+    ALT_DMA_CHANNEL_t dma_channel)
 {
     FPGA_DATA_t fpga_data;
-    fpga_data.type             = FPGA_DATA_FULL;
+    fpga_data.type = FPGA_DATA_FULL;
     fpga_data.mode.full.buffer = cfg_buf;
     fpga_data.mode.full.length = cfg_buf_len;
-    fpga_data.use_dma          = true;
-    fpga_data.dma_channel      = dma_channel;
+    fpga_data.use_dma = true;
+    fpga_data.dma_channel = dma_channel;
 
     return alt_fpga_internal_configure(&fpga_data);
 }
 #endif
 
 ALT_STATUS_CODE alt_fpga_istream_configure(alt_fpga_istream_t cfg_stream,
-                                           void * user_data)
+    void* user_data)
 {
     FPGA_DATA_t fpga_data;
-    fpga_data.type                = FPGA_DATA_ISTREAM;
+    fpga_data.type = FPGA_DATA_ISTREAM;
     fpga_data.mode.istream.stream = cfg_stream;
-    fpga_data.mode.istream.data   = user_data;
+    fpga_data.mode.istream.data = user_data;
 #if ALT_FPGA_ENABLE_DMA_SUPPORT
-    fpga_data.use_dma             = false;
+    fpga_data.use_dma = false;
 #endif
 
     return alt_fpga_internal_configure(&fpga_data);
@@ -964,15 +961,15 @@ ALT_STATUS_CODE alt_fpga_istream_configure(alt_fpga_istream_t cfg_stream,
 
 #if ALT_FPGA_ENABLE_DMA_SUPPORT
 ALT_STATUS_CODE alt_fpga_istream_configure_dma(alt_fpga_istream_t cfg_stream,
-                                               void * user_data,
-                                               ALT_DMA_CHANNEL_t dma_channel)
+    void* user_data,
+    ALT_DMA_CHANNEL_t dma_channel)
 {
     FPGA_DATA_t fpga_data;
-    fpga_data.type                = FPGA_DATA_ISTREAM;
+    fpga_data.type = FPGA_DATA_ISTREAM;
     fpga_data.mode.istream.stream = cfg_stream;
-    fpga_data.mode.istream.data   = user_data;
-    fpga_data.use_dma             = true;
-    fpga_data.dma_channel         = dma_channel;
+    fpga_data.mode.istream.data = user_data;
+    fpga_data.use_dma = true;
+    fpga_data.dma_channel = dma_channel;
 
     return alt_fpga_internal_configure(&fpga_data);
 }
@@ -1036,7 +1033,7 @@ uint32_t alt_fpga_man_irq_type_get(ALT_FPGA_MON_STATUS_t mon_stat_mask)
 }
 
 ALT_STATUS_CODE alt_fpga_man_irq_type_set(ALT_FPGA_MON_STATUS_t mon_stat_mask,
-                                          ALT_FPGA_MON_STATUS_t mon_stat_config)
+    ALT_FPGA_MON_STATUS_t mon_stat_config)
 {
     /* Ensure only bits 11:0 are set. */
     if (mon_stat_mask & ~((1 << 12) - 1))
@@ -1055,7 +1052,7 @@ uint32_t alt_fpga_man_irq_pol_get(ALT_FPGA_MON_STATUS_t mon_stat_mask)
 }
 
 ALT_STATUS_CODE alt_fpga_man_irq_pol_set(ALT_FPGA_MON_STATUS_t mon_stat_mask,
-                                         ALT_FPGA_MON_STATUS_t mon_stat_config)
+    ALT_FPGA_MON_STATUS_t mon_stat_config)
 {
     /* Ensure only bits 11:0 are set. */
     if (mon_stat_mask & ~((1 << 12) - 1))

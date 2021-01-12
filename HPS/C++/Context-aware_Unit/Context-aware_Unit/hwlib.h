@@ -1,21 +1,21 @@
 /******************************************************************************
 *
 * Copyright 2013 Altera Corporation. All Rights Reserved.
-* 
+*
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are met:
-* 
+*
 * 1. Redistributions of source code must retain the above copyright notice,
 * this list of conditions and the following disclaimer.
-* 
+*
 * 2. Redistributions in binary form must reproduce the above copyright notice,
 * this list of conditions and the following disclaimer in the documentation
 * and/or other materials provided with the distribution.
-* 
+*
 * 3. Neither the name of the copyright holder nor the names of its contributors
 * may be used to endorse or promote products derived from this software without
 * specific prior written permission.
-* 
+*
 * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -27,7 +27,7 @@
 * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 * POSSIBILITY OF SUCH DAMAGE.
-* 
+*
 ******************************************************************************/
 
 /*
@@ -56,9 +56,9 @@ extern "C"
 {
 #endif  /* __cplusplus */
 
-//#if !defined(soc_cv_av) && !defined(soc_a10)
-//#error You must define soc_cv_av or soc_a10 before compiling with HwLibs
-//#endif
+	//#if !defined(soc_cv_av) && !defined(soc_a10)
+	//#error You must define soc_cv_av or soc_a10 before compiling with HwLibs
+	//#endif
 
 #define ALT_MIN(a, b) ((a) > (b) ? (b) : (a))
 #define ALT_MAX(a, b) ((a) > (b) ? (a) : (b))
@@ -66,11 +66,11 @@ extern "C"
 /*!
  * The type definition for status codes returned by the HWLIB.
  */
-typedef int32_t             ALT_STATUS_CODE;
+	typedef int32_t             ALT_STATUS_CODE;
 
-/*! Definitions of status codes returned by the HWLIB. */
+	/*! Definitions of status codes returned by the HWLIB. */
 
-/*! The operation was successful. */
+	/*! The operation was successful. */
 #define ALT_E_SUCCESS               0
 
 /*! The operation failed. */
@@ -110,34 +110,34 @@ typedef int32_t             ALT_STATUS_CODE;
  * Indicates a FALSE condition.
  */
 #define ALT_E_FALSE                 (0)
-/*!
- * Indicates a TRUE condition.
- */
+ /*!
+  * Indicates a TRUE condition.
+  */
 #define ALT_E_TRUE                  (1)
 
-/* Note, additional positive status codes may be defined to return
- * a TRUE condition with additional information */
+  /* Note, additional positive status codes may be defined to return
+   * a TRUE condition with additional information */
 
 
-/* Some other useful definitions */
+   /* Some other useful definitions */
 
-/*!
- * Allow some parts of the documentation to be hidden by setting to zero
- */
+   /*!
+	* Allow some parts of the documentation to be hidden by setting to zero
+	*/
 #define ALTERA_INTERNAL_ONLY_DOCS   1
 
 
-/*!
- * Provide base address of MPU address space
- */
+	/*!
+	 * Provide base address of MPU address space
+	 */
 
 #ifndef ALT_HPS_ADDR
 #define ALT_HPS_ADDR            0
 #endif
 
-/*!
- * These constants are sometimes useful:
- */
+	 /*!
+	  * These constants are sometimes useful:
+	  */
 #define ALT_MILLISECS_IN_A_SEC      1000
 #define ALT_MICROSECS_IN_A_SEC      1000000
 #define ALT_NANOSECS_IN_A_SEC       1000000000

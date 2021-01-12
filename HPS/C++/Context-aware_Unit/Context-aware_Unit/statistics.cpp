@@ -5,15 +5,15 @@ float Fast_standard_deviation(std::vector<float> input_vect) {
 	for_each(begin(input_vect), end(input_vect), [&](const float d){
 		acc += (d - mean) * (d - mean);
 		});
-	return (float)sqrt(acc / ((float)input_vect.size() - 1.0f));
+	return sqrtf(acc / ((float)input_vect.size() - 1.0f));
 }
 
 float Standard_error(std::vector<float> input_vect) {
-	return Fast_standard_deviation(input_vect) / (float)sqrt(input_vect.size());
+	return Fast_standard_deviation(input_vect) / sqrtf((float)input_vect.size());
 }
 
 float Mean(std::vector<float> input_vect) {
-	return (float)accumulate(begin(input_vect), end(input_vect), 0.0f) / (float)input_vect.size();
+	return accumulate(begin(input_vect), end(input_vect), 0.0f) / (float)input_vect.size();
 }
 
 std::vector<float> Normalize(std::vector<float> input_vect) {

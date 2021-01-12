@@ -86,16 +86,19 @@
     <ClCompile Include="benchmark.cpp" />
     <ClCompile Include="Classifier.cpp" />
     <ClCompile Include="context_aware_unit.cpp" />
+    <ClCompile Include="decision_unit.cpp" />
     <ClCompile Include="file_buffer.cpp" />
+    <ClCompile Include="Find_vect.cpp" />
     <ClCompile Include="fixdt.cpp" />
     <ClCompile Include="FPGA_mgr.cpp" />
     <ClCompile Include="dir.cpp" />
     <ClCompile Include="initializer.cpp" />
     <ClCompile Include="IO_mgr.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="print_vect.cpp" />
-    <ClCompile Include="printm.cpp" />
+    <ClCompile Include="Print_vect.cpp" />
+    <ClCompile Include="Printm.cpp" />
     <ClCompile Include="statistics.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="wst.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -106,7 +109,9 @@
     <ClInclude Include="Classifier.h" />
     <ClInclude Include="config.h" />
     <ClInclude Include="context_aware_unit.h" />
+    <ClInclude Include="decision_unit.h" />
     <ClInclude Include="file_buffer.h" />
+    <ClInclude Include="Find_vect.h" />
     <ClInclude Include="fixdt.h" />
     <ClInclude Include="FPGA_mgr.h" />
     <ClInclude Include="dir.h" />
@@ -116,10 +121,11 @@
     <ClInclude Include="initializer.h" />
     <ClInclude Include="IO_mgr.h" />
     <ClInclude Include="paths.h" />
-    <ClInclude Include="printm.h" />
-    <ClInclude Include="print_vect.h" />
+    <ClInclude Include="Printm.h" />
+    <ClInclude Include="Print_vect.h" />
     <ClInclude Include="socal.h" />
     <ClInclude Include="statistics.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="wst.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">

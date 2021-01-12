@@ -1,7 +1,7 @@
 #pragma once
 #include <fstream>
 #include <string>
-#include "printm.h"
+#include "Printm.h"
 
 class file_buffer
 {

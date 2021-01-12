@@ -1,6 +1,6 @@
-#include "printm.h"
+#include "Printm.h"
 
-std::string printm(char _type, std::string _message, int lvl, bool visible) {
+std::string Printm(char _type, std::string _message, int lvl, bool visible) {
 	std::stringstream buffer;
 	if (_type == 'e') {
 		buffer << std::setw(lvl) << "ERROR!!\t" << _message << std::endl;

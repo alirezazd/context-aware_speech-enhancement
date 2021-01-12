@@ -15,7 +15,7 @@
 * 3. Neither the name of the copyright holder nor the names of its contributors
 * may be used to endorse or promote products derived from this software without
 * specific prior written permission.
-* 
+*
 * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -38,51 +38,51 @@
 
 typedef struct ALT_PRINTF_MEM_INFO_s
 {
-  void (*putc_function)(char pchar,FILE * info);
-  char *toptr;
-  char *maxptr;
+    void (*putc_function)(char pchar, FILE* info);
+    char* toptr;
+    char* maxptr;
 } ALT_PRINTF_MEM_INFO_t;
 
 #ifndef DEFAULT_TERM
-  #ifdef soc_a10
-    #define DEFAULT_TERM  term1
-  #else
-    #define DEFAULT_TERM  term0
-  #endif
+#ifdef soc_a10
+#define DEFAULT_TERM  term1
+#else
+#define DEFAULT_TERM  term0
+#endif
 #endif
 
-extern FILE *term0;
-extern FILE *term1;
+extern FILE* term0;
+extern FILE* term1;
 
-static __inline int null_printf(const char *format, ...){return 0;}
-static __inline int null_vfprintf(FILE *stream, const char *format, va_list args){return 0;}
+static __inline int null_printf(const char* format, ...) { return 0; }
+static __inline int null_vfprintf(FILE* stream, const char* format, va_list args) { return 0; }
 
-int alt_printf(const char *format, ...);
-int alt_snprintf(char *to, size_t n, const char *format, ...);
-int alt_sprintf(char *to, const char *format, ...);
-int alt_fprintf(FILE *stream, const char *format, ...);
-int alt_vfprintf(FILE *stream, const char *format, va_list args);
+int alt_printf(const char* format, ...);
+int alt_snprintf(char* to, size_t n, const char* format, ...);
+int alt_sprintf(char* to, const char* format, ...);
+int alt_fprintf(FILE* stream, const char* format, ...);
+int alt_vfprintf(FILE* stream, const char* format, va_list args);
 
 
 #if defined (PRINTF_HOST) 
-  #define ALT_PRINTF printf
-  #define alt_printf printf
+#define ALT_PRINTF printf
+#define alt_printf printf
 #else 
-  #define snprintf alt_snprintf
-  #define ALT_SNPRINTF alt_snprintf
-  #define sprintf alt_sprintf
-  #define ALT_SPRINTF alt_sprintf
+#define snprintf alt_snprintf
+#define ALT_SNPRINTF alt_snprintf
+#define sprintf alt_sprintf
+#define ALT_SPRINTF alt_sprintf
 
-  #if defined (PRINTF_UART)
-    #define ALT_PRINTF alt_printf
-    #define printf alt_printf
-  #else
-    #define ALT_PRINTF null_printf
-    #define printf null_printf
-    #define vprintf null_vfprintf
-  #endif /* PRINTF_UART */
+#if defined (PRINTF_UART)
+#define ALT_PRINTF alt_printf
+#define printf alt_printf
+#else
+#define ALT_PRINTF null_printf
+#define printf null_printf
+#define vprintf null_vfprintf
+#endif /* PRINTF_UART */
 #endif /* PRINTF_HOST */
 
-void alt_log_done(FILE *);
+void alt_log_done(FILE*);
 
 #endif /* ALT_PRINTF_H */

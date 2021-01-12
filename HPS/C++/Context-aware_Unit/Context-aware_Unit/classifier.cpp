@@ -7,12 +7,12 @@ Classifier::Classifier(std::string model_path)
 }
 
 void Classifier::Check_model() {
-	if (!model) printm('e', "Fialed to load the classifier model.");
+	if (!model) Printm('e', "Fialed to load the classifier model.");
 }
 
 void Classifier::Build_interpreter() {
 	if (tflite::InterpreterBuilder(*model, resolver)(&interpreter) != kTfLiteOk) {
-		printm('e', "Faild to build the classifier interpreter from file.");
+		Printm('e', "Faild to build the classifier interpreter from file.");
 	}
 	interpreter->AllocateTensors();
 	input = interpreter->typed_input_tensor<float>(0);
@@ -29,7 +29,7 @@ bool Classifier::Predict(int noise_type, float SNR_level) {
 }
 
 void Classifier::Translate_input(int noise_type, float SNR_level) {
-	input_buffer.push_back((float)noise_type / MAX_NOIS_TYPE);
+	input_buffer.push_back((float)noise_type / MAX_NOISE_TYPE);
 	input_buffer.push_back(SNR_level / MAX_SNR);
 	input_buffer.push_back(input_buffer.back() * input_buffer.back());
 }
@@ -43,5 +43,5 @@ void Classifier::Write_input() {
 }
 
 void::Classifier::Translate_output() {
-	output_buffer = (*output > 0);
+	output_buffer = !(*output > 0);
 }

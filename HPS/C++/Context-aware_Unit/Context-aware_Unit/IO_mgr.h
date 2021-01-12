@@ -6,7 +6,7 @@
 #include <sys/mman.h>
 #include <string>
 #include <vector>
-#include "printm.h"
+#include "Printm.h"
 #include "adresses.h"
 #include "wst.h"
 #include "fixdt.h"
@@ -15,6 +15,7 @@
 
 class IO_mgr
 {
+	friend class benchmark;
 public:
 	IO_mgr();
 	~IO_mgr();
@@ -24,12 +25,15 @@ public:
 	void Write_wst_file(std::string);
 	void Write_vect_frame(std::vector<float>&);
 	std::vector<int16_t> Read_vect_frame();
-	void Process_next_wst_frame();
+	void Process_next_wst_frame(unsigned int = 1);
 	void Process_whole_wst_file();
-	float Get_SNR_dB();
+	float Read_SNR_dB();
+	float Read_SNR_dB2();
+	int Read_location();
 	void Reset_frame_counter();
 	size_t Get_current_frame_index();
 	size_t Get_total_frames();
+	bool Get_mmap_state();
 	void Debug(size_t);
 private:
 	void* virtual_base;

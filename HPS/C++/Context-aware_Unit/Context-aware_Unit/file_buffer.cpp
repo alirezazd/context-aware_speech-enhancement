@@ -3,7 +3,7 @@
 file_buffer::file_buffer(std::string path) {
 	FILE* f = fopen(path.c_str(), "rb");
 	if (f == NULL) {
-		printm('e', "File buffer failed to load " + path + ".");
+		Printm('e', "File buffer failed to load " + path + ".");
 	}
 	fseek(f, 0, SEEK_END);
 	size = ftell(f);

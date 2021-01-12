@@ -8,7 +8,7 @@
 
 int main(int argc, const char* argv[]) {
 	initializer init;
-	context_aware_unit CAU(init.Get_FPGA_mgr(), init.Get_IO_mgr(), init.Get_Classifier());
-	CAU.Manual_enhance(dir(WST_INPUT_PATH, "wst"), init.Get_rbf_list());
+	context_aware_unit CAU(init.Get_FPGA_mgr(), init.Get_IO_mgr(), init.Get_decision_unit(), init.Get_rbf_list());
+	CAU.Auto_enhance(dir(WST_INPUT_PATH, "wst"));
 	exit(0);
 }

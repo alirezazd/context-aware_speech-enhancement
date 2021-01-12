@@ -4,17 +4,8 @@
     <ClCompile Include="alt_fpga_manager.c">
       <Filter>altera_libs</Filter>
     </ClCompile>
-    <ClCompile Include="dir.cpp">
-      <Filter>aux\functions</Filter>
-    </ClCompile>
     <ClCompile Include="FPGA_mgr.cpp">
       <Filter>aux\classes</Filter>
-    </ClCompile>
-    <ClCompile Include="print_vect.cpp">
-      <Filter>aux\functions</Filter>
-    </ClCompile>
-    <ClCompile Include="printm.cpp">
-      <Filter>aux\functions</Filter>
     </ClCompile>
     <ClCompile Include="file_buffer.cpp">
       <Filter>aux\classes</Filter>
@@ -44,6 +35,24 @@
     <ClCompile Include="statistics.cpp">
       <Filter>aux\functions</Filter>
     </ClCompile>
+    <ClCompile Include="decision_unit.cpp">
+      <Filter>aux\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>aux\classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Find_vect.cpp">
+      <Filter>aux\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Print_vect.cpp">
+      <Filter>aux\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="Printm.cpp">
+      <Filter>aux\functions</Filter>
+    </ClCompile>
+    <ClCompile Include="dir.cpp">
+      <Filter>aux\functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="alt_fpga_manager.h">
@@ -64,20 +73,11 @@
     <ClInclude Include="socal.h">
       <Filter>altera_libs</Filter>
     </ClInclude>
-    <ClInclude Include="dir.h">
-      <Filter>aux\functions</Filter>
-    </ClInclude>
     <ClInclude Include="paths.h">
       <Filter>misc</Filter>
     </ClInclude>
     <ClInclude Include="FPGA_mgr.h">
       <Filter>aux\classes</Filter>
-    </ClInclude>
-    <ClInclude Include="print_vect.h">
-      <Filter>aux\functions</Filter>
-    </ClInclude>
-    <ClInclude Include="printm.h">
-      <Filter>aux\functions</Filter>
     </ClInclude>
     <ClInclude Include="file_buffer.h">
       <Filter>aux\classes</Filter>
@@ -110,6 +110,24 @@
       <Filter>aux\classes</Filter>
     </ClInclude>
     <ClInclude Include="statistics.h">
+      <Filter>aux\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="decision_unit.h">
+      <Filter>aux\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>aux\classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Find_vect.h">
+      <Filter>aux\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Print_vect.h">
+      <Filter>aux\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="Printm.h">
+      <Filter>aux\functions</Filter>
+    </ClInclude>
+    <ClInclude Include="dir.h">
       <Filter>aux\functions</Filter>
     </ClInclude>
   </ItemGroup>

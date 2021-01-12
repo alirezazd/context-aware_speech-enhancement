@@ -40,27 +40,27 @@ extern "C"
 {
 #endif  /* __cplusplus */
 
-//
-//  \desc this file is motified by Robin Sebastian (739065)
-//  to allow the usige in normal Linux applications with virtual memory
-//
-//
+    //
+    //  \desc this file is motified by Robin Sebastian (739065)
+    //  to allow the usige in normal Linux applications with virtual memory
+    //
+    //
 #define soc_cv_av
 #define LINUX_TASK_MODE
-	
-	
+
+
 #ifdef LINUX_TASK_MODE 
-	// 
-	// \desc Linux Task Mode:
-	// for normel Linux Taks- and App- devleopment 
-	// Disable this mode to the dirct memory access for Linux Driver develoment
-	// peripherie access over virtual memory
-	//
-    #include <sys/types.h>
-    #include <sys/mman.h>
-    #include <sys/stat.h>
-    #include <fcntl.h>
-    #include <unistd.h>
+    // 
+    // \desc Linux Task Mode:
+    // for normel Linux Taks- and App- devleopment 
+    // Disable this mode to the dirct memory access for Linux Driver develoment
+    // peripherie access over virtual memory
+    //
+#include <sys/types.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
 
     extern volatile void* __hps_virtualAdreess_FPGAMGR;
     extern volatile void* __hps_virtualAdreess_FPGAMFRDATA;
@@ -70,18 +70,18 @@ extern "C"
     // macro to include the virtual Memory 
     //
     //
-    #define __VIRTUALMEM_SPACE_INIT()                                                                                          \
+#define __VIRTUALMEM_SPACE_INIT()                                                                                          \
             int fd;                                                                                                                \
             fd = open("/dev/mem", (O_RDWR | O_SYNC));                                                                              \
 	    __hps_virtualAdreess_FPGAMFRDATA  = mmap(NULL, 0x04,(PROT_READ | PROT_WRITE), MAP_SHARED, fd, ALT_FPGAMGRDATA_OFST);      \
 	    __hps_virtualAdreess_FPGAMGR = mmap(NULL, 0x1000,(PROT_READ | PROT_WRITE), MAP_SHARED, fd, ALT_FPGAMGR_OFST)             
 
-    #define __VIRTUALMEM_SPACE_DEINIT()                                                                                           \
+#define __VIRTUALMEM_SPACE_DEINIT()                                                                                           \
             munmap((void*) __hps_virtualAdreess_FPGAMFRDATA, 0x04);                                                               \
             munmap((void*) __hps_virtualAdreess_FPGAMGR, 0x1000);                                                                 \
             close(__fd)
 
-   
+
 
 
 #endif
@@ -92,11 +92,11 @@ extern "C"
 
 #endif 
 
-/** 
+/**
 
-#ifdef LINUX_TASK_MODE 
+#ifdef LINUX_TASK_MODE
     #define VIRTUAL_LWFPGASLVS_OFSET  __hps_virtualAdreess_LWFPASLAVES
-#else 
+#else
     #define VIRTUAL_LWFPGASLVS_OFSET  ALT_LWFPGASLVS_OFST
 #endif
 
@@ -107,24 +107,24 @@ extern "C"
 #define ALT_HPS_ADDR        0
 /*
  * Address Space : ALT_HPS
- * 
+ *
  */
-/*
- * Component Instance : stm
- * 
- * Instance stm of component ALT_STM.
- * 
- * 
- */
-/* The address of the ALT_STM_REG register for the ALT_STM instance. */
+ /*
+  * Component Instance : stm
+  *
+  * Instance stm of component ALT_STM.
+  *
+  *
+  */
+  /* The address of the ALT_STM_REG register for the ALT_STM instance. */
 #define ALT_STM_REG_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_STM_ADDR) + ALT_STM_REG_OFST))
 /* The base address byte offset for the start of the ALT_STM component. */
 #define ALT_STM_OFST        0xfc000000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_STM_OFSET  (uint32_t) __hps_virtualAdreess_DAP
+#define VIRTUAL_STM_OFSET  (uint32_t) __hps_virtualAdreess_DAP
 #else 
-    #define VIRTUAL_STM_OFSET  ALT_STM_OFST
+#define VIRTUAL_STM_OFSET  ALT_STM_OFST
 #endif
 
 /* The start address of the ALT_STM component. */
@@ -137,20 +137,20 @@ extern "C"
 
 /*
  * Component Instance : dap
- * 
+ *
  * Instance dap of component ALT_DAP.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_DAP_REG register for the ALT_DAP instance. */
+ /* The address of the ALT_DAP_REG register for the ALT_DAP instance. */
 #define ALT_DAP_REG_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_DAP_ADDR) + ALT_DAP_REG_OFST))
 /* The base address byte offset for the start of the ALT_DAP component. */
 #define ALT_DAP_OFST        0xff000000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_DAP_OFSET  (uint32_t) __hps_virtualAdreess_DAP
+#define VIRTUAL_DAP_OFSET  (uint32_t) __hps_virtualAdreess_DAP
 #else 
-    #define VIRTUAL_DAP_OFSET  ALT_DAP_OFST
+#define VIRTUAL_DAP_OFSET  ALT_DAP_OFST
 #endif
 
 /* The start address of the ALT_DAP component. */
@@ -163,18 +163,18 @@ extern "C"
 
 /*
  * Component Instance : lwfpgaslaves
- * 
+ *
  * Instance lwfpgaslaves of component ALT_LWFPGASLVS.
- * 
- * 
+ *
+ *
  */
-/* The base address byte offset for the start of the ALT_LWFPGASLVS component. */
+ /* The base address byte offset for the start of the ALT_LWFPGASLVS component. */
 #define ALT_LWFPGASLVS_OFST        0xff200000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_LWFPGASLVS_OFSET  (uint32_t) __hps_virtualAdreess_LWFPASLAVES
+#define VIRTUAL_LWFPGASLVS_OFSET  (uint32_t) __hps_virtualAdreess_LWFPASLAVES
 #else 
-    #define VIRTUAL_LWFPGASLVS_OFSET  ALT_LWFPGASLVS_OFST
+#define VIRTUAL_LWFPGASLVS_OFSET  ALT_LWFPGASLVS_OFST
 #endif
 
 /* The start address of the ALT_LWFPGASLVS component. */
@@ -187,19 +187,19 @@ extern "C"
 
 /*
  * Component Instance : lwhps2fpgaregs
- * 
+ *
  * Instance lwhps2fpgaregs of component ALT_LWH2F.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : idgrp
- * 
- * Instance idgrp of register group ALT_LWH2F_ID.
- * 
- * 
- */
-/* The address of the ALT_LWH2F_ID_PERIPH_ID_4 register for the ALT_LWH2F_ID instance. */
+ /*
+  * Register Group Instance : idgrp
+  *
+  * Instance idgrp of register group ALT_LWH2F_ID.
+  *
+  *
+  */
+  /* The address of the ALT_LWH2F_ID_PERIPH_ID_4 register for the ALT_LWH2F_ID instance. */
 #define ALT_LWH2F_ID_PERIPH_ID_4_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_LWH2F_ID_ADDR) + ALT_LWH2F_ID_PERIPH_ID_4_OFST))
 /* The address of the ALT_LWH2F_ID_PERIPH_ID_0 register for the ALT_LWH2F_ID instance. */
 #define ALT_LWH2F_ID_PERIPH_ID_0_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_LWH2F_ID_ADDR) + ALT_LWH2F_ID_PERIPH_ID_0_OFST))
@@ -229,19 +229,19 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp
- * 
+ *
  * Instance mastergrp of register group ALT_LWH2F_MST.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : mastergrp_fpga2hpsregs
- * 
- * Instance mastergrp_fpga2hpsregs of register group ALT_LWH2F_MST_F2H.
- * 
- * 
- */
-/* The address of the ALT_LWH2F_FN_MOD_BM_ISS register for the ALT_LWH2F_MST_MST_F2H instance. */
+ /*
+  * Register Group Instance : mastergrp_fpga2hpsregs
+  *
+  * Instance mastergrp_fpga2hpsregs of register group ALT_LWH2F_MST_F2H.
+  *
+  *
+  */
+  /* The address of the ALT_LWH2F_FN_MOD_BM_ISS register for the ALT_LWH2F_MST_MST_F2H instance. */
 #define ALT_LWH2F_MST_MST_F2H_FN_MOD_BM_ISS_ADDR  ALT_LWH2F_FN_MOD_BM_ISS_ADDR(ALT_LWH2F_MST_MST_F2H_ADDR)
 /* The address of the ALT_LWH2F_AHB_CNTL register for the ALT_LWH2F_MST_MST_F2H instance. */
 #define ALT_LWH2F_MST_MST_F2H_AHB_CNTL_ADDR  ALT_LWH2F_AHB_CNTL_ADDR(ALT_LWH2F_MST_MST_F2H_ADDR)
@@ -257,12 +257,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_hps2fpgaregs
- * 
+ *
  * Instance mastergrp_hps2fpgaregs of register group ALT_LWH2F_MST_H2F.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_LWH2F_FN_MOD_BM_ISS register for the ALT_LWH2F_MST_MST_H2F instance. */
+ /* The address of the ALT_LWH2F_FN_MOD_BM_ISS register for the ALT_LWH2F_MST_MST_H2F instance. */
 #define ALT_LWH2F_MST_MST_H2F_FN_MOD_BM_ISS_ADDR  ALT_LWH2F_FN_MOD_BM_ISS_ADDR(ALT_LWH2F_MST_MST_H2F_ADDR)
 /* The address of the ALT_LWH2F_AHB_CNTL register for the ALT_LWH2F_MST_MST_H2F instance. */
 #define ALT_LWH2F_MST_MST_H2F_AHB_CNTL_ADDR  ALT_LWH2F_AHB_CNTL_ADDR(ALT_LWH2F_MST_MST_H2F_ADDR)
@@ -278,12 +278,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_b32
- * 
+ *
  * Instance mastergrp_b32 of register group ALT_LWH2F_MST_B32.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_LWH2F_FN_MOD_BM_ISS register for the ALT_LWH2F_MST_MST_B32 instance. */
+ /* The address of the ALT_LWH2F_FN_MOD_BM_ISS register for the ALT_LWH2F_MST_MST_B32 instance. */
 #define ALT_LWH2F_MST_MST_B32_FN_MOD_BM_ISS_ADDR  ALT_LWH2F_FN_MOD_BM_ISS_ADDR(ALT_LWH2F_MST_MST_B32_ADDR)
 /* The address of the ALT_LWH2F_WR_TIDEMARK register for the ALT_LWH2F_MST_MST_B32 instance. */
 #define ALT_LWH2F_MST_MST_B32_WR_TIDEMARK_ADDR  ALT_LWH2F_WR_TIDEMARK_ADDR(ALT_LWH2F_MST_MST_B32_ADDR)
@@ -311,19 +311,19 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp
- * 
+ *
  * Instance slavegrp of register group ALT_LWH2F_SLV.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : slavegrp_b32
- * 
- * Instance slavegrp_b32 of register group ALT_LWH2F_SLV_B32.
- * 
- * 
- */
-/* The address of the ALT_LWH2F_FN_MOD register for the ALT_LWH2F_SLV_SLV_B32 instance. */
+ /*
+  * Register Group Instance : slavegrp_b32
+  *
+  * Instance slavegrp_b32 of register group ALT_LWH2F_SLV_B32.
+  *
+  *
+  */
+  /* The address of the ALT_LWH2F_FN_MOD register for the ALT_LWH2F_SLV_SLV_B32 instance. */
 #define ALT_LWH2F_SLV_SLV_B32_FN_MOD_ADDR  ALT_LWH2F_FN_MOD_ADDR(ALT_LWH2F_SLV_SLV_B32_ADDR)
 /* The base address byte offset for the start of the ALT_LWH2F_SLV_SLV_B32 component. */
 #define ALT_LWH2F_SLV_SLV_B32_OFST        0x3000
@@ -349,9 +349,9 @@ extern "C"
 #define ALT_LWH2F_OFST        0xff400000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_LWH2F_OFSET   (uint32_t) __hps_virtualAdreess_LWH2F_OFST
+#define VIRTUAL_LWH2F_OFSET   (uint32_t) __hps_virtualAdreess_LWH2F_OFST
 #else 
-    #define VIRTUAL_LWH2F_OFSET  ALT_LWH2F_OFST
+#define VIRTUAL_LWH2F_OFSET  ALT_LWH2F_OFST
 #endif
 
 /* The start address of the ALT_LWH2F component. */
@@ -364,19 +364,19 @@ extern "C"
 
 /*
  * Component Instance : hps2fpgaregs
- * 
+ *
  * Instance hps2fpgaregs of component ALT_H2F.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : idgrp
- * 
- * Instance idgrp of register group ALT_H2F_IDGRP.
- * 
- * 
- */
-/* The address of the ALT_H2F_ID_PERIPH_ID_4 register for the ALT_H2F_IDGRP instance. */
+ /*
+  * Register Group Instance : idgrp
+  *
+  * Instance idgrp of register group ALT_H2F_IDGRP.
+  *
+  *
+  */
+  /* The address of the ALT_H2F_ID_PERIPH_ID_4 register for the ALT_H2F_IDGRP instance. */
 #define ALT_H2F_ID_PERIPH_ID_4_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_H2F_IDGRP_ADDR) + ALT_H2F_ID_PERIPH_ID_4_OFST))
 /* The address of the ALT_H2F_ID_PERIPH_ID_0 register for the ALT_H2F_IDGRP instance. */
 #define ALT_H2F_ID_PERIPH_ID_0_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_H2F_IDGRP_ADDR) + ALT_H2F_ID_PERIPH_ID_0_OFST))
@@ -406,19 +406,19 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp
- * 
+ *
  * Instance mastergrp of register group ALT_H2F_MSTGRP.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : mastergrp_b32
- * 
- * Instance mastergrp_b32 of register group ALT_H2F_MST_B32.
- * 
- * 
- */
-/* The address of the ALT_H2F_FN_MOD2 register for the ALT_H2F_MST_MST_B32 instance. */
+ /*
+  * Register Group Instance : mastergrp_b32
+  *
+  * Instance mastergrp_b32 of register group ALT_H2F_MST_B32.
+  *
+  *
+  */
+  /* The address of the ALT_H2F_FN_MOD2 register for the ALT_H2F_MST_MST_B32 instance. */
 #define ALT_H2F_MST_MST_B32_FN_MOD2_ADDR  ALT_H2F_FN_MOD2_ADDR(ALT_H2F_MST_MST_B32_ADDR)
 /* The address of the ALT_H2F_FN_MOD register for the ALT_H2F_MST_MST_B32 instance. */
 #define ALT_H2F_MST_MST_B32_FN_MOD_ADDR  ALT_H2F_FN_MOD_ADDR(ALT_H2F_MST_MST_B32_ADDR)
@@ -434,12 +434,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_b128
- * 
+ *
  * Instance mastergrp_b128 of register group ALT_H2F_MST_B128.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_H2F_FN_MOD2 register for the ALT_H2F_MST_MST_B128 instance. */
+ /* The address of the ALT_H2F_FN_MOD2 register for the ALT_H2F_MST_MST_B128 instance. */
 #define ALT_H2F_MST_MST_B128_FN_MOD2_ADDR  ALT_H2F_FN_MOD2_ADDR(ALT_H2F_MST_MST_B128_ADDR)
 /* The address of the ALT_H2F_FN_MOD register for the ALT_H2F_MST_MST_B128 instance. */
 #define ALT_H2F_MST_MST_B128_FN_MOD_ADDR  ALT_H2F_FN_MOD_ADDR(ALT_H2F_MST_MST_B128_ADDR)
@@ -468,9 +468,9 @@ extern "C"
 
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_HSF_OFSET  __hps_virtualAdreess_H2F
+#define VIRTUAL_HSF_OFSET  __hps_virtualAdreess_H2F
 #else 
-    #define VIRTUAL_HSF_OFSET  ALT_H2F_OFST
+#define VIRTUAL_HSF_OFSET  ALT_H2F_OFST
 #endif
 
 /* The start address of the ALT_H2F component. */
@@ -483,19 +483,19 @@ extern "C"
 
 /*
  * Component Instance : fpga2hpsregs
- * 
+ *
  * Instance fpga2hpsregs of component ALT_F2H.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : idgrp
- * 
- * Instance idgrp of register group ALT_F2H_IDGRP.
- * 
- * 
- */
-/* The address of the ALT_F2H_ID_PERIPH_ID_4 register for the ALT_F2H_IDGRP instance. */
+ /*
+  * Register Group Instance : idgrp
+  *
+  * Instance idgrp of register group ALT_F2H_IDGRP.
+  *
+  *
+  */
+  /* The address of the ALT_F2H_ID_PERIPH_ID_4 register for the ALT_F2H_IDGRP instance. */
 #define ALT_F2H_ID_PERIPH_ID_4_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_F2H_IDGRP_ADDR) + ALT_F2H_ID_PERIPH_ID_4_OFST))
 /* The address of the ALT_F2H_ID_PERIPH_ID_0 register for the ALT_F2H_IDGRP instance. */
 #define ALT_F2H_ID_PERIPH_ID_0_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_F2H_IDGRP_ADDR) + ALT_F2H_ID_PERIPH_ID_0_OFST))
@@ -525,19 +525,19 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp
- * 
+ *
  * Instance slavegrp of register group ALT_F2H_SLVGRP.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : slavegrp_b32
- * 
- * Instance slavegrp_b32 of register group ALT_F2H_SLV_B32.
- * 
- * 
- */
-/* The address of the ALT_F2H_FN_MOD2 register for the ALT_F2H_SLV_SLV_B32 instance. */
+ /*
+  * Register Group Instance : slavegrp_b32
+  *
+  * Instance slavegrp_b32 of register group ALT_F2H_SLV_B32.
+  *
+  *
+  */
+  /* The address of the ALT_F2H_FN_MOD2 register for the ALT_F2H_SLV_SLV_B32 instance. */
 #define ALT_F2H_SLV_SLV_B32_FN_MOD2_ADDR  ALT_F2H_FN_MOD2_ADDR(ALT_F2H_SLV_SLV_B32_ADDR)
 /* The address of the ALT_F2H_FN_MOD register for the ALT_F2H_SLV_SLV_B32 instance. */
 #define ALT_F2H_SLV_SLV_B32_FN_MOD_ADDR  ALT_F2H_FN_MOD_ADDR(ALT_F2H_SLV_SLV_B32_ADDR)
@@ -553,12 +553,12 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp_b128
- * 
+ *
  * Instance slavegrp_b128 of register group ALT_F2H_SLV_B128.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_F2H_FN_MOD2 register for the ALT_F2H_SLV_SLV_B128 instance. */
+ /* The address of the ALT_F2H_FN_MOD2 register for the ALT_F2H_SLV_SLV_B128 instance. */
 #define ALT_F2H_SLV_SLV_B128_FN_MOD2_ADDR  ALT_F2H_FN_MOD2_ADDR(ALT_F2H_SLV_SLV_B128_ADDR)
 /* The address of the ALT_F2H_FN_MOD register for the ALT_F2H_SLV_SLV_B128 instance. */
 #define ALT_F2H_SLV_SLV_B128_FN_MOD_ADDR  ALT_F2H_FN_MOD_ADDR(ALT_F2H_SLV_SLV_B128_ADDR)
@@ -586,9 +586,9 @@ extern "C"
 #define ALT_F2H_OFST        0xff600000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_F2H_OFSET  __hps_virtualAdreess_F2H
+#define VIRTUAL_F2H_OFSET  __hps_virtualAdreess_F2H
 #else 
-    #define VIRTUAL_F2H_OFSET  ALT_F2H_OFST
+#define VIRTUAL_F2H_OFSET  ALT_F2H_OFST
 #endif
 
 
@@ -602,19 +602,19 @@ extern "C"
 
 /*
  * Component Instance : emac0
- * 
+ *
  * Instance emac0 of component ALT_EMAC.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : gmacgrp
- * 
- * Instance gmacgrp of register group ALT_EMAC_GMAC.
- * 
- * 
- */
-/* The address of the ALT_EMAC_GMAC_MAC_CFG register for the ALT_EMAC0_GMACGRP instance. */
+ /*
+  * Register Group Instance : gmacgrp
+  *
+  * Instance gmacgrp of register group ALT_EMAC_GMAC.
+  *
+  *
+  */
+  /* The address of the ALT_EMAC_GMAC_MAC_CFG register for the ALT_EMAC0_GMACGRP instance. */
 #define ALT_EMAC0_GMAC_MAC_CFG_ADDR  ALT_EMAC_GMAC_MAC_CFG_ADDR(ALT_EMAC0_GMACGRP_ADDR)
 /* The address of the ALT_EMAC_GMAC_MAC_FRM_FLT register for the ALT_EMAC0_GMACGRP instance. */
 #define ALT_EMAC0_GMAC_MAC_FRM_FLT_ADDR  ALT_EMAC_GMAC_MAC_FRM_FLT_ADDR(ALT_EMAC0_GMACGRP_ADDR)
@@ -1438,12 +1438,12 @@ extern "C"
 
 /*
  * Register Group Instance : dmagrp
- * 
+ *
  * Instance dmagrp of register group ALT_EMAC_DMA.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_EMAC_DMA_BUS_MOD register for the ALT_EMAC0_DMAGRP instance. */
+ /* The address of the ALT_EMAC_DMA_BUS_MOD register for the ALT_EMAC0_DMAGRP instance. */
 #define ALT_EMAC0_DMA_BUS_MOD_ADDR  ALT_EMAC_DMA_BUS_MOD_ADDR(ALT_EMAC0_DMAGRP_ADDR)
 /* The address of the ALT_EMAC_DMA_TX_POLL_DEMAND register for the ALT_EMAC0_DMAGRP instance. */
 #define ALT_EMAC0_DMA_TX_POLL_DEMAND_ADDR  ALT_EMAC_DMA_TX_POLL_DEMAND_ADDR(ALT_EMAC0_DMAGRP_ADDR)
@@ -1491,9 +1491,9 @@ extern "C"
 #define ALT_EMAC0_OFST        0xff700000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_EMAC0_OFSET  (uint32_t) __hps_virtualAdreess_EMAC0
+#define VIRTUAL_EMAC0_OFSET  (uint32_t) __hps_virtualAdreess_EMAC0
 #else 
-    #define VIRTUAL_EMAC0_OFSET  ALT_EMAC0_OFST
+#define VIRTUAL_EMAC0_OFSET  ALT_EMAC0_OFST
 #endif
 
 
@@ -1507,19 +1507,19 @@ extern "C"
 
 /*
  * Component Instance : emac1
- * 
+ *
  * Instance emac1 of component ALT_EMAC.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : gmacgrp
- * 
- * Instance gmacgrp of register group ALT_EMAC_GMAC.
- * 
- * 
- */
-/* The address of the ALT_EMAC_GMAC_MAC_CFG register for the ALT_EMAC1_GMACGRP instance. */
+ /*
+  * Register Group Instance : gmacgrp
+  *
+  * Instance gmacgrp of register group ALT_EMAC_GMAC.
+  *
+  *
+  */
+  /* The address of the ALT_EMAC_GMAC_MAC_CFG register for the ALT_EMAC1_GMACGRP instance. */
 #define ALT_EMAC1_GMAC_MAC_CFG_ADDR  ALT_EMAC_GMAC_MAC_CFG_ADDR(ALT_EMAC1_GMACGRP_ADDR)
 /* The address of the ALT_EMAC_GMAC_MAC_FRM_FLT register for the ALT_EMAC1_GMACGRP instance. */
 #define ALT_EMAC1_GMAC_MAC_FRM_FLT_ADDR  ALT_EMAC_GMAC_MAC_FRM_FLT_ADDR(ALT_EMAC1_GMACGRP_ADDR)
@@ -2343,12 +2343,12 @@ extern "C"
 
 /*
  * Register Group Instance : dmagrp
- * 
+ *
  * Instance dmagrp of register group ALT_EMAC_DMA.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_EMAC_DMA_BUS_MOD register for the ALT_EMAC1_DMAGRP instance. */
+ /* The address of the ALT_EMAC_DMA_BUS_MOD register for the ALT_EMAC1_DMAGRP instance. */
 #define ALT_EMAC1_DMA_BUS_MOD_ADDR  ALT_EMAC_DMA_BUS_MOD_ADDR(ALT_EMAC1_DMAGRP_ADDR)
 /* The address of the ALT_EMAC_DMA_TX_POLL_DEMAND register for the ALT_EMAC1_DMAGRP instance. */
 #define ALT_EMAC1_DMA_TX_POLL_DEMAND_ADDR  ALT_EMAC_DMA_TX_POLL_DEMAND_ADDR(ALT_EMAC1_DMAGRP_ADDR)
@@ -2396,9 +2396,9 @@ extern "C"
 #define ALT_EMAC1_OFST        0xff702000
 
 #ifdef LINUX_TASK_MODE
-    #define VIRTUAL_EMAC1_OFSET (uint32_t)  __hps_virtualAdreess_EMAC1
+#define VIRTUAL_EMAC1_OFSET (uint32_t)  __hps_virtualAdreess_EMAC1
 #else 
-    #define VIRTUAL_EMAC1_OFSET  ALT_EMAC1_OFST
+#define VIRTUAL_EMAC1_OFSET  ALT_EMAC1_OFST
 #endif
 
 /* The start address of the ALT_EMAC1 component. */
@@ -2411,12 +2411,12 @@ extern "C"
 
 /*
  * Component Instance : sdmmc
- * 
+ *
  * Instance sdmmc of component ALT_SDMMC.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SDMMC_CTL register for the ALT_SDMMC instance. */
+ /* The address of the ALT_SDMMC_CTL register for the ALT_SDMMC instance. */
 #define ALT_SDMMC_CTL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SDMMC_ADDR) + ALT_SDMMC_CTL_OFST))
 /* The address of the ALT_SDMMC_PWREN register for the ALT_SDMMC instance. */
 #define ALT_SDMMC_PWREN_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SDMMC_ADDR) + ALT_SDMMC_PWREN_OFST))
@@ -2500,9 +2500,9 @@ extern "C"
 #define ALT_SDMMC_OFST        0xff704000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_SDMMC_OFSET  (uint32_t) __hps_virtualAdreess_SDMMC
+#define VIRTUAL_SDMMC_OFSET  (uint32_t) __hps_virtualAdreess_SDMMC
 #else 
-    #define VIRTUAL_SDMMC_OFSET  ALT_SDMMC_OFST
+#define VIRTUAL_SDMMC_OFSET  ALT_SDMMC_OFST
 #endif
 
 
@@ -2516,12 +2516,12 @@ extern "C"
 
 /*
  * Component Instance : qspiregs
- * 
+ *
  * Instance qspiregs of component ALT_QSPI.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_QSPI_CFG register for the ALT_QSPI instance. */
+ /* The address of the ALT_QSPI_CFG register for the ALT_QSPI instance. */
 #define ALT_QSPI_CFG_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_QSPI_ADDR) + ALT_QSPI_CFG_OFST))
 /* The address of the ALT_QSPI_DEVRD register for the ALT_QSPI instance. */
 #define ALT_QSPI_DEVRD_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_QSPI_ADDR) + ALT_QSPI_DEVRD_OFST))
@@ -2593,9 +2593,9 @@ extern "C"
 #define ALT_QSPI_OFST        0xff705000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_QSPI_OFSET  (uint32_t) __hps_virtualAdreess_QSPI
+#define VIRTUAL_QSPI_OFSET  (uint32_t) __hps_virtualAdreess_QSPI
 #else 
-    #define VIRTUAL_QSPI_OFSET  ALT_QSPI_OFST
+#define VIRTUAL_QSPI_OFSET  ALT_QSPI_OFST
 #endif
 
 
@@ -2610,12 +2610,12 @@ extern "C"
 
 /*
  * Component Instance : fpgamgrregs
- * 
+ *
  * Instance fpgamgrregs of component ALT_FPGAMGR.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_FPGAMGR_STAT register for the ALT_FPGAMGR instance. */
+ /* The address of the ALT_FPGAMGR_STAT register for the ALT_FPGAMGR instance. */
 #define ALT_FPGAMGR_STAT_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_FPGAMGR_ADDR) + ALT_FPGAMGR_STAT_OFST))
 /* The address of the ALT_FPGAMGR_CTL register for the ALT_FPGAMGR instance. */
 #define ALT_FPGAMGR_CTL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_FPGAMGR_ADDR) + ALT_FPGAMGR_CTL_OFST))
@@ -2631,12 +2631,12 @@ extern "C"
 #define ALT_FPGAMGR_MISCI_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_FPGAMGR_ADDR) + ALT_FPGAMGR_MISCI_OFST))
 /*
  * Register Group Instance : mon
- * 
+ *
  * Instance mon of register group ALT_MON.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_MON_GPIO_INTEN register for the ALT_FPGAMGR_MON instance. */
+ /* The address of the ALT_MON_GPIO_INTEN register for the ALT_FPGAMGR_MON instance. */
 #define ALT_FPGAMGR_MON_GPIO_INTEN_ADDR  ALT_MON_GPIO_INTEN_ADDR(ALT_FPGAMGR_MON_ADDR)
 /* The address of the ALT_MON_GPIO_INTMSK register for the ALT_FPGAMGR_MON instance. */
 #define ALT_FPGAMGR_MON_GPIO_INTMSK_ADDR  ALT_MON_GPIO_INTMSK_ADDR(ALT_FPGAMGR_MON_ADDR)
@@ -2674,9 +2674,9 @@ extern "C"
 #define ALT_FPGAMGR_OFST        0xff706000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_FPGAMGR_OFSET (uint32_t) __hps_virtualAdreess_FPGAMGR
+#define VIRTUAL_FPGAMGR_OFSET (uint32_t) __hps_virtualAdreess_FPGAMGR
 #else 
-    #define VIRTUAL_FPGAMGR_OFSET ALT_FPGAMGR_OFST
+#define VIRTUAL_FPGAMGR_OFSET ALT_FPGAMGR_OFST
 #endif
 
 /* The start address of the ALT_FPGAMGR component. */
@@ -2689,12 +2689,12 @@ extern "C"
 
 /*
  * Component Instance : acpidmap
- * 
+ *
  * Instance acpidmap of component ALT_ACPIDMAP.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_ACPIDMAP_VID2RD register for the ALT_ACPIDMAP instance. */
+ /* The address of the ALT_ACPIDMAP_VID2RD register for the ALT_ACPIDMAP instance. */
 #define ALT_ACPIDMAP_VID2RD_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_ACPIDMAP_ADDR) + ALT_ACPIDMAP_VID2RD_OFST))
 /* The address of the ALT_ACPIDMAP_VID2WR register for the ALT_ACPIDMAP instance. */
 #define ALT_ACPIDMAP_VID2WR_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_ACPIDMAP_ADDR) + ALT_ACPIDMAP_VID2WR_OFST))
@@ -2746,9 +2746,9 @@ extern "C"
 #define ALT_ACPIDMAP_OFST        0xff707000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_ACPIDMAP_OFSET (uint32_t)   __hps_virtualAdreess_ACPIDMAP
+#define VIRTUAL_ACPIDMAP_OFSET (uint32_t)   __hps_virtualAdreess_ACPIDMAP
 #else 
-    #define VIRTUAL_ACPIDMAP_OFSET  ALT_ACPIDMAP_OFST
+#define VIRTUAL_ACPIDMAP_OFSET  ALT_ACPIDMAP_OFST
 #endif
 
 
@@ -2762,12 +2762,12 @@ extern "C"
 
 /*
  * Component Instance : gpio0
- * 
+ *
  * Instance gpio0 of component ALT_GPIO.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_GPIO_SWPORTA_DR register for the ALT_GPIO0 instance. */
+ /* The address of the ALT_GPIO_SWPORTA_DR register for the ALT_GPIO0 instance. */
 #define ALT_GPIO0_SWPORTA_DR_ADDR  ALT_GPIO_SWPORTA_DR_ADDR(ALT_GPIO0_ADDR)
 /* The address of the ALT_GPIO_SWPORTA_DDR register for the ALT_GPIO0 instance. */
 #define ALT_GPIO0_SWPORTA_DDR_ADDR  ALT_GPIO_SWPORTA_DDR_ADDR(ALT_GPIO0_ADDR)
@@ -2803,9 +2803,9 @@ extern "C"
 #define ALT_GPIO0_OFST        0xff708000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_GPIO0_OFSET  (uint32_t) __hps_virtualAdreess_GPIO0
+#define VIRTUAL_GPIO0_OFSET  (uint32_t) __hps_virtualAdreess_GPIO0
 #else 
-    #define VIRTUAL_GPIO0_OFSET  ALT_GPIO0_OFST
+#define VIRTUAL_GPIO0_OFSET  ALT_GPIO0_OFST
 #endif
 
 /* The start address of the ALT_GPIO0 component. */
@@ -2818,12 +2818,12 @@ extern "C"
 
 /*
  * Component Instance : gpio1
- * 
+ *
  * Instance gpio1 of component ALT_GPIO.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_GPIO_SWPORTA_DR register for the ALT_GPIO1 instance. */
+ /* The address of the ALT_GPIO_SWPORTA_DR register for the ALT_GPIO1 instance. */
 #define ALT_GPIO1_SWPORTA_DR_ADDR  ALT_GPIO_SWPORTA_DR_ADDR(ALT_GPIO1_ADDR)
 /* The address of the ALT_GPIO_SWPORTA_DDR register for the ALT_GPIO1 instance. */
 #define ALT_GPIO1_SWPORTA_DDR_ADDR  ALT_GPIO_SWPORTA_DDR_ADDR(ALT_GPIO1_ADDR)
@@ -2859,9 +2859,9 @@ extern "C"
 #define ALT_GPIO1_OFST        0xff709000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_GPIO1_OFSET  (uint32_t) __hps_virtualAdreess_GPIO1
+#define VIRTUAL_GPIO1_OFSET  (uint32_t) __hps_virtualAdreess_GPIO1
 #else 
-    #define VIRTUAL_GPIO1_OFSET  ALT_GPIO1_OFST
+#define VIRTUAL_GPIO1_OFSET  ALT_GPIO1_OFST
 #endif
 
 
@@ -2875,12 +2875,12 @@ extern "C"
 
 /*
  * Component Instance : gpio2
- * 
+ *
  * Instance gpio2 of component ALT_GPIO.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_GPIO_SWPORTA_DR register for the ALT_GPIO2 instance. */
+ /* The address of the ALT_GPIO_SWPORTA_DR register for the ALT_GPIO2 instance. */
 #define ALT_GPIO2_SWPORTA_DR_ADDR  ALT_GPIO_SWPORTA_DR_ADDR(ALT_GPIO2_ADDR)
 /* The address of the ALT_GPIO_SWPORTA_DDR register for the ALT_GPIO2 instance. */
 #define ALT_GPIO2_SWPORTA_DDR_ADDR  ALT_GPIO_SWPORTA_DDR_ADDR(ALT_GPIO2_ADDR)
@@ -2916,9 +2916,9 @@ extern "C"
 #define ALT_GPIO2_OFST        0xff70a000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_GPIO2_OFSET  (uint32_t) __hps_virtualAdreess_GPIO2
+#define VIRTUAL_GPIO2_OFSET  (uint32_t) __hps_virtualAdreess_GPIO2
 #else 
-    #define VIRTUAL_GPIO2_OFSET  ALT_GPIO2_OFST
+#define VIRTUAL_GPIO2_OFSET  ALT_GPIO2_OFST
 #endif
 
 
@@ -2932,21 +2932,21 @@ extern "C"
 
 /*
  * Component Instance : l3regs
- * 
+ *
  * Instance l3regs of component ALT_L3.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_REMAP register for the ALT_L3 instance. */
+ /* The address of the ALT_L3_REMAP register for the ALT_L3 instance. */
 #define ALT_L3_REMAP_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_L3_ADDR) + ALT_L3_REMAP_OFST))
 /*
  * Register Group Instance : secgrp
- * 
+ *
  * Instance secgrp of register group ALT_L3_SECGRP.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_SEC_L4MAIN register for the ALT_L3_SECGRP instance. */
+ /* The address of the ALT_L3_SEC_L4MAIN register for the ALT_L3_SECGRP instance. */
 #define ALT_L3_SEC_L4MAIN_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_L3_SECGRP_ADDR) + ALT_L3_SEC_L4MAIN_OFST))
 /* The address of the ALT_L3_SEC_L4SP register for the ALT_L3_SECGRP instance. */
 #define ALT_L3_SEC_L4SP_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_L3_SECGRP_ADDR) + ALT_L3_SEC_L4SP_OFST))
@@ -2994,12 +2994,12 @@ extern "C"
 
 /*
  * Register Group Instance : idgrp
- * 
+ *
  * Instance idgrp of register group ALT_L3_IDGRP.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_ID_PERIPH_ID_4 register for the ALT_L3_IDGRP instance. */
+ /* The address of the ALT_L3_ID_PERIPH_ID_4 register for the ALT_L3_IDGRP instance. */
 #define ALT_L3_ID_PERIPH_ID_4_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_L3_IDGRP_ADDR) + ALT_L3_ID_PERIPH_ID_4_OFST))
 /* The address of the ALT_L3_ID_PERIPH_ID_0 register for the ALT_L3_IDGRP instance. */
 #define ALT_L3_ID_PERIPH_ID_0_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_L3_IDGRP_ADDR) + ALT_L3_ID_PERIPH_ID_0_OFST))
@@ -3029,19 +3029,19 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp
- * 
+ *
  * Instance mastergrp of register group ALT_L3_MSTGRP.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : mastergrp_l4main
- * 
- * Instance mastergrp_l4main of register group ALT_L3_MST_L4MAIN.
- * 
- * 
- */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_L4MAIN instance. */
+ /*
+  * Register Group Instance : mastergrp_l4main
+  *
+  * Instance mastergrp_l4main of register group ALT_L3_MST_L4MAIN.
+  *
+  *
+  */
+  /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_L4MAIN instance. */
 #define ALT_L3_MST_MST_L4MAIN_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_L4MAIN_ADDR)
 /* The base address byte offset for the start of the ALT_L3_MST_MST_L4MAIN component. */
 #define ALT_L3_MST_MST_L4MAIN_OFST        0x0
@@ -3055,12 +3055,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_l4sp
- * 
+ *
  * Instance mastergrp_l4sp of register group ALT_L3_MST_L4SP.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_L4SP instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_L4SP instance. */
 #define ALT_L3_MST_MST_L4SP_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_L4SP_ADDR)
 /* The base address byte offset for the start of the ALT_L3_MST_MST_L4SP component. */
 #define ALT_L3_MST_MST_L4SP_OFST        0x1000
@@ -3074,12 +3074,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_l4mp
- * 
+ *
  * Instance mastergrp_l4mp of register group ALT_L3_MST_L4MP.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_L4MP instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_L4MP instance. */
 #define ALT_L3_MST_MST_L4MP_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_L4MP_ADDR)
 /* The base address byte offset for the start of the ALT_L3_MST_MST_L4MP component. */
 #define ALT_L3_MST_MST_L4MP_OFST        0x2000
@@ -3093,12 +3093,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_l4osc1
- * 
+ *
  * Instance mastergrp_l4osc1 of register group ALT_L3_MST_L4OSC1.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_L4OSC1 instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_L4OSC1 instance. */
 #define ALT_L3_MST_MST_L4OSC1_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_L4OSC1_ADDR)
 /* The base address byte offset for the start of the ALT_L3_MST_MST_L4OSC1 component. */
 #define ALT_L3_MST_MST_L4OSC1_OFST        0x3000
@@ -3112,12 +3112,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_l4spim
- * 
+ *
  * Instance mastergrp_l4spim of register group ALT_L3_MST_L4SPIM.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_L4SPIM instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_L4SPIM instance. */
 #define ALT_L3_MST_MST_L4SPIM_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_L4SPIM_ADDR)
 /* The base address byte offset for the start of the ALT_L3_MST_MST_L4SPIM component. */
 #define ALT_L3_MST_MST_L4SPIM_OFST        0x4000
@@ -3131,12 +3131,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_stm
- * 
+ *
  * Instance mastergrp_stm of register group ALT_L3_MST_STM.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_STM instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_STM instance. */
 #define ALT_L3_MST_MST_STM_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_STM_ADDR)
 /* The address of the ALT_L3_FN_MOD register for the ALT_L3_MST_MST_STM instance. */
 #define ALT_L3_MST_MST_STM_FN_MOD_ADDR  ALT_L3_FN_MOD_ADDR(ALT_L3_MST_MST_STM_ADDR)
@@ -3152,12 +3152,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_lwhps2fpga
- * 
+ *
  * Instance mastergrp_lwhps2fpga of register group ALT_L3_MST_LWH2F.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_LWH2F instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_LWH2F instance. */
 #define ALT_L3_MST_MST_LWH2F_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_LWH2F_ADDR)
 /* The address of the ALT_L3_FN_MOD register for the ALT_L3_MST_MST_LWH2F instance. */
 #define ALT_L3_MST_MST_LWH2F_FN_MOD_ADDR  ALT_L3_FN_MOD_ADDR(ALT_L3_MST_MST_LWH2F_ADDR)
@@ -3173,12 +3173,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_usb1
- * 
+ *
  * Instance mastergrp_usb1 of register group ALT_L3_MST_USB1.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_USB1 instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_USB1 instance. */
 #define ALT_L3_MST_MST_USB1_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_USB1_ADDR)
 /* The address of the ALT_L3_AHB_CNTL register for the ALT_L3_MST_MST_USB1 instance. */
 #define ALT_L3_MST_MST_USB1_AHB_CNTL_ADDR  ALT_L3_AHB_CNTL_ADDR(ALT_L3_MST_MST_USB1_ADDR)
@@ -3194,12 +3194,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_nanddata
- * 
+ *
  * Instance mastergrp_nanddata of register group ALT_L3_MST_NANDDATA.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_NANDDATA instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_NANDDATA instance. */
 #define ALT_L3_MST_MST_NANDDATA_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_NANDDATA_ADDR)
 /* The address of the ALT_L3_FN_MOD register for the ALT_L3_MST_MST_NANDDATA instance. */
 #define ALT_L3_MST_MST_NANDDATA_FN_MOD_ADDR  ALT_L3_FN_MOD_ADDR(ALT_L3_MST_MST_NANDDATA_ADDR)
@@ -3215,12 +3215,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_usb0
- * 
+ *
  * Instance mastergrp_usb0 of register group ALT_L3_MST_USB0.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_USB0 instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_USB0 instance. */
 #define ALT_L3_MST_MST_USB0_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_USB0_ADDR)
 /* The address of the ALT_L3_AHB_CNTL register for the ALT_L3_MST_MST_USB0 instance. */
 #define ALT_L3_MST_MST_USB0_AHB_CNTL_ADDR  ALT_L3_AHB_CNTL_ADDR(ALT_L3_MST_MST_USB0_ADDR)
@@ -3236,12 +3236,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_nandregs
- * 
+ *
  * Instance mastergrp_nandregs of register group ALT_L3_MST_NAND.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_NAND instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_NAND instance. */
 #define ALT_L3_MST_MST_NAND_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_NAND_ADDR)
 /* The address of the ALT_L3_FN_MOD register for the ALT_L3_MST_MST_NAND instance. */
 #define ALT_L3_MST_MST_NAND_FN_MOD_ADDR  ALT_L3_FN_MOD_ADDR(ALT_L3_MST_MST_NAND_ADDR)
@@ -3257,12 +3257,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_qspidata
- * 
+ *
  * Instance mastergrp_qspidata of register group ALT_L3_MST_QSPIDATA.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_QSPIDATA instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_QSPIDATA instance. */
 #define ALT_L3_MST_MST_QSPIDATA_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_QSPIDATA_ADDR)
 /* The address of the ALT_L3_AHB_CNTL register for the ALT_L3_MST_MST_QSPIDATA instance. */
 #define ALT_L3_MST_MST_QSPIDATA_AHB_CNTL_ADDR  ALT_L3_AHB_CNTL_ADDR(ALT_L3_MST_MST_QSPIDATA_ADDR)
@@ -3278,12 +3278,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_fpgamgrdata
- * 
+ *
  * Instance mastergrp_fpgamgrdata of register group ALT_L3_MST_FPGAMGRDATA.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_FPGAMGRDATA instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_FPGAMGRDATA instance. */
 #define ALT_L3_MST_MST_FPGAMGRDATA_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_FPGAMGRDATA_ADDR)
 /* The address of the ALT_L3_WR_TIDEMARK register for the ALT_L3_MST_MST_FPGAMGRDATA instance. */
 #define ALT_L3_MST_MST_FPGAMGRDATA_WR_TIDEMARK_ADDR  ALT_L3_WR_TIDEMARK_ADDR(ALT_L3_MST_MST_FPGAMGRDATA_ADDR)
@@ -3301,12 +3301,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_hps2fpga
- * 
+ *
  * Instance mastergrp_hps2fpga of register group ALT_L3_MST_H2F.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_H2F instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_H2F instance. */
 #define ALT_L3_MST_MST_H2F_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_H2F_ADDR)
 /* The address of the ALT_L3_WR_TIDEMARK register for the ALT_L3_MST_MST_H2F instance. */
 #define ALT_L3_MST_MST_H2F_WR_TIDEMARK_ADDR  ALT_L3_WR_TIDEMARK_ADDR(ALT_L3_MST_MST_H2F_ADDR)
@@ -3324,12 +3324,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_acp
- * 
+ *
  * Instance mastergrp_acp of register group ALT_L3_MST_ACP.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_ACP instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_ACP instance. */
 #define ALT_L3_MST_MST_ACP_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_ACP_ADDR)
 /* The address of the ALT_L3_FN_MOD register for the ALT_L3_MST_MST_ACP instance. */
 #define ALT_L3_MST_MST_ACP_FN_MOD_ADDR  ALT_L3_FN_MOD_ADDR(ALT_L3_MST_MST_ACP_ADDR)
@@ -3345,12 +3345,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_rom
- * 
+ *
  * Instance mastergrp_rom of register group ALT_L3_MST_ROM.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_ROM instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_ROM instance. */
 #define ALT_L3_MST_MST_ROM_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_ROM_ADDR)
 /* The address of the ALT_L3_FN_MOD register for the ALT_L3_MST_MST_ROM instance. */
 #define ALT_L3_MST_MST_ROM_FN_MOD_ADDR  ALT_L3_FN_MOD_ADDR(ALT_L3_MST_MST_ROM_ADDR)
@@ -3366,12 +3366,12 @@ extern "C"
 
 /*
  * Register Group Instance : mastergrp_ocram
- * 
+ *
  * Instance mastergrp_ocram of register group ALT_L3_MST_OCRAM.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_OCRAM instance. */
+ /* The address of the ALT_L3_FN_MOD_BM_ISS register for the ALT_L3_MST_MST_OCRAM instance. */
 #define ALT_L3_MST_MST_OCRAM_FN_MOD_BM_ISS_ADDR  ALT_L3_FN_MOD_BM_ISS_ADDR(ALT_L3_MST_MST_OCRAM_ADDR)
 /* The address of the ALT_L3_WR_TIDEMARK register for the ALT_L3_MST_MST_OCRAM instance. */
 #define ALT_L3_MST_MST_OCRAM_WR_TIDEMARK_ADDR  ALT_L3_WR_TIDEMARK_ADDR(ALT_L3_MST_MST_OCRAM_ADDR)
@@ -3399,19 +3399,19 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp
- * 
+ *
  * Instance slavegrp of register group ALT_L3_SLVGRP.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : slavegrp_dap
- * 
- * Instance slavegrp_dap of register group ALT_L3_SLV_DAP.
- * 
- * 
- */
-/* The address of the ALT_L3_FN_MOD2 register for the ALT_L3_SLV_SLV_DAP instance. */
+ /*
+  * Register Group Instance : slavegrp_dap
+  *
+  * Instance slavegrp_dap of register group ALT_L3_SLV_DAP.
+  *
+  *
+  */
+  /* The address of the ALT_L3_FN_MOD2 register for the ALT_L3_SLV_SLV_DAP instance. */
 #define ALT_L3_SLV_SLV_DAP_FN_MOD2_ADDR  ALT_L3_FN_MOD2_ADDR(ALT_L3_SLV_SLV_DAP_ADDR)
 /* The address of the ALT_L3_FN_MOD_AHB register for the ALT_L3_SLV_SLV_DAP instance. */
 #define ALT_L3_SLV_SLV_DAP_FN_MOD_AHB_ADDR  ALT_L3_FN_MOD_AHB_ADDR(ALT_L3_SLV_SLV_DAP_ADDR)
@@ -3433,12 +3433,12 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp_mpu
- * 
+ *
  * Instance slavegrp_mpu of register group ALT_L3_SLV_MPU.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_MPU instance. */
+ /* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_MPU instance. */
 #define ALT_L3_SLV_SLV_MPU_RD_QOS_ADDR  ALT_L3_RD_QOS_ADDR(ALT_L3_SLV_SLV_MPU_ADDR)
 /* The address of the ALT_L3_WR_QOS register for the ALT_L3_SLV_SLV_MPU instance. */
 #define ALT_L3_SLV_SLV_MPU_WR_QOS_ADDR  ALT_L3_WR_QOS_ADDR(ALT_L3_SLV_SLV_MPU_ADDR)
@@ -3456,12 +3456,12 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp_sdmmc
- * 
+ *
  * Instance slavegrp_sdmmc of register group ALT_L3_SLV_SDMMC.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_AHB register for the ALT_L3_SLV_SLV_SDMMC instance. */
+ /* The address of the ALT_L3_FN_MOD_AHB register for the ALT_L3_SLV_SLV_SDMMC instance. */
 #define ALT_L3_SLV_SLV_SDMMC_FN_MOD_AHB_ADDR  ALT_L3_FN_MOD_AHB_ADDR(ALT_L3_SLV_SLV_SDMMC_ADDR)
 /* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_SDMMC instance. */
 #define ALT_L3_SLV_SLV_SDMMC_RD_QOS_ADDR  ALT_L3_RD_QOS_ADDR(ALT_L3_SLV_SLV_SDMMC_ADDR)
@@ -3481,12 +3481,12 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp_dma
- * 
+ *
  * Instance slavegrp_dma of register group ALT_L3_SLV_DMA.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_DMA instance. */
+ /* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_DMA instance. */
 #define ALT_L3_SLV_SLV_DMA_RD_QOS_ADDR  ALT_L3_RD_QOS_ADDR(ALT_L3_SLV_SLV_DMA_ADDR)
 /* The address of the ALT_L3_WR_QOS register for the ALT_L3_SLV_SLV_DMA instance. */
 #define ALT_L3_SLV_SLV_DMA_WR_QOS_ADDR  ALT_L3_WR_QOS_ADDR(ALT_L3_SLV_SLV_DMA_ADDR)
@@ -3504,12 +3504,12 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp_fpga2hps
- * 
+ *
  * Instance slavegrp_fpga2hps of register group ALT_L3_SLV_F2H.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_WR_TIDEMARK register for the ALT_L3_SLV_SLV_F2H instance. */
+ /* The address of the ALT_L3_WR_TIDEMARK register for the ALT_L3_SLV_SLV_F2H instance. */
 #define ALT_L3_SLV_SLV_FPGA2WR_TIDEMARK_ADDR  ALT_L3_WR_TIDEMARK_ADDR(ALT_L3_SLV_SLV_F2H_ADDR)
 /* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_F2H instance. */
 #define ALT_L3_SLV_SLV_FPGA2RD_QOS_ADDR  ALT_L3_RD_QOS_ADDR(ALT_L3_SLV_SLV_F2H_ADDR)
@@ -3529,12 +3529,12 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp_etr
- * 
+ *
  * Instance slavegrp_etr of register group ALT_L3_SLV_ETR.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_ETR instance. */
+ /* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_ETR instance. */
 #define ALT_L3_SLV_SLV_ETR_RD_QOS_ADDR  ALT_L3_RD_QOS_ADDR(ALT_L3_SLV_SLV_ETR_ADDR)
 /* The address of the ALT_L3_WR_QOS register for the ALT_L3_SLV_SLV_ETR instance. */
 #define ALT_L3_SLV_SLV_ETR_WR_QOS_ADDR  ALT_L3_WR_QOS_ADDR(ALT_L3_SLV_SLV_ETR_ADDR)
@@ -3552,12 +3552,12 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp_emac0
- * 
+ *
  * Instance slavegrp_emac0 of register group ALT_L3_SLV_EMAC0.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_EMAC0 instance. */
+ /* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_EMAC0 instance. */
 #define ALT_L3_SLV_SLV_EMAC0_RD_QOS_ADDR  ALT_L3_RD_QOS_ADDR(ALT_L3_SLV_SLV_EMAC0_ADDR)
 /* The address of the ALT_L3_WR_QOS register for the ALT_L3_SLV_SLV_EMAC0 instance. */
 #define ALT_L3_SLV_SLV_EMAC0_WR_QOS_ADDR  ALT_L3_WR_QOS_ADDR(ALT_L3_SLV_SLV_EMAC0_ADDR)
@@ -3575,12 +3575,12 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp_emac1
- * 
+ *
  * Instance slavegrp_emac1 of register group ALT_L3_SLV_EMAC1.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_EMAC1 instance. */
+ /* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_EMAC1 instance. */
 #define ALT_L3_SLV_SLV_EMAC1_RD_QOS_ADDR  ALT_L3_RD_QOS_ADDR(ALT_L3_SLV_SLV_EMAC1_ADDR)
 /* The address of the ALT_L3_WR_QOS register for the ALT_L3_SLV_SLV_EMAC1 instance. */
 #define ALT_L3_SLV_SLV_EMAC1_WR_QOS_ADDR  ALT_L3_WR_QOS_ADDR(ALT_L3_SLV_SLV_EMAC1_ADDR)
@@ -3598,12 +3598,12 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp_usb0
- * 
+ *
  * Instance slavegrp_usb0 of register group ALT_L3_SLV_USB0.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_AHB register for the ALT_L3_SLV_SLV_USB0 instance. */
+ /* The address of the ALT_L3_FN_MOD_AHB register for the ALT_L3_SLV_SLV_USB0 instance. */
 #define ALT_L3_SLV_SLV_USB0_FN_MOD_AHB_ADDR  ALT_L3_FN_MOD_AHB_ADDR(ALT_L3_SLV_SLV_USB0_ADDR)
 /* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_USB0 instance. */
 #define ALT_L3_SLV_SLV_USB0_RD_QOS_ADDR  ALT_L3_RD_QOS_ADDR(ALT_L3_SLV_SLV_USB0_ADDR)
@@ -3623,12 +3623,12 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp_nand
- * 
+ *
  * Instance slavegrp_nand of register group ALT_L3_SLV_NAND.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_NAND instance. */
+ /* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_NAND instance. */
 #define ALT_L3_SLV_SLV_NAND_RD_QOS_ADDR  ALT_L3_RD_QOS_ADDR(ALT_L3_SLV_SLV_NAND_ADDR)
 /* The address of the ALT_L3_WR_QOS register for the ALT_L3_SLV_SLV_NAND instance. */
 #define ALT_L3_SLV_SLV_NAND_WR_QOS_ADDR  ALT_L3_WR_QOS_ADDR(ALT_L3_SLV_SLV_NAND_ADDR)
@@ -3646,12 +3646,12 @@ extern "C"
 
 /*
  * Register Group Instance : slavegrp_usb1
- * 
+ *
  * Instance slavegrp_usb1 of register group ALT_L3_SLV_USB1.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L3_FN_MOD_AHB register for the ALT_L3_SLV_SLV_USB1 instance. */
+ /* The address of the ALT_L3_FN_MOD_AHB register for the ALT_L3_SLV_SLV_USB1 instance. */
 #define ALT_L3_SLV_SLV_USB1_FN_MOD_AHB_ADDR  ALT_L3_FN_MOD_AHB_ADDR(ALT_L3_SLV_SLV_USB1_ADDR)
 /* The address of the ALT_L3_RD_QOS register for the ALT_L3_SLV_SLV_USB1 instance. */
 #define ALT_L3_SLV_SLV_USB1_RD_QOS_ADDR  ALT_L3_RD_QOS_ADDR(ALT_L3_SLV_SLV_USB1_ADDR)
@@ -3683,9 +3683,9 @@ extern "C"
 #define ALT_L3_OFST        0xff800000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_L3_OFSET  (uint32_t) __hps_virtualAdreess_L3
+#define VIRTUAL_L3_OFSET  (uint32_t) __hps_virtualAdreess_L3
 #else 
-    #define VIRTUAL_L3_OFSET  ALT_L3_OFST
+#define VIRTUAL_L3_OFSET  ALT_L3_OFST
 #endif
 
 
@@ -3699,18 +3699,18 @@ extern "C"
 
 /*
  * Component Instance : nanddata
- * 
+ *
  * Instance nanddata of component ALT_NANDDATA.
- * 
- * 
+ *
+ *
  */
-/* The base address byte offset for the start of the ALT_NANDDATA component. */
+ /* The base address byte offset for the start of the ALT_NANDDATA component. */
 #define ALT_NANDDATA_OFST        0xff900000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_NANDDATA_OFSET  (uint32_t) __hps_virtualAdreess_NANDDATA
+#define VIRTUAL_NANDDATA_OFSET  (uint32_t) __hps_virtualAdreess_NANDDATA
 #else 
-    #define VIRTUAL_NANDDATA_OFSET  ALT_NANDDATA_OFST
+#define VIRTUAL_NANDDATA_OFSET  ALT_NANDDATA_OFST
 #endif
 
 /* The start address of the ALT_NANDDATA component. */
@@ -3723,18 +3723,18 @@ extern "C"
 
 /*
  * Component Instance : qspidata
- * 
+ *
  * Instance qspidata of component ALT_QSPIDATA.
- * 
- * 
+ *
+ *
  */
-/* The base address byte offset for the start of the ALT_QSPIDATA component. */
+ /* The base address byte offset for the start of the ALT_QSPIDATA component. */
 #define ALT_QSPIDATA_OFST        0xffa00000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_QSPIDATA_OFSET  (uint32_t) __hps_virtualAdreess_QSPIDATA
+#define VIRTUAL_QSPIDATA_OFSET  (uint32_t) __hps_virtualAdreess_QSPIDATA
 #else 
-    #define VIRTUAL_QSPIDATA_OFSET  ALT_QSPIDATA_OFST
+#define VIRTUAL_QSPIDATA_OFSET  ALT_QSPIDATA_OFST
 #endif
 
 /* The start address of the ALT_QSPIDATA component. */
@@ -3747,19 +3747,19 @@ extern "C"
 
 /*
  * Component Instance : usb0
- * 
+ *
  * Instance usb0 of component ALT_USB.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : globgrp
- * 
- * Instance globgrp of register group ALT_USB_GLOB.
- * 
- * 
- */
-/* The address of the ALT_USB_GLOB_GOTGCTL register for the ALT_USB0_GLOBGRP instance. */
+ /*
+  * Register Group Instance : globgrp
+  *
+  * Instance globgrp of register group ALT_USB_GLOB.
+  *
+  *
+  */
+  /* The address of the ALT_USB_GLOB_GOTGCTL register for the ALT_USB0_GLOBGRP instance. */
 #define ALT_USB0_GLOB_GOTGCTL_ADDR  ALT_USB_GLOB_GOTGCTL_ADDR(ALT_USB0_GLOBGRP_ADDR)
 /* The address of the ALT_USB_GLOB_GOTGINT register for the ALT_USB0_GLOBGRP instance. */
 #define ALT_USB0_GLOB_GOTGINT_ADDR  ALT_USB_GLOB_GOTGINT_ADDR(ALT_USB0_GLOBGRP_ADDR)
@@ -3845,12 +3845,12 @@ extern "C"
 
 /*
  * Register Group Instance : hostgrp
- * 
+ *
  * Instance hostgrp of register group ALT_USB_HOST.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_USB_HOST_HCFG register for the ALT_USB0_HOSTGRP instance. */
+ /* The address of the ALT_USB_HOST_HCFG register for the ALT_USB0_HOSTGRP instance. */
 #define ALT_USB0_HOST_HCFG_ADDR  ALT_USB_HOST_HCFG_ADDR(ALT_USB0_HOSTGRP_ADDR)
 /* The address of the ALT_USB_HOST_HFIR register for the ALT_USB0_HOSTGRP instance. */
 #define ALT_USB0_HOST_HFIR_ADDR  ALT_USB_HOST_HFIR_ADDR(ALT_USB0_HOSTGRP_ADDR)
@@ -4102,12 +4102,12 @@ extern "C"
 
 /*
  * Register Group Instance : devgrp
- * 
+ *
  * Instance devgrp of register group ALT_USB_DEV.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_USB_DEV_DCFG register for the ALT_USB0_DEVGRP instance. */
+ /* The address of the ALT_USB_DEV_DCFG register for the ALT_USB0_DEVGRP instance. */
 #define ALT_USB0_DEV_DCFG_ADDR  ALT_USB_DEV_DCFG_ADDR(ALT_USB0_DEVGRP_ADDR)
 /* The address of the ALT_USB_DEV_DCTL register for the ALT_USB0_DEVGRP instance. */
 #define ALT_USB0_DEV_DCTL_ADDR  ALT_USB_DEV_DCTL_ADDR(ALT_USB0_DEVGRP_ADDR)
@@ -4493,12 +4493,12 @@ extern "C"
 
 /*
  * Register Group Instance : pwrclkgrp
- * 
+ *
  * Instance pwrclkgrp of register group ALT_USB_PWRCLK.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_USB_PWRCLK_PCGCCTL register for the ALT_USB0_PWRCLKGRP instance. */
+ /* The address of the ALT_USB_PWRCLK_PCGCCTL register for the ALT_USB0_PWRCLKGRP instance. */
 #define ALT_USB0_PWRCLK_PCGCCTL_ADDR  ALT_USB_PWRCLK_PCGCCTL_ADDR(ALT_USB0_PWRCLKGRP_ADDR)
 /* The base address byte offset for the start of the ALT_USB0_PWRCLKGRP component. */
 #define ALT_USB0_PWRCLKGRP_OFST        0xe00
@@ -4514,9 +4514,9 @@ extern "C"
 #define ALT_USB0_OFST        0xffb00000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_USB0_OFSET  (uint32_t) __hps_virtualAdreess_USB0
+#define VIRTUAL_USB0_OFSET  (uint32_t) __hps_virtualAdreess_USB0
 #else 
-    #define VIRTUAL_USB0_OFSET  ALT_USB0_OFST
+#define VIRTUAL_USB0_OFSET  ALT_USB0_OFST
 #endif
 /* The start address of the ALT_USB0 component. */
 #define ALT_USB0_ADDR        ALT_CAST(void *, (ALT_CAST(char *, ALT_HPS_ADDR) + VIRTUAL_USB0_OFSET))
@@ -4528,19 +4528,19 @@ extern "C"
 
 /*
  * Component Instance : usb1
- * 
+ *
  * Instance usb1 of component ALT_USB.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : globgrp
- * 
- * Instance globgrp of register group ALT_USB_GLOB.
- * 
- * 
- */
-/* The address of the ALT_USB_GLOB_GOTGCTL register for the ALT_USB1_GLOBGRP instance. */
+ /*
+  * Register Group Instance : globgrp
+  *
+  * Instance globgrp of register group ALT_USB_GLOB.
+  *
+  *
+  */
+  /* The address of the ALT_USB_GLOB_GOTGCTL register for the ALT_USB1_GLOBGRP instance. */
 #define ALT_USB1_GLOB_GOTGCTL_ADDR  ALT_USB_GLOB_GOTGCTL_ADDR(ALT_USB1_GLOBGRP_ADDR)
 /* The address of the ALT_USB_GLOB_GOTGINT register for the ALT_USB1_GLOBGRP instance. */
 #define ALT_USB1_GLOB_GOTGINT_ADDR  ALT_USB_GLOB_GOTGINT_ADDR(ALT_USB1_GLOBGRP_ADDR)
@@ -4626,12 +4626,12 @@ extern "C"
 
 /*
  * Register Group Instance : hostgrp
- * 
+ *
  * Instance hostgrp of register group ALT_USB_HOST.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_USB_HOST_HCFG register for the ALT_USB1_HOSTGRP instance. */
+ /* The address of the ALT_USB_HOST_HCFG register for the ALT_USB1_HOSTGRP instance. */
 #define ALT_USB1_HOST_HCFG_ADDR  ALT_USB_HOST_HCFG_ADDR(ALT_USB1_HOSTGRP_ADDR)
 /* The address of the ALT_USB_HOST_HFIR register for the ALT_USB1_HOSTGRP instance. */
 #define ALT_USB1_HOST_HFIR_ADDR  ALT_USB_HOST_HFIR_ADDR(ALT_USB1_HOSTGRP_ADDR)
@@ -4883,12 +4883,12 @@ extern "C"
 
 /*
  * Register Group Instance : devgrp
- * 
+ *
  * Instance devgrp of register group ALT_USB_DEV.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_USB_DEV_DCFG register for the ALT_USB1_DEVGRP instance. */
+ /* The address of the ALT_USB_DEV_DCFG register for the ALT_USB1_DEVGRP instance. */
 #define ALT_USB1_DEV_DCFG_ADDR  ALT_USB_DEV_DCFG_ADDR(ALT_USB1_DEVGRP_ADDR)
 /* The address of the ALT_USB_DEV_DCTL register for the ALT_USB1_DEVGRP instance. */
 #define ALT_USB1_DEV_DCTL_ADDR  ALT_USB_DEV_DCTL_ADDR(ALT_USB1_DEVGRP_ADDR)
@@ -5274,12 +5274,12 @@ extern "C"
 
 /*
  * Register Group Instance : pwrclkgrp
- * 
+ *
  * Instance pwrclkgrp of register group ALT_USB_PWRCLK.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_USB_PWRCLK_PCGCCTL register for the ALT_USB1_PWRCLKGRP instance. */
+ /* The address of the ALT_USB_PWRCLK_PCGCCTL register for the ALT_USB1_PWRCLKGRP instance. */
 #define ALT_USB1_PWRCLK_PCGCCTL_ADDR  ALT_USB_PWRCLK_PCGCCTL_ADDR(ALT_USB1_PWRCLKGRP_ADDR)
 /* The base address byte offset for the start of the ALT_USB1_PWRCLKGRP component. */
 #define ALT_USB1_PWRCLKGRP_OFST        0xe00
@@ -5295,9 +5295,9 @@ extern "C"
 #define ALT_USB1_OFST        0xffb40000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_USB1_OFSET  (uint32_t) __hps_virtualAdreess_USB1
+#define VIRTUAL_USB1_OFSET  (uint32_t) __hps_virtualAdreess_USB1
 #else 
-    #define VIRTUAL_USB1_OFSET  ALT_USB1_OFST
+#define VIRTUAL_USB1_OFSET  ALT_USB1_OFST
 #endif
 /* The start address of the ALT_USB1 component. */
 #define ALT_USB1_ADDR        ALT_CAST(void *, (ALT_CAST(char *, ALT_HPS_ADDR) + VIRTUAL_USB1_OFSET))
@@ -5309,19 +5309,19 @@ extern "C"
 
 /*
  * Component Instance : nandregs
- * 
+ *
  * Instance nandregs of component ALT_NAND.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : config
- * 
- * Instance config of register group ALT_NAND_CFG.
- * 
- * 
- */
-/* The address of the ALT_NAND_CFG_DEVICE_RST register for the ALT_NAND_CFG instance. */
+ /*
+  * Register Group Instance : config
+  *
+  * Instance config of register group ALT_NAND_CFG.
+  *
+  *
+  */
+  /* The address of the ALT_NAND_CFG_DEVICE_RST register for the ALT_NAND_CFG instance. */
 #define ALT_NAND_CFG_DEVICE_RST_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_NAND_CFG_ADDR) + ALT_NAND_CFG_DEVICE_RST_OFST))
 /* The address of the ALT_NAND_CFG_TFR_SPARE_REG register for the ALT_NAND_CFG instance. */
 #define ALT_NAND_CFG_TFR_SPARE_REG_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_NAND_CFG_ADDR) + ALT_NAND_CFG_TFR_SPARE_REG_OFST))
@@ -5421,12 +5421,12 @@ extern "C"
 
 /*
  * Register Group Instance : param
- * 
+ *
  * Instance param of register group ALT_NAND_PARAM.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_NAND_PARAM_MANUFACTURER_ID register for the ALT_NAND_PARAM instance. */
+ /* The address of the ALT_NAND_PARAM_MANUFACTURER_ID register for the ALT_NAND_PARAM instance. */
 #define ALT_NAND_PARAM_MANUFACTURER_ID_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_NAND_PARAM_ADDR) + ALT_NAND_PARAM_MANUFACTURER_ID_OFST))
 /* The address of the ALT_NAND_PARAM_DEVICE_ID register for the ALT_NAND_PARAM instance. */
 #define ALT_NAND_PARAM_DEVICE_ID_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_NAND_PARAM_ADDR) + ALT_NAND_PARAM_DEVICE_ID_OFST))
@@ -5470,12 +5470,12 @@ extern "C"
 
 /*
  * Register Group Instance : status
- * 
+ *
  * Instance status of register group ALT_NAND_STAT.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_NAND_STAT_TFR_MOD register for the ALT_NAND_STAT instance. */
+ /* The address of the ALT_NAND_STAT_TFR_MOD register for the ALT_NAND_STAT instance. */
 #define ALT_NAND_STAT_TFR_MOD_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_NAND_STAT_ADDR) + ALT_NAND_STAT_TFR_MOD_OFST))
 /* The address of the ALT_NAND_STAT_INTR_STAT0 register for the ALT_NAND_STAT instance. */
 #define ALT_NAND_STAT_INTR_STAT0_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_NAND_STAT_ADDR) + ALT_NAND_STAT_INTR_STAT0_OFST))
@@ -5529,12 +5529,12 @@ extern "C"
 
 /*
  * Register Group Instance : ecc
- * 
+ *
  * Instance ecc of register group ALT_NAND_ECC.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_NAND_ECC_ECCCORINFO_B01 register for the ALT_NAND_ECC instance. */
+ /* The address of the ALT_NAND_ECC_ECCCORINFO_B01 register for the ALT_NAND_ECC instance. */
 #define ALT_NAND_ECC_ECCCORINFO_B01_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_NAND_ECC_ADDR) + ALT_NAND_ECC_ECCCORINFO_B01_OFST))
 /* The address of the ALT_NAND_ECC_ECCCORINFO_B23 register for the ALT_NAND_ECC instance. */
 #define ALT_NAND_ECC_ECCCORINFO_B23_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_NAND_ECC_ADDR) + ALT_NAND_ECC_ECCCORINFO_B23_OFST))
@@ -5550,12 +5550,12 @@ extern "C"
 
 /*
  * Register Group Instance : dma
- * 
+ *
  * Instance dma of register group ALT_NAND_DMA.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_NAND_DMA_DMA_EN register for the ALT_NAND_DMA instance. */
+ /* The address of the ALT_NAND_DMA_DMA_EN register for the ALT_NAND_DMA instance. */
 #define ALT_NAND_DMA_DMA_EN_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_NAND_DMA_ADDR) + ALT_NAND_DMA_DMA_EN_OFST))
 /* The address of the ALT_NAND_DMA_DMA_INTR register for the ALT_NAND_DMA instance. */
 #define ALT_NAND_DMA_DMA_INTR_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_NAND_DMA_ADDR) + ALT_NAND_DMA_DMA_INTR_OFST))
@@ -5587,9 +5587,9 @@ extern "C"
 #define ALT_NAND_OFST        0xffb80000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_NAND_OFSET  (uint32_t) __hps_virtualAdreess_NAND
+#define VIRTUAL_NAND_OFSET  (uint32_t) __hps_virtualAdreess_NAND
 #else 
-    #define VIRTUAL_NAND_OFSET  ALT_NAND_OFST
+#define VIRTUAL_NAND_OFSET  ALT_NAND_OFST
 #endif
 
 /* The start address of the ALT_NAND component. */
@@ -5602,20 +5602,20 @@ extern "C"
 
 /*
  * Component Instance : fpgamgrdata
- * 
+ *
  * Instance fpgamgrdata of component ALT_FPGAMGRDATA.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_FPGAMGRDATA_DATA register for the ALT_FPGAMGRDATA instance. */
+ /* The address of the ALT_FPGAMGRDATA_DATA register for the ALT_FPGAMGRDATA instance. */
 #define ALT_FPGAMGRDATA_DATA_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_FPGAMGRDATA_ADDR) + ALT_FPGAMGRDATA_DATA_OFST))
 /* The base address byte offset for the start of the ALT_FPGAMGRDATA component. */
 #define ALT_FPGAMGRDATA_OFST        0xffb90000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_PPGAMGRDATA_OFSET (uint32_t)  __hps_virtualAdreess_FPGAMFRDATA
+#define VIRTUAL_PPGAMGRDATA_OFSET (uint32_t)  __hps_virtualAdreess_FPGAMFRDATA
 #else 
-    #define VIRTUAL_PPGAMGRDATA_OFSET  ALT_FPGAMGRDATA_OFST
+#define VIRTUAL_PPGAMGRDATA_OFSET  ALT_FPGAMGRDATA_OFST
 #endif
 
 /* The start address of the ALT_FPGAMGRDATA component. */
@@ -5628,19 +5628,19 @@ extern "C"
 
 /*
  * Component Instance : can0
- * 
+ *
  * Instance can0 of component ALT_CAN.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : protogrp
- * 
- * Instance protogrp of register group ALT_CAN_PROTO.
- * 
- * 
- */
-/* The address of the ALT_CAN_PROTO_CCTL register for the ALT_CAN0_PROTOGRP instance. */
+ /*
+  * Register Group Instance : protogrp
+  *
+  * Instance protogrp of register group ALT_CAN_PROTO.
+  *
+  *
+  */
+  /* The address of the ALT_CAN_PROTO_CCTL register for the ALT_CAN0_PROTOGRP instance. */
 #define ALT_CAN0_PROTO_CCTL_ADDR  ALT_CAN_PROTO_CCTL_ADDR(ALT_CAN0_PROTOGRP_ADDR)
 /* The address of the ALT_CAN_PROTO_CSTS register for the ALT_CAN0_PROTOGRP instance. */
 #define ALT_CAN0_PROTO_CSTS_ADDR  ALT_CAN_PROTO_CSTS_ADDR(ALT_CAN0_PROTOGRP_ADDR)
@@ -5670,12 +5670,12 @@ extern "C"
 
 /*
  * Register Group Instance : msghandgrp
- * 
+ *
  * Instance msghandgrp of register group ALT_CAN_MSGHAND.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_CAN_MSGHAND_MOTRX register for the ALT_CAN0_MSGHANDGRP instance. */
+ /* The address of the ALT_CAN_MSGHAND_MOTRX register for the ALT_CAN0_MSGHANDGRP instance. */
 #define ALT_CAN0_MSGHAND_MOTRX_ADDR  ALT_CAN_MSGHAND_MOTRX_ADDR(ALT_CAN0_MSGHANDGRP_ADDR)
 /* The address of the ALT_CAN_MSGHAND_MOTRA register for the ALT_CAN0_MSGHANDGRP instance. */
 #define ALT_CAN0_MSGHAND_MOTRA_ADDR  ALT_CAN_MSGHAND_MOTRA_ADDR(ALT_CAN0_MSGHANDGRP_ADDR)
@@ -5727,12 +5727,12 @@ extern "C"
 
 /*
  * Register Group Instance : msgifgrp
- * 
+ *
  * Instance msgifgrp of register group ALT_CAN_MSGIF.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_CAN_MSGIF_IF1CMR register for the ALT_CAN0_MSGIFGRP instance. */
+ /* The address of the ALT_CAN_MSGIF_IF1CMR register for the ALT_CAN0_MSGIFGRP instance. */
 #define ALT_CAN0_MSGIF_IF1CMR_ADDR  ALT_CAN_MSGIF_IF1CMR_ADDR(ALT_CAN0_MSGIFGRP_ADDR)
 /* The address of the ALT_CAN_MSGIF_IF1MSK register for the ALT_CAN0_MSGIFGRP instance. */
 #define ALT_CAN0_MSGIF_IF1MSK_ADDR  ALT_CAN_MSGIF_IF1MSK_ADDR(ALT_CAN0_MSGIFGRP_ADDR)
@@ -5770,9 +5770,9 @@ extern "C"
 #define ALT_CAN0_OFST         0xffc00000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_CAN0_OFSET  (uint32_t) __hps_virtualAdreess_CAN0
+#define VIRTUAL_CAN0_OFSET  (uint32_t) __hps_virtualAdreess_CAN0
 #else 
-    #define VIRTUAL_CAN0_OFSET  ALT_CAN0_OFST
+#define VIRTUAL_CAN0_OFSET  ALT_CAN0_OFST
 #endif
 
 /* The start address of the ALT_CAN0 component. */
@@ -5785,19 +5785,19 @@ extern "C"
 
 /*
  * Component Instance : can1
- * 
+ *
  * Instance can1 of component ALT_CAN.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : protogrp
- * 
- * Instance protogrp of register group ALT_CAN_PROTO.
- * 
- * 
- */
-/* The address of the ALT_CAN_PROTO_CCTL register for the ALT_CAN1_PROTOGRP instance. */
+ /*
+  * Register Group Instance : protogrp
+  *
+  * Instance protogrp of register group ALT_CAN_PROTO.
+  *
+  *
+  */
+  /* The address of the ALT_CAN_PROTO_CCTL register for the ALT_CAN1_PROTOGRP instance. */
 #define ALT_CAN1_PROTO_CCTL_ADDR  ALT_CAN_PROTO_CCTL_ADDR(ALT_CAN1_PROTOGRP_ADDR)
 /* The address of the ALT_CAN_PROTO_CSTS register for the ALT_CAN1_PROTOGRP instance. */
 #define ALT_CAN1_PROTO_CSTS_ADDR  ALT_CAN_PROTO_CSTS_ADDR(ALT_CAN1_PROTOGRP_ADDR)
@@ -5827,12 +5827,12 @@ extern "C"
 
 /*
  * Register Group Instance : msghandgrp
- * 
+ *
  * Instance msghandgrp of register group ALT_CAN_MSGHAND.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_CAN_MSGHAND_MOTRX register for the ALT_CAN1_MSGHANDGRP instance. */
+ /* The address of the ALT_CAN_MSGHAND_MOTRX register for the ALT_CAN1_MSGHANDGRP instance. */
 #define ALT_CAN1_MSGHAND_MOTRX_ADDR  ALT_CAN_MSGHAND_MOTRX_ADDR(ALT_CAN1_MSGHANDGRP_ADDR)
 /* The address of the ALT_CAN_MSGHAND_MOTRA register for the ALT_CAN1_MSGHANDGRP instance. */
 #define ALT_CAN1_MSGHAND_MOTRA_ADDR  ALT_CAN_MSGHAND_MOTRA_ADDR(ALT_CAN1_MSGHANDGRP_ADDR)
@@ -5884,12 +5884,12 @@ extern "C"
 
 /*
  * Register Group Instance : msgifgrp
- * 
+ *
  * Instance msgifgrp of register group ALT_CAN_MSGIF.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_CAN_MSGIF_IF1CMR register for the ALT_CAN1_MSGIFGRP instance. */
+ /* The address of the ALT_CAN_MSGIF_IF1CMR register for the ALT_CAN1_MSGIFGRP instance. */
 #define ALT_CAN1_MSGIF_IF1CMR_ADDR  ALT_CAN_MSGIF_IF1CMR_ADDR(ALT_CAN1_MSGIFGRP_ADDR)
 /* The address of the ALT_CAN_MSGIF_IF1MSK register for the ALT_CAN1_MSGIFGRP instance. */
 #define ALT_CAN1_MSGIF_IF1MSK_ADDR  ALT_CAN_MSGIF_IF1MSK_ADDR(ALT_CAN1_MSGIFGRP_ADDR)
@@ -5927,9 +5927,9 @@ extern "C"
 #define ALT_CAN1_OFST        0xffc01000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_CAN1_OFSET (uint32_t)  __hps_virtualAdreess_CAN1
+#define VIRTUAL_CAN1_OFSET (uint32_t)  __hps_virtualAdreess_CAN1
 #else 
-    #define VIRTUAL_CAN1_OFSET  ALT_CAN1_OFST
+#define VIRTUAL_CAN1_OFSET  ALT_CAN1_OFST
 #endif
 
 /* The start address of the ALT_CAN1 component. */
@@ -5942,12 +5942,12 @@ extern "C"
 
 /*
  * Component Instance : uart0
- * 
+ *
  * Instance uart0 of component ALT_UART.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_UART_RBR_THR_DLL register for the ALT_UART0 instance. */
+ /* The address of the ALT_UART_RBR_THR_DLL register for the ALT_UART0 instance. */
 #define ALT_UART0_RBR_THR_DLL_ADDR  ALT_UART_RBR_THR_DLL_ADDR(ALT_UART0_ADDR)
 /* The address of the ALT_UART_IER_DLH register for the ALT_UART0 instance. */
 #define ALT_UART0_IER_DLH_ADDR  ALT_UART_IER_DLH_ADDR(ALT_UART0_ADDR)
@@ -6009,9 +6009,9 @@ extern "C"
 #define ALT_UART0_OFST        0xffc02000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_UART0_OFSET  (uint32_t) __hps_virtualAdreess_UART0
+#define VIRTUAL_UART0_OFSET  (uint32_t) __hps_virtualAdreess_UART0
 #else 
-    #define VIRTUAL_UART0_OFSET  ALT_UART0_OFST
+#define VIRTUAL_UART0_OFSET  ALT_UART0_OFST
 #endif
 /* The start address of the ALT_UART0 component. */
 #define ALT_UART0_ADDR        ALT_CAST(void *, (ALT_CAST(char *, ALT_HPS_ADDR) + VIRTUAL_UART0_OFSET))
@@ -6023,12 +6023,12 @@ extern "C"
 
 /*
  * Component Instance : uart1
- * 
+ *
  * Instance uart1 of component ALT_UART.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_UART_RBR_THR_DLL register for the ALT_UART1 instance. */
+ /* The address of the ALT_UART_RBR_THR_DLL register for the ALT_UART1 instance. */
 #define ALT_UART1_RBR_THR_DLL_ADDR  ALT_UART_RBR_THR_DLL_ADDR(ALT_UART1_ADDR)
 /* The address of the ALT_UART_IER_DLH register for the ALT_UART1 instance. */
 #define ALT_UART1_IER_DLH_ADDR  ALT_UART_IER_DLH_ADDR(ALT_UART1_ADDR)
@@ -6090,9 +6090,9 @@ extern "C"
 #define ALT_UART1_OFST        0xffc03000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_UART1_OFSET (uint32_t) __hps_virtualAdreess_UART1
+#define VIRTUAL_UART1_OFSET (uint32_t) __hps_virtualAdreess_UART1
 #else 
-    #define VIRTUAL_UART1_OFSET  ALT_UART1_OFST
+#define VIRTUAL_UART1_OFSET  ALT_UART1_OFST
 #endif
 
 /* The start address of the ALT_UART1 component. */
@@ -6105,12 +6105,12 @@ extern "C"
 
 /*
  * Component Instance : i2c0
- * 
+ *
  * Instance i2c0 of component ALT_I2C.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_I2C_CON register for the ALT_I2C0 instance. */
+ /* The address of the ALT_I2C_CON register for the ALT_I2C0 instance. */
 #define ALT_I2C0_IC_CON_ADDR  ALT_I2C_CON_ADDR(ALT_I2C0_ADDR)
 /* The address of the ALT_I2C_TAR register for the ALT_I2C0 instance. */
 #define ALT_I2C0_IC_TAR_ADDR  ALT_I2C_TAR_ADDR(ALT_I2C0_ADDR)
@@ -6196,9 +6196,9 @@ extern "C"
 #define ALT_I2C0_OFST        0xffc04000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_I2C0_OFSET  (uint32_t) __hps_virtualAdreess_I2C0
+#define VIRTUAL_I2C0_OFSET  (uint32_t) __hps_virtualAdreess_I2C0
 #else 
-    #define VIRTUAL_I2C0_OFSET  ALT_I2C0_OFST
+#define VIRTUAL_I2C0_OFSET  ALT_I2C0_OFST
 #endif
 
 /* The start address of the ALT_I2C0 component. */
@@ -6211,12 +6211,12 @@ extern "C"
 
 /*
  * Component Instance : i2c1
- * 
+ *
  * Instance i2c1 of component ALT_I2C.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_I2C_CON register for the ALT_I2C1 instance. */
+ /* The address of the ALT_I2C_CON register for the ALT_I2C1 instance. */
 #define ALT_I2C1_IC_CON_ADDR  ALT_I2C_CON_ADDR(ALT_I2C1_ADDR)
 /* The address of the ALT_I2C_TAR register for the ALT_I2C1 instance. */
 #define ALT_I2C1_IC_TAR_ADDR  ALT_I2C_TAR_ADDR(ALT_I2C1_ADDR)
@@ -6302,9 +6302,9 @@ extern "C"
 #define ALT_I2C1_OFST        0xffc05000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_I2C1_OFSET  (uint32_t) __hps_virtualAdreess_I2C1
+#define VIRTUAL_I2C1_OFSET  (uint32_t) __hps_virtualAdreess_I2C1
 #else 
-    #define VIRTUAL_I2C1_OFSET  ALT_I2C1_OFST
+#define VIRTUAL_I2C1_OFSET  ALT_I2C1_OFST
 #endif
 /* The start address of the ALT_I2C1 component. */
 #define ALT_I2C1_ADDR        ALT_CAST(void *, (ALT_CAST(char *, ALT_HPS_ADDR) + VIRTUAL_I2C1_OFSET))
@@ -6316,12 +6316,12 @@ extern "C"
 
 /*
  * Component Instance : i2c2
- * 
+ *
  * Instance i2c2 of component ALT_I2C.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_I2C_CON register for the ALT_I2C2 instance. */
+ /* The address of the ALT_I2C_CON register for the ALT_I2C2 instance. */
 #define ALT_I2C2_IC_CON_ADDR  ALT_I2C_CON_ADDR(ALT_I2C2_ADDR)
 /* The address of the ALT_I2C_TAR register for the ALT_I2C2 instance. */
 #define ALT_I2C2_IC_TAR_ADDR  ALT_I2C_TAR_ADDR(ALT_I2C2_ADDR)
@@ -6407,9 +6407,9 @@ extern "C"
 #define ALT_I2C2_OFST        0xffc06000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_I2C2_OFSET  (uint32_t) __hps_virtualAdreess_I2C2
+#define VIRTUAL_I2C2_OFSET  (uint32_t) __hps_virtualAdreess_I2C2
 #else 
-    #define VIRTUAL_I2C2_OFSET  ALT_I2C2_OFST
+#define VIRTUAL_I2C2_OFSET  ALT_I2C2_OFST
 #endif
 /* The start address of the ALT_I2C2 component. */
 #define ALT_I2C2_ADDR        ALT_CAST(void *, (ALT_CAST(char *, ALT_HPS_ADDR) + VIRTUAL_I2C2_OFSET))
@@ -6421,12 +6421,12 @@ extern "C"
 
 /*
  * Component Instance : i2c3
- * 
+ *
  * Instance i2c3 of component ALT_I2C.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_I2C_CON register for the ALT_I2C3 instance. */
+ /* The address of the ALT_I2C_CON register for the ALT_I2C3 instance. */
 #define ALT_I2C3_IC_CON_ADDR  ALT_I2C_CON_ADDR(ALT_I2C3_ADDR)
 /* The address of the ALT_I2C_TAR register for the ALT_I2C3 instance. */
 #define ALT_I2C3_IC_TAR_ADDR  ALT_I2C_TAR_ADDR(ALT_I2C3_ADDR)
@@ -6512,9 +6512,9 @@ extern "C"
 #define ALT_I2C3_OFST        0xffc07000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_I2C3_OFSET  (uint32_t) __hps_virtualAdreess_I2C3
+#define VIRTUAL_I2C3_OFSET  (uint32_t) __hps_virtualAdreess_I2C3
 #else 
-    #define VIRTUAL_I2C3_OFSET  ALT_I2C3_OFST
+#define VIRTUAL_I2C3_OFSET  ALT_I2C3_OFST
 #endif
 
 /* The start address of the ALT_I2C3 component. */
@@ -6527,12 +6527,12 @@ extern "C"
 
 /*
  * Component Instance : sptimer0
- * 
+ *
  * Instance sptimer0 of component ALT_TMR.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_TMR_TMR1LDCOUNT register for the ALT_SPTMR0 instance. */
+ /* The address of the ALT_TMR_TMR1LDCOUNT register for the ALT_SPTMR0 instance. */
 #define ALT_SPTMR0_TMR1LDCOUNT_ADDR  ALT_TMR_TMR1LDCOUNT_ADDR(ALT_SPTMR0_ADDR)
 /* The address of the ALT_TMR_TMR1CURVAL register for the ALT_SPTMR0 instance. */
 #define ALT_SPTMR0_TMR1CURVAL_ADDR  ALT_TMR_TMR1CURVAL_ADDR(ALT_SPTMR0_ADDR)
@@ -6554,9 +6554,9 @@ extern "C"
 #define ALT_SPTMR0_OFST        0xffc08000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_SPTMR0_OFSET (uint32_t)  __hps_virtualAdreess_SPTIMER0
+#define VIRTUAL_SPTMR0_OFSET (uint32_t)  __hps_virtualAdreess_SPTIMER0
 #else 
-    #define VIRTUAL_SPTMR0_OFSET  ALT_SPTMR0_OFST
+#define VIRTUAL_SPTMR0_OFSET  ALT_SPTMR0_OFST
 #endif
 
 /* The start address of the ALT_SPTMR0 component. */
@@ -6569,12 +6569,12 @@ extern "C"
 
 /*
  * Component Instance : sptimer1
- * 
+ *
  * Instance sptimer1 of component ALT_TMR.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_TMR_TMR1LDCOUNT register for the ALT_SPTMR1 instance. */
+ /* The address of the ALT_TMR_TMR1LDCOUNT register for the ALT_SPTMR1 instance. */
 #define ALT_SPTMR1_TMR1LDCOUNT_ADDR  ALT_TMR_TMR1LDCOUNT_ADDR(ALT_SPTMR1_ADDR)
 /* The address of the ALT_TMR_TMR1CURVAL register for the ALT_SPTMR1 instance. */
 #define ALT_SPTMR1_TMR1CURVAL_ADDR  ALT_TMR_TMR1CURVAL_ADDR(ALT_SPTMR1_ADDR)
@@ -6596,9 +6596,9 @@ extern "C"
 #define ALT_SPTMR1_OFST        0xffc09000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_SPTMR1_OFSET (uint32_t)  __hps_virtualAdreess_SPTIMER1
+#define VIRTUAL_SPTMR1_OFSET (uint32_t)  __hps_virtualAdreess_SPTIMER1
 #else 
-    #define VIRTUAL_SPTMR1_OFSET  ALT_SPTMR1_OFST
+#define VIRTUAL_SPTMR1_OFSET  ALT_SPTMR1_OFST
 #endif
 
 /* The start address of the ALT_SPTMR1 component. */
@@ -6611,19 +6611,19 @@ extern "C"
 
 /*
  * Component Instance : sdr
- * 
+ *
  * Instance sdr of component ALT_SDR.
- * 
- * 
+ *
+ *
  */
-/*
- * Register Group Instance : ctrlgrp
- * 
- * Instance ctrlgrp of register group ALT_SDR_CTL.
- * 
- * 
- */
-/* The address of the ALT_SDR_CTL_CTLCFG register for the ALT_SDR_CTL instance. */
+ /*
+  * Register Group Instance : ctrlgrp
+  *
+  * Instance ctrlgrp of register group ALT_SDR_CTL.
+  *
+  *
+  */
+  /* The address of the ALT_SDR_CTL_CTLCFG register for the ALT_SDR_CTL instance. */
 #define ALT_SDR_CTL_CTLCFG_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SDR_CTL_ADDR) + ALT_SDR_CTL_CTLCFG_OFST))
 /* The address of the ALT_SDR_CTL_DRAMTIMING1 register for the ALT_SDR_CTL instance. */
 #define ALT_SDR_CTL_DRAMTIMING1_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SDR_CTL_ADDR) + ALT_SDR_CTL_DRAMTIMING1_OFST))
@@ -6691,12 +6691,12 @@ extern "C"
 #define ALT_SDR_CTL_REMAPPRIORITY_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SDR_CTL_ADDR) + ALT_SDR_CTL_REMAPPRIORITY_OFST))
 /*
  * Register Group Instance : ctrlgrp_mpweight
- * 
+ *
  * Instance ctrlgrp_mpweight of register group ALT_SDR_CTL_MPWT.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SDR_CTL_MPWT_MPWEIGHT_0_4 register for the ALT_SDR_CTL_CTL_MPWEIGHT instance. */
+ /* The address of the ALT_SDR_CTL_MPWT_MPWEIGHT_0_4 register for the ALT_SDR_CTL_CTL_MPWEIGHT instance. */
 #define ALT_SDR_CTL_CTL_MPWEIGHT_MPWEIGHT_0_4_ADDR  ALT_SDR_CTL_MPWT_MPWEIGHT_0_4_ADDR(ALT_SDR_CTL_CTL_MPWEIGHT_ADDR)
 /* The address of the ALT_SDR_CTL_MPWT_MPWEIGHT_1_4 register for the ALT_SDR_CTL_CTL_MPWEIGHT instance. */
 #define ALT_SDR_CTL_CTL_MPWEIGHT_MPWEIGHT_1_4_ADDR  ALT_SDR_CTL_MPWT_MPWEIGHT_1_4_ADDR(ALT_SDR_CTL_CTL_MPWEIGHT_ADDR)
@@ -6728,9 +6728,9 @@ extern "C"
 #define ALT_SDR_OFST        0xffc20000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_SDR_OFSET (uint32_t) __hps_virtualAdreess_SDR
+#define VIRTUAL_SDR_OFSET (uint32_t) __hps_virtualAdreess_SDR
 #else 
-    #define VIRTUAL_SDR_OFSET  ALT_SDR_OFST
+#define VIRTUAL_SDR_OFSET  ALT_SDR_OFST
 #endif
 
 /* The start address of the ALT_SDR component. */
@@ -6743,12 +6743,12 @@ extern "C"
 
 /*
  * Component Instance : osc1timer0
- * 
+ *
  * Instance osc1timer0 of component ALT_TMR.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_TMR_TMR1LDCOUNT register for the ALT_OSC1TMR0 instance. */
+ /* The address of the ALT_TMR_TMR1LDCOUNT register for the ALT_OSC1TMR0 instance. */
 #define ALT_OSC1TMR0_TMR1LDCOUNT_ADDR  ALT_TMR_TMR1LDCOUNT_ADDR(ALT_OSC1TMR0_ADDR)
 /* The address of the ALT_TMR_TMR1CURVAL register for the ALT_OSC1TMR0 instance. */
 #define ALT_OSC1TMR0_TMR1CURVAL_ADDR  ALT_TMR_TMR1CURVAL_ADDR(ALT_OSC1TMR0_ADDR)
@@ -6770,9 +6770,9 @@ extern "C"
 #define ALT_OSC1TMR0_OFST        0xffd00000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_OSC1TMR0_OFSET (uint32_t)  __hps_virtualAdreess_OSC1TMR0
+#define VIRTUAL_OSC1TMR0_OFSET (uint32_t)  __hps_virtualAdreess_OSC1TMR0
 #else 
-    #define VIRTUAL_OSC1TMR0_OFSET  ALT_OSC1TMR0_OFST
+#define VIRTUAL_OSC1TMR0_OFSET  ALT_OSC1TMR0_OFST
 #endif
 
 /* The start address of the ALT_OSC1TMR0 component. */
@@ -6785,12 +6785,12 @@ extern "C"
 
 /*
  * Component Instance : osc1timer1
- * 
+ *
  * Instance osc1timer1 of component ALT_TMR.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_TMR_TMR1LDCOUNT register for the ALT_OSC1TMR1 instance. */
+ /* The address of the ALT_TMR_TMR1LDCOUNT register for the ALT_OSC1TMR1 instance. */
 #define ALT_OSC1TMR1_TMR1LDCOUNT_ADDR  ALT_TMR_TMR1LDCOUNT_ADDR(ALT_OSC1TMR1_ADDR)
 /* The address of the ALT_TMR_TMR1CURVAL register for the ALT_OSC1TMR1 instance. */
 #define ALT_OSC1TMR1_TMR1CURVAL_ADDR  ALT_TMR_TMR1CURVAL_ADDR(ALT_OSC1TMR1_ADDR)
@@ -6812,9 +6812,9 @@ extern "C"
 #define ALT_OSC1TMR1_OFST        0xffd01000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_OSC1TMR1_OFSET  (uint32_t) __hps_virtualAdreess_OSC1TMR1
+#define VIRTUAL_OSC1TMR1_OFSET  (uint32_t) __hps_virtualAdreess_OSC1TMR1
 #else 
-    #define VIRTUAL_OSC1TMR1_OFSET  ALT_OSC1TMR1_OFST
+#define VIRTUAL_OSC1TMR1_OFSET  ALT_OSC1TMR1_OFST
 #endif
 
 /* The start address of the ALT_OSC1TMR1 component. */
@@ -6827,12 +6827,12 @@ extern "C"
 
 /*
  * Component Instance : l4wd0
- * 
+ *
  * Instance l4wd0 of component ALT_L4WD.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L4WD_CR register for the ALT_L4WD0 instance. */
+ /* The address of the ALT_L4WD_CR register for the ALT_L4WD0 instance. */
 #define ALT_L4WD0_WDT_CR_ADDR  ALT_L4WD_CR_ADDR(ALT_L4WD0_ADDR)
 /* The address of the ALT_L4WD_TORR register for the ALT_L4WD0 instance. */
 #define ALT_L4WD0_WDT_TORR_ADDR  ALT_L4WD_TORR_ADDR(ALT_L4WD0_ADDR)
@@ -6862,9 +6862,9 @@ extern "C"
 #define ALT_L4WD0_OFST        0xffd02000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_L4WD0_OFSET  (uint32_t) __hps_virtualAdreess_L4WD0
+#define VIRTUAL_L4WD0_OFSET  (uint32_t) __hps_virtualAdreess_L4WD0
 #else 
-    #define VIRTUAL_L4WD0_OFSET  ALT_L4WD0_OFST
+#define VIRTUAL_L4WD0_OFSET  ALT_L4WD0_OFST
 #endif
 
 /* The start address of the ALT_L4WD0 component. */
@@ -6877,12 +6877,12 @@ extern "C"
 
 /*
  * Component Instance : l4wd1
- * 
+ *
  * Instance l4wd1 of component ALT_L4WD.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_L4WD_CR register for the ALT_L4WD1 instance. */
+ /* The address of the ALT_L4WD_CR register for the ALT_L4WD1 instance. */
 #define ALT_L4WD1_WDT_CR_ADDR  ALT_L4WD_CR_ADDR(ALT_L4WD1_ADDR)
 /* The address of the ALT_L4WD_TORR register for the ALT_L4WD1 instance. */
 #define ALT_L4WD1_WDT_TORR_ADDR  ALT_L4WD_TORR_ADDR(ALT_L4WD1_ADDR)
@@ -6912,9 +6912,9 @@ extern "C"
 #define ALT_L4WD1_OFST        0xffd03000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_L4WD1_OFSET (uint32_t)  __hps_virtualAdreess_L4WD1
+#define VIRTUAL_L4WD1_OFSET (uint32_t)  __hps_virtualAdreess_L4WD1
 #else 
-    #define VIRTUAL_L4WD1_OFSET  ALT_L4WD1_OFST
+#define VIRTUAL_L4WD1_OFSET  ALT_L4WD1_OFST
 #endif
 
 
@@ -6928,12 +6928,12 @@ extern "C"
 
 /*
  * Component Instance : clkmgr
- * 
+ *
  * Instance clkmgr of component ALT_CLKMGR.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_CLKMGR_CTL register for the ALT_CLKMGR instance. */
+ /* The address of the ALT_CLKMGR_CTL register for the ALT_CLKMGR instance. */
 #define ALT_CLKMGR_CTL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_CLKMGR_ADDR) + ALT_CLKMGR_CTL_OFST))
 /* The address of the ALT_CLKMGR_BYPASS register for the ALT_CLKMGR instance. */
 #define ALT_CLKMGR_BYPASS_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_CLKMGR_ADDR) + ALT_CLKMGR_BYPASS_OFST))
@@ -6947,12 +6947,12 @@ extern "C"
 #define ALT_CLKMGR_STAT_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_CLKMGR_ADDR) + ALT_CLKMGR_STAT_OFST))
 /*
  * Register Group Instance : mainpllgrp
- * 
+ *
  * Instance mainpllgrp of register group ALT_CLKMGR_MAINPLL.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_CLKMGR_MAINPLL_VCO register for the ALT_CLKMGR_MAINPLL instance. */
+ /* The address of the ALT_CLKMGR_MAINPLL_VCO register for the ALT_CLKMGR_MAINPLL instance. */
 #define ALT_CLKMGR_MAINPLL_VCO_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_CLKMGR_MAINPLL_ADDR) + ALT_CLKMGR_MAINPLL_VCO_OFST))
 /* The address of the ALT_CLKMGR_MAINPLL_MISC register for the ALT_CLKMGR_MAINPLL instance. */
 #define ALT_CLKMGR_MAINPLL_MISC_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_CLKMGR_MAINPLL_ADDR) + ALT_CLKMGR_MAINPLL_MISC_OFST))
@@ -6992,12 +6992,12 @@ extern "C"
 
 /*
  * Register Group Instance : perpllgrp
- * 
+ *
  * Instance perpllgrp of register group ALT_CLKMGR_PERPLL.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_CLKMGR_PERPLL_VCO register for the ALT_CLKMGR_PERPLL instance. */
+ /* The address of the ALT_CLKMGR_PERPLL_VCO register for the ALT_CLKMGR_PERPLL instance. */
 #define ALT_CLKMGR_PERPLL_VCO_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_CLKMGR_PERPLL_ADDR) + ALT_CLKMGR_PERPLL_VCO_OFST))
 /* The address of the ALT_CLKMGR_PERPLL_MISC register for the ALT_CLKMGR_PERPLL instance. */
 #define ALT_CLKMGR_PERPLL_MISC_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_CLKMGR_PERPLL_ADDR) + ALT_CLKMGR_PERPLL_MISC_OFST))
@@ -7035,12 +7035,12 @@ extern "C"
 
 /*
  * Register Group Instance : sdrpllgrp
- * 
+ *
  * Instance sdrpllgrp of register group ALT_CLKMGR_SDRPLL.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_CLKMGR_SDRPLL_VCO register for the ALT_CLKMGR_SDRPLL instance. */
+ /* The address of the ALT_CLKMGR_SDRPLL_VCO register for the ALT_CLKMGR_SDRPLL instance. */
 #define ALT_CLKMGR_SDRPLL_VCO_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_CLKMGR_SDRPLL_ADDR) + ALT_CLKMGR_SDRPLL_VCO_OFST))
 /* The address of the ALT_CLKMGR_SDRPLL_CTL register for the ALT_CLKMGR_SDRPLL instance. */
 #define ALT_CLKMGR_SDRPLL_CTL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_CLKMGR_SDRPLL_ADDR) + ALT_CLKMGR_SDRPLL_CTL_OFST))
@@ -7068,12 +7068,12 @@ extern "C"
 
 /*
  * Register Group Instance : miscgrp
- * 
+ *
  * Instance miscgrp of register group ALT_CLKMGR_MISCGRP.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_CLKMGR_MISC_MPUCLK register for the ALT_CLKMGR_MISCGRP instance. */
+ /* The address of the ALT_CLKMGR_MISC_MPUCLK register for the ALT_CLKMGR_MISCGRP instance. */
 #define ALT_CLKMGR_MISC_MPUCLK_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_CLKMGR_MISCGRP_ADDR) + ALT_CLKMGR_MISC_MPUCLK_OFST))
 /* The address of the ALT_CLKMGR_MISC_MAINCLK register for the ALT_CLKMGR_MISCGRP instance. */
 #define ALT_CLKMGR_MISC_MAINCLK_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_CLKMGR_MISCGRP_ADDR) + ALT_CLKMGR_MISC_MAINCLK_OFST))
@@ -7093,9 +7093,9 @@ extern "C"
 #define ALT_CLKMGR_OFST        0xffd04000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_CLKMGR_OFSET  (uint32_t) __hps_virtualAdreess_CLKMGR
+#define VIRTUAL_CLKMGR_OFSET  (uint32_t) __hps_virtualAdreess_CLKMGR
 #else 
-    #define VIRTUAL_CLKMGR_OFSET  ALT_CLKMGR_OFST
+#define VIRTUAL_CLKMGR_OFSET  ALT_CLKMGR_OFST
 #endif
 /* The start address of the ALT_CLKMGR component. */
 #define ALT_CLKMGR_ADDR        ALT_CAST(void *, (ALT_CAST(char *, ALT_HPS_ADDR) + VIRTUAL_CLKMGR_OFSET))
@@ -7107,12 +7107,12 @@ extern "C"
 
 /*
  * Component Instance : rstmgr
- * 
+ *
  * Instance rstmgr of component ALT_RSTMGR.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_RSTMGR_STAT register for the ALT_RSTMGR instance. */
+ /* The address of the ALT_RSTMGR_STAT register for the ALT_RSTMGR instance. */
 #define ALT_RSTMGR_STAT_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_RSTMGR_ADDR) + ALT_RSTMGR_STAT_OFST))
 /* The address of the ALT_RSTMGR_CTL register for the ALT_RSTMGR instance. */
 #define ALT_RSTMGR_CTL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_RSTMGR_ADDR) + ALT_RSTMGR_CTL_OFST))
@@ -7132,9 +7132,9 @@ extern "C"
 #define ALT_RSTMGR_OFST        0xffd05000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_RSTMGR_OFSET  (uint32_t) __hps_virtualAdreess_RSTMGR
+#define VIRTUAL_RSTMGR_OFSET  (uint32_t) __hps_virtualAdreess_RSTMGR
 #else 
-    #define VIRTUAL_RSTMGR_OFSET  ALT_RSTMGR_OFST
+#define VIRTUAL_RSTMGR_OFSET  ALT_RSTMGR_OFST
 #endif
 
 /* The start address of the ALT_RSTMGR component. */
@@ -7147,12 +7147,12 @@ extern "C"
 
 /*
  * Component Instance : sysmgr
- * 
+ *
  * Instance sysmgr of component ALT_SYSMGR.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_SILICONID1 register for the ALT_SYSMGR instance. */
+ /* The address of the ALT_SYSMGR_SILICONID1 register for the ALT_SYSMGR instance. */
 #define ALT_SYSMGR_SILICONID1_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_ADDR) + ALT_SYSMGR_SILICONID1_OFST))
 /* The address of the ALT_SYSMGR_SILICONID2 register for the ALT_SYSMGR instance. */
 #define ALT_SYSMGR_SILICONID2_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_ADDR) + ALT_SYSMGR_SILICONID2_OFST))
@@ -7166,12 +7166,12 @@ extern "C"
 #define ALT_SYSMGR_PARITYINJ_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_ADDR) + ALT_SYSMGR_PARITYINJ_OFST))
 /*
  * Register Group Instance : fpgaintfgrp
- * 
+ *
  * Instance fpgaintfgrp of register group ALT_SYSMGR_FPGAINTF.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_FPGAINTF_GBL register for the ALT_SYSMGR_FPGAINTF instance. */
+ /* The address of the ALT_SYSMGR_FPGAINTF_GBL register for the ALT_SYSMGR_FPGAINTF instance. */
 #define ALT_SYSMGR_FPGAINTF_GBL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_FPGAINTF_ADDR) + ALT_SYSMGR_FPGAINTF_GBL_OFST))
 /* The address of the ALT_SYSMGR_FPGAINTF_INDIV register for the ALT_SYSMGR_FPGAINTF instance. */
 #define ALT_SYSMGR_FPGAINTF_INDIV_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_FPGAINTF_ADDR) + ALT_SYSMGR_FPGAINTF_INDIV_OFST))
@@ -7189,12 +7189,12 @@ extern "C"
 
 /*
  * Register Group Instance : scanmgrgrp
- * 
+ *
  * Instance scanmgrgrp of register group ALT_SYSMGR_SCANMGR.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_SCANMGR_CTL register for the ALT_SYSMGR_SCANMGR instance. */
+ /* The address of the ALT_SYSMGR_SCANMGR_CTL register for the ALT_SYSMGR_SCANMGR instance. */
 #define ALT_SYSMGR_SCANMGR_CTL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_SCANMGR_ADDR) + ALT_SYSMGR_SCANMGR_CTL_OFST))
 /* The base address byte offset for the start of the ALT_SYSMGR_SCANMGR component. */
 #define ALT_SYSMGR_SCANMGR_OFST        0x30
@@ -7208,12 +7208,12 @@ extern "C"
 
 /*
  * Register Group Instance : frzctrl
- * 
+ *
  * Instance frzctrl of register group ALT_SYSMGR_FRZCTL.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_FRZCTL_VIOCTL register for the ALT_SYSMGR_FRZCTL instance. */
+ /* The address of the ALT_SYSMGR_FRZCTL_VIOCTL register for the ALT_SYSMGR_FRZCTL instance. */
 #define ALT_SYSMGR_FRZCTL_VIOCTL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_FRZCTL_ADDR) + ALT_SYSMGR_FRZCTL_VIOCTL_OFST))
 /* The address of the ALT_SYSMGR_FRZCTL_HIOCTL register for the ALT_SYSMGR_FRZCTL instance. */
 #define ALT_SYSMGR_FRZCTL_HIOCTL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_FRZCTL_ADDR) + ALT_SYSMGR_FRZCTL_HIOCTL_OFST))
@@ -7233,12 +7233,12 @@ extern "C"
 
 /*
  * Register Group Instance : emacgrp
- * 
+ *
  * Instance emacgrp of register group ALT_SYSMGR_EMAC.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_EMAC_CTL register for the ALT_SYSMGR_EMAC instance. */
+ /* The address of the ALT_SYSMGR_EMAC_CTL register for the ALT_SYSMGR_EMAC instance. */
 #define ALT_SYSMGR_EMAC_CTL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_EMAC_ADDR) + ALT_SYSMGR_EMAC_CTL_OFST))
 /* The address of the ALT_SYSMGR_EMAC_L3MST register for the ALT_SYSMGR_EMAC instance. */
 #define ALT_SYSMGR_EMAC_L3MST_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_EMAC_ADDR) + ALT_SYSMGR_EMAC_L3MST_OFST))
@@ -7254,12 +7254,12 @@ extern "C"
 
 /*
  * Register Group Instance : dmagrp
- * 
+ *
  * Instance dmagrp of register group ALT_SYSMGR_DMA.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_DMA_CTL register for the ALT_SYSMGR_DMA instance. */
+ /* The address of the ALT_SYSMGR_DMA_CTL register for the ALT_SYSMGR_DMA instance. */
 #define ALT_SYSMGR_DMA_CTL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_DMA_ADDR) + ALT_SYSMGR_DMA_CTL_OFST))
 /* The address of the ALT_SYSMGR_DMA_PERSECURITY register for the ALT_SYSMGR_DMA instance. */
 #define ALT_SYSMGR_DMA_PERSECURITY_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_DMA_ADDR) + ALT_SYSMGR_DMA_PERSECURITY_OFST))
@@ -7275,12 +7275,12 @@ extern "C"
 
 /*
  * Register Group Instance : iswgrp
- * 
+ *
  * Instance iswgrp of register group ALT_SYSMGR_ISW.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_ISW_HANDOFF register for the ALT_SYSMGR_ISW instance. */
+ /* The address of the ALT_SYSMGR_ISW_HANDOFF register for the ALT_SYSMGR_ISW instance. */
 #define ALT_SYSMGR_ISW_HANDOFF_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_ISW_ADDR) + ALT_SYSMGR_ISW_HANDOFF_OFST))
 /* The base address byte offset for the start of the ALT_SYSMGR_ISW component. */
 #define ALT_SYSMGR_ISW_OFST        0x80
@@ -7294,12 +7294,12 @@ extern "C"
 
 /*
  * Register Group Instance : romcodegrp
- * 
+ *
  * Instance romcodegrp of register group ALT_SYSMGR_ROMCODE.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_ROMCODE_CTL register for the ALT_SYSMGR_ROMCODE instance. */
+ /* The address of the ALT_SYSMGR_ROMCODE_CTL register for the ALT_SYSMGR_ROMCODE instance. */
 #define ALT_SYSMGR_ROMCODE_CTL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_ROMCODE_ADDR) + ALT_SYSMGR_ROMCODE_CTL_OFST))
 /* The address of the ALT_SYSMGR_ROMCODE_CPU1STARTADDR register for the ALT_SYSMGR_ROMCODE instance. */
 #define ALT_SYSMGR_ROMCODE_CPU1STARTADDR_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_ROMCODE_ADDR) + ALT_SYSMGR_ROMCODE_CPU1STARTADDR_OFST))
@@ -7311,12 +7311,12 @@ extern "C"
 #define ALT_SYSMGR_ROMCODE_BOOTROMSWSTATE_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_ROMCODE_ADDR) + ALT_SYSMGR_ROMCODE_BOOTROMSWSTATE_OFST))
 /*
  * Register Group Instance : romcodegrp_warmramgrp
- * 
+ *
  * Instance romcodegrp_warmramgrp of register group ALT_SYSMGR_ROMCODE_WARMRAM.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_ROMCODE_WARMRAM_EN register for the ALT_SYSMGR_ROMCODE_ROMCODE_WARMRAMGRP instance. */
+ /* The address of the ALT_SYSMGR_ROMCODE_WARMRAM_EN register for the ALT_SYSMGR_ROMCODE_ROMCODE_WARMRAMGRP instance. */
 #define ALT_SYSMGR_ROMCODE_ROMCODE_WARMRAM_EN_ADDR  ALT_SYSMGR_ROMCODE_WARMRAM_EN_ADDR(ALT_SYSMGR_ROMCODE_ROMCODE_WARMRAMGRP_ADDR)
 /* The address of the ALT_SYSMGR_ROMCODE_WARMRAM_DATASTART register for the ALT_SYSMGR_ROMCODE_ROMCODE_WARMRAMGRP instance. */
 #define ALT_SYSMGR_ROMCODE_ROMCODE_WARMRAM_DATASTART_ADDR  ALT_SYSMGR_ROMCODE_WARMRAM_DATASTART_ADDR(ALT_SYSMGR_ROMCODE_ROMCODE_WARMRAMGRP_ADDR)
@@ -7348,12 +7348,12 @@ extern "C"
 
 /*
  * Register Group Instance : romhwgrp
- * 
+ *
  * Instance romhwgrp of register group ALT_SYSMGR_ROMHW.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_ROMHW_CTL register for the ALT_SYSMGR_ROMHW instance. */
+ /* The address of the ALT_SYSMGR_ROMHW_CTL register for the ALT_SYSMGR_ROMHW instance. */
 #define ALT_SYSMGR_ROMHW_CTL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_ROMHW_ADDR) + ALT_SYSMGR_ROMHW_CTL_OFST))
 /* The base address byte offset for the start of the ALT_SYSMGR_ROMHW component. */
 #define ALT_SYSMGR_ROMHW_OFST        0x100
@@ -7367,12 +7367,12 @@ extern "C"
 
 /*
  * Register Group Instance : sdmmcgrp
- * 
+ *
  * Instance sdmmcgrp of register group ALT_SYSMGR_SDMMC.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_SDMMC_CTL register for the ALT_SYSMGR_SDMMC instance. */
+ /* The address of the ALT_SYSMGR_SDMMC_CTL register for the ALT_SYSMGR_SDMMC instance. */
 #define ALT_SYSMGR_SDMMC_CTL_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_SDMMC_ADDR) + ALT_SYSMGR_SDMMC_CTL_OFST))
 /* The address of the ALT_SYSMGR_SDMMC_L3MST register for the ALT_SYSMGR_SDMMC instance. */
 #define ALT_SYSMGR_SDMMC_L3MST_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_SDMMC_ADDR) + ALT_SYSMGR_SDMMC_L3MST_OFST))
@@ -7388,12 +7388,12 @@ extern "C"
 
 /*
  * Register Group Instance : nandgrp
- * 
+ *
  * Instance nandgrp of register group ALT_SYSMGR_NAND.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_NAND_BOOTSTRAP register for the ALT_SYSMGR_NAND instance. */
+ /* The address of the ALT_SYSMGR_NAND_BOOTSTRAP register for the ALT_SYSMGR_NAND instance. */
 #define ALT_SYSMGR_NAND_BOOTSTRAP_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_NAND_ADDR) + ALT_SYSMGR_NAND_BOOTSTRAP_OFST))
 /* The address of the ALT_SYSMGR_NAND_L3MST register for the ALT_SYSMGR_NAND instance. */
 #define ALT_SYSMGR_NAND_L3MST_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_NAND_ADDR) + ALT_SYSMGR_NAND_L3MST_OFST))
@@ -7409,12 +7409,12 @@ extern "C"
 
 /*
  * Register Group Instance : usbgrp
- * 
+ *
  * Instance usbgrp of register group ALT_SYSMGR_USB.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_USB_L3MST register for the ALT_SYSMGR_USB instance. */
+ /* The address of the ALT_SYSMGR_USB_L3MST register for the ALT_SYSMGR_USB instance. */
 #define ALT_SYSMGR_USB_L3MST_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_USB_ADDR) + ALT_SYSMGR_USB_L3MST_OFST))
 /* The base address byte offset for the start of the ALT_SYSMGR_USB component. */
 #define ALT_SYSMGR_USB_OFST        0x118
@@ -7428,12 +7428,12 @@ extern "C"
 
 /*
  * Register Group Instance : eccgrp
- * 
+ *
  * Instance eccgrp of register group ALT_SYSMGR_ECC.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_ECC_L2 register for the ALT_SYSMGR_ECC instance. */
+ /* The address of the ALT_SYSMGR_ECC_L2 register for the ALT_SYSMGR_ECC instance. */
 #define ALT_SYSMGR_ECC_L2_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_ECC_ADDR) + ALT_SYSMGR_ECC_L2_OFST))
 /* The address of the ALT_SYSMGR_ECC_OCRAM register for the ALT_SYSMGR_ECC instance. */
 #define ALT_SYSMGR_ECC_OCRAM_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_ECC_ADDR) + ALT_SYSMGR_ECC_OCRAM_OFST))
@@ -7469,12 +7469,12 @@ extern "C"
 
 /*
  * Register Group Instance : pinmuxgrp
- * 
+ *
  * Instance pinmuxgrp of register group ALT_SYSMGR_PINMUX.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SYSMGR_PINMUX_EMACIO0 register for the ALT_SYSMGR_PINMUX instance. */
+ /* The address of the ALT_SYSMGR_PINMUX_EMACIO0 register for the ALT_SYSMGR_PINMUX instance. */
 #define ALT_SYSMGR_PINMUX_EMACIO0_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_PINMUX_ADDR) + ALT_SYSMGR_PINMUX_EMACIO0_OFST))
 /* The address of the ALT_SYSMGR_PINMUX_EMACIO1 register for the ALT_SYSMGR_PINMUX instance. */
 #define ALT_SYSMGR_PINMUX_EMACIO1_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SYSMGR_PINMUX_ADDR) + ALT_SYSMGR_PINMUX_EMACIO1_OFST))
@@ -7882,9 +7882,9 @@ extern "C"
 #define ALT_SYSMGR_OFST        0xffd08000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_SYSMGR_OFSET  (uint32_t) __hps_virtualAdreess_SYSMGR
+#define VIRTUAL_SYSMGR_OFSET  (uint32_t) __hps_virtualAdreess_SYSMGR
 #else 
-    #define VIRTUAL_SYSMGR_OFSET  ALT_SYSMGR_OFST
+#define VIRTUAL_SYSMGR_OFSET  ALT_SYSMGR_OFST
 #endif
 
 /* The start address of the ALT_SYSMGR component. */
@@ -7897,20 +7897,20 @@ extern "C"
 
 /*
  * Component Instance : dmanonsecure
- * 
+ *
  * Instance dmanonsecure of component ALT_DMANONSECURE.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_DMANONSECURE_REG register for the ALT_DMANONSECURE instance. */
+ /* The address of the ALT_DMANONSECURE_REG register for the ALT_DMANONSECURE instance. */
 #define ALT_DMANONSECURE_REG_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_DMANONSECURE_ADDR) + ALT_DMANONSECURE_REG_OFST))
 /* The base address byte offset for the start of the ALT_DMANONSECURE component. */
 #define ALT_DMANONSECURE_OFST        0xffe00000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_DMANONSECURER_OFSET  (uint32_t)  __hps_virtualAdreess_DMANONSECURER
+#define VIRTUAL_DMANONSECURER_OFSET  (uint32_t)  __hps_virtualAdreess_DMANONSECURER
 #else 
-    #define VIRTUAL_DMANONSECURER_OFSET  ALT_DMANONSECURE_OFST
+#define VIRTUAL_DMANONSECURER_OFSET  ALT_DMANONSECURE_OFST
 #endif
 
 /* The start address of the ALT_DMANONSECURE component. */
@@ -7923,20 +7923,20 @@ extern "C"
 
 /*
  * Component Instance : dmasecure
- * 
+ *
  * Instance dmasecure of component ALT_DMASECURE.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_DMASECURE_REG register for the ALT_DMASECURE instance. */
+ /* The address of the ALT_DMASECURE_REG register for the ALT_DMASECURE instance. */
 #define ALT_DMASECURE_REG_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_DMASECURE_ADDR) + ALT_DMASECURE_REG_OFST))
 /* The base address byte offset for the start of the ALT_DMASECURE component. */
 #define ALT_DMASECURE_OFST        0xffe01000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_DMASECURE_OFSET  (uint32_t) __hps_virtualAdreess_DMASECURE
+#define VIRTUAL_DMASECURE_OFSET  (uint32_t) __hps_virtualAdreess_DMASECURE
 #else 
-    #define VIRTUAL_DMASECURE_OFSET  ALT_DMASECURE_OFST
+#define VIRTUAL_DMASECURE_OFSET  ALT_DMASECURE_OFST
 #endif
 
 /* The start address of the ALT_DMASECURE component. */
@@ -7949,12 +7949,12 @@ extern "C"
 
 /*
  * Component Instance : spis0
- * 
+ *
  * Instance spis0 of component ALT_SPIS.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SPIS_CTLR0 register for the ALT_SPIS0 instance. */
+ /* The address of the ALT_SPIS_CTLR0 register for the ALT_SPIS0 instance. */
 #define ALT_SPIS0_CTLR0_ADDR  ALT_SPIS_CTLR0_ADDR(ALT_SPIS0_ADDR)
 /* The address of the ALT_SPIS_SPIENR register for the ALT_SPIS0 instance. */
 #define ALT_SPIS0_SPIENR_ADDR  ALT_SPIS_SPIENR_ADDR(ALT_SPIS0_ADDR)
@@ -8000,9 +8000,9 @@ extern "C"
 #define ALT_SPIS0_OFST        0xffe02000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_SPIO0_OFSET  (uint32_t) __hps_virtualAdreess_spis0
+#define VIRTUAL_SPIO0_OFSET  (uint32_t) __hps_virtualAdreess_spis0
 #else 
-    #define VIRTUAL_SPIO0_OFSET  ALT_SPIS0_OFST
+#define VIRTUAL_SPIO0_OFSET  ALT_SPIS0_OFST
 #endif
 
 /* The start address of the ALT_SPIS0 component. */
@@ -8015,12 +8015,12 @@ extern "C"
 
 /*
  * Component Instance : spis1
- * 
+ *
  * Instance spis1 of component ALT_SPIS.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SPIS_CTLR0 register for the ALT_SPIS1 instance. */
+ /* The address of the ALT_SPIS_CTLR0 register for the ALT_SPIS1 instance. */
 #define ALT_SPIS1_CTLR0_ADDR  ALT_SPIS_CTLR0_ADDR(ALT_SPIS1_ADDR)
 /* The address of the ALT_SPIS_SPIENR register for the ALT_SPIS1 instance. */
 #define ALT_SPIS1_SPIENR_ADDR  ALT_SPIS_SPIENR_ADDR(ALT_SPIS1_ADDR)
@@ -8066,9 +8066,9 @@ extern "C"
 #define ALT_SPIS1_OFST        0xffe03000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_SPIO1_OFSET  (uint32_t) __hps_virtualAdreess_spis1
+#define VIRTUAL_SPIO1_OFSET  (uint32_t) __hps_virtualAdreess_spis1
 #else 
-    #define VIRTUAL_SPIO1_OFSET  ALT_SPIS1_OFST
+#define VIRTUAL_SPIO1_OFSET  ALT_SPIS1_OFST
 #endif
 
 /* The start address of the ALT_SPIS1 component. */
@@ -8081,12 +8081,12 @@ extern "C"
 
 /*
  * Component Instance : spim0
- * 
+ *
  * Instance spim0 of component ALT_SPIM.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SPIM_CTLR0 register for the ALT_SPIM0 instance. */
+ /* The address of the ALT_SPIM_CTLR0 register for the ALT_SPIM0 instance. */
 #define ALT_SPIM0_CTLR0_ADDR  ALT_SPIM_CTLR0_ADDR(ALT_SPIM0_ADDR)
 /* The address of the ALT_SPIM_CTLR1 register for the ALT_SPIM0 instance. */
 #define ALT_SPIM0_CTLR1_ADDR  ALT_SPIM_CTLR1_ADDR(ALT_SPIM0_ADDR)
@@ -8140,9 +8140,9 @@ extern "C"
 #define ALT_SPIM0_OFST        0xfff00000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_SPIM0_OFSET  (uint32_t) __hps_virtualAdreess_SPIM0
+#define VIRTUAL_SPIM0_OFSET  (uint32_t) __hps_virtualAdreess_SPIM0
 #else 
-    #define VIRTUAL_SPIM0_OFSET  ALT_SPIM0_OFST
+#define VIRTUAL_SPIM0_OFSET  ALT_SPIM0_OFST
 #endif
 
 /* The start address of the ALT_SPIM0 component. */
@@ -8155,12 +8155,12 @@ extern "C"
 
 /*
  * Component Instance : spim1
- * 
+ *
  * Instance spim1 of component ALT_SPIM.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SPIM_CTLR0 register for the ALT_SPIM1 instance. */
+ /* The address of the ALT_SPIM_CTLR0 register for the ALT_SPIM1 instance. */
 #define ALT_SPIM1_CTLR0_ADDR  ALT_SPIM_CTLR0_ADDR(ALT_SPIM1_ADDR)
 /* The address of the ALT_SPIM_CTLR1 register for the ALT_SPIM1 instance. */
 #define ALT_SPIM1_CTLR1_ADDR  ALT_SPIM_CTLR1_ADDR(ALT_SPIM1_ADDR)
@@ -8214,9 +8214,9 @@ extern "C"
 #define ALT_SPIM1_OFST        0xfff01000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_SPIM1_OFSET  (uint32_t) __hps_virtualAdreess_SPIM1
+#define VIRTUAL_SPIM1_OFSET  (uint32_t) __hps_virtualAdreess_SPIM1
 #else 
-    #define VIRTUAL_SPIM1_OFSET  ALT_SPIM1_OFST
+#define VIRTUAL_SPIM1_OFSET  ALT_SPIM1_OFST
 #endif
 
 /* The start address of the ALT_SPIM1 component. */
@@ -8229,12 +8229,12 @@ extern "C"
 
 /*
  * Component Instance : scanmgr
- * 
+ *
  * Instance scanmgr of component ALT_SCANMGR.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_SCANMGR_STAT register for the ALT_SCANMGR instance. */
+ /* The address of the ALT_SCANMGR_STAT register for the ALT_SCANMGR instance. */
 #define ALT_SCANMGR_STAT_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SCANMGR_ADDR) + ALT_SCANMGR_STAT_OFST))
 /* The address of the ALT_SCANMGR_EN register for the ALT_SCANMGR instance. */
 #define ALT_SCANMGR_EN_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_SCANMGR_ADDR) + ALT_SCANMGR_EN_OFST))
@@ -8250,9 +8250,9 @@ extern "C"
 #define ALT_SCANMGR_OFST        0xfff02000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_SCANMGR_OFSET  (uint32_t) __hps_virtualAdreess_SCANMGR
+#define VIRTUAL_SCANMGR_OFSET  (uint32_t) __hps_virtualAdreess_SCANMGR
 #else 
-    #define VIRTUAL_SCANMGR_OFSET  ALT_SCANMGR_OFST
+#define VIRTUAL_SCANMGR_OFSET  ALT_SCANMGR_OFST
 #endif
 
 
@@ -8266,18 +8266,18 @@ extern "C"
 
 /*
  * Component Instance : rom
- * 
+ *
  * Instance rom of component ALT_ROM.
- * 
- * 
+ *
+ *
  */
-/* The base address byte offset for the start of the ALT_ROM component. */
+ /* The base address byte offset for the start of the ALT_ROM component. */
 #define ALT_ROM_OFST        0xfffd0000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_ROM_OFSET  (uint32_t) __hps_virtualAdreess_ROM
+#define VIRTUAL_ROM_OFSET  (uint32_t) __hps_virtualAdreess_ROM
 #else 
-    #define VIRTUAL_ROM_OFSET  ALT_ROM_OFST
+#define VIRTUAL_ROM_OFSET  ALT_ROM_OFST
 #endif
 
 /* The start address of the ALT_ROM component. */
@@ -8290,20 +8290,20 @@ extern "C"
 
 /*
  * Component Instance : mpuscu
- * 
+ *
  * Instance mpuscu of component ALT_MPUSCU.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_MPUSCU_REG register for the ALT_MPUSCU instance. */
+ /* The address of the ALT_MPUSCU_REG register for the ALT_MPUSCU instance. */
 #define ALT_MPUSCU_REG_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_MPUSCU_ADDR) + ALT_MPUSCU_REG_OFST))
 /* The base address byte offset for the start of the ALT_MPUSCU component. */
 #define ALT_MPUSCU_OFST        0xfffec000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_MPUSCU_OFSET  (uint32_t) __hps_virtualAdreess_MPUSCU
+#define VIRTUAL_MPUSCU_OFSET  (uint32_t) __hps_virtualAdreess_MPUSCU
 #else 
-    #define VIRTUAL_MPUSCU_OFSET  ALT_MPUSCU_OFST
+#define VIRTUAL_MPUSCU_OFSET  ALT_MPUSCU_OFST
 #endif
 
 /* The start address of the ALT_MPUSCU component. */
@@ -8316,20 +8316,20 @@ extern "C"
 
 /*
  * Component Instance : mpul2
- * 
+ *
  * Instance mpul2 of component ALT_MPUL2.
- * 
- * 
+ *
+ *
  */
-/* The address of the ALT_MPUL2_REG register for the ALT_MPUL2 instance. */
+ /* The address of the ALT_MPUL2_REG register for the ALT_MPUL2 instance. */
 #define ALT_MPUL2_REG_ADDR  ALT_CAST(void *, (ALT_CAST(char *, ALT_MPUL2_ADDR) + ALT_MPUL2_REG_OFST))
 /* The base address byte offset for the start of the ALT_MPUL2 component. */
 #define ALT_MPUL2_OFST        0xfffef000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_MPUL2_OFSET (uint32_t)  __hps_virtualAdreess_MPUL2
+#define VIRTUAL_MPUL2_OFSET (uint32_t)  __hps_virtualAdreess_MPUL2
 #else 
-    #define VIRTUAL_MPUL2_OFSET  ALT_MPUL2_OFST
+#define VIRTUAL_MPUL2_OFSET  ALT_MPUL2_OFST
 #endif
 
 /* The start address of the ALT_MPUL2 component. */
@@ -8342,18 +8342,18 @@ extern "C"
 
 /*
  * Component Instance : ocram
- * 
+ *
  * Instance ocram of component ALT_OCRAM.
- * 
- * 
+ *
+ *
  */
-/* The base address byte offset for the start of the ALT_OCRAM component. */
+ /* The base address byte offset for the start of the ALT_OCRAM component. */
 #define ALT_OCRAM_OFST        0xffff0000
 
 #ifdef LINUX_TASK_MODE 
-    #define VIRTUAL_OCRAM_OFSET  (uint32_t) __hps_virtualAdreess_OCRAM
+#define VIRTUAL_OCRAM_OFSET  (uint32_t) __hps_virtualAdreess_OCRAM
 #else 
-    #define VIRTUAL_OCRAM_OFSET  ALT_OCRAM_OFST
+#define VIRTUAL_OCRAM_OFSET  ALT_OCRAM_OFST
 #endif
 
 /* The start address of the ALT_OCRAM component. */
@@ -8366,104 +8366,104 @@ extern "C"
 
 /*
  * Address Space : ALT_HPS
- * 
+ *
  * Address Map
- * 
- *  Address Range           | Component       
+ *
+ *  Address Range           | Component
  * :------------------------|:-----------------
- *  0x00000000 - 0xfbffffff | Undefined       
- *  0xfc000000 - 0xfc000003 | ALT_STM         
- *  0xfc000004 - 0xfeffffff | Undefined       
- *  0xff000000 - 0xff000003 | ALT_DAP         
- *  0xff000004 - 0xff1fffff | Undefined       
- *  0xff200000 - 0xff3fffff | ALT_LWFPGASLVS  
- *  0xff400000 - 0xff47ffff | ALT_LWH2F       
- *  0xff480000 - 0xff4fffff | Undefined       
- *  0xff500000 - 0xff507fff | ALT_H2F         
- *  0xff508000 - 0xff5fffff | Undefined       
- *  0xff600000 - 0xff67ffff | ALT_F2H         
- *  0xff680000 - 0xff6fffff | Undefined       
- *  0xff700000 - 0xff701fff | ALT_EMAC0       
- *  0xff702000 - 0xff703fff | ALT_EMAC1       
- *  0xff704000 - 0xff7043ff | ALT_SDMMC       
- *  0xff704400 - 0xff704fff | Undefined       
- *  0xff705000 - 0xff7050ff | ALT_QSPI        
- *  0xff705100 - 0xff705fff | Undefined       
- *  0xff706000 - 0xff706fff | ALT_FPGAMGR     
- *  0xff707000 - 0xff707fff | ALT_ACPIDMAP    
- *  0xff708000 - 0xff70807f | ALT_GPIO0       
- *  0xff708080 - 0xff708fff | Undefined       
- *  0xff709000 - 0xff70907f | ALT_GPIO1       
- *  0xff709080 - 0xff709fff | Undefined       
- *  0xff70a000 - 0xff70a07f | ALT_GPIO2       
- *  0xff70a080 - 0xff7fffff | Undefined       
- *  0xff800000 - 0xff87ffff | ALT_L3          
- *  0xff880000 - 0xff8fffff | Undefined       
- *  0xff900000 - 0xff9fffff | ALT_NANDDATA    
- *  0xffa00000 - 0xffafffff | ALT_QSPIDATA    
- *  0xffb00000 - 0xffb3ffff | ALT_USB0        
- *  0xffb40000 - 0xffb7ffff | ALT_USB1        
- *  0xffb80000 - 0xffb807ff | ALT_NAND        
- *  0xffb80800 - 0xffb8ffff | Undefined       
- *  0xffb90000 - 0xffb90003 | ALT_FPGAMGRDATA 
- *  0xffb90004 - 0xffbfffff | Undefined       
- *  0xffc00000 - 0xffc001ff | ALT_CAN0        
- *  0xffc00200 - 0xffc00fff | Undefined       
- *  0xffc01000 - 0xffc011ff | ALT_CAN1        
- *  0xffc01200 - 0xffc01fff | Undefined       
- *  0xffc02000 - 0xffc020ff | ALT_UART0       
- *  0xffc02100 - 0xffc02fff | Undefined       
- *  0xffc03000 - 0xffc030ff | ALT_UART1       
- *  0xffc03100 - 0xffc03fff | Undefined       
- *  0xffc04000 - 0xffc040ff | ALT_I2C0        
- *  0xffc04100 - 0xffc04fff | Undefined       
- *  0xffc05000 - 0xffc050ff | ALT_I2C1        
- *  0xffc05100 - 0xffc05fff | Undefined       
- *  0xffc06000 - 0xffc060ff | ALT_I2C2        
- *  0xffc06100 - 0xffc06fff | Undefined       
- *  0xffc07000 - 0xffc070ff | ALT_I2C3        
- *  0xffc07100 - 0xffc07fff | Undefined       
- *  0xffc08000 - 0xffc080ff | ALT_SPTMR0      
- *  0xffc08100 - 0xffc08fff | Undefined       
- *  0xffc09000 - 0xffc090ff | ALT_SPTMR1      
- *  0xffc09100 - 0xffc1ffff | Undefined       
- *  0xffc20000 - 0xffc3ffff | ALT_SDR         
- *  0xffc40000 - 0xffcfffff | Undefined       
- *  0xffd00000 - 0xffd000ff | ALT_OSC1TMR0    
- *  0xffd00100 - 0xffd00fff | Undefined       
- *  0xffd01000 - 0xffd010ff | ALT_OSC1TMR1    
- *  0xffd01100 - 0xffd01fff | Undefined       
- *  0xffd02000 - 0xffd020ff | ALT_L4WD0       
- *  0xffd02100 - 0xffd02fff | Undefined       
- *  0xffd03000 - 0xffd030ff | ALT_L4WD1       
- *  0xffd03100 - 0xffd03fff | Undefined       
- *  0xffd04000 - 0xffd041ff | ALT_CLKMGR      
- *  0xffd04200 - 0xffd04fff | Undefined       
- *  0xffd05000 - 0xffd050ff | ALT_RSTMGR      
- *  0xffd05100 - 0xffd07fff | Undefined       
- *  0xffd08000 - 0xffd0bfff | ALT_SYSMGR      
- *  0xffd0c000 - 0xffdfffff | Undefined       
+ *  0x00000000 - 0xfbffffff | Undefined
+ *  0xfc000000 - 0xfc000003 | ALT_STM
+ *  0xfc000004 - 0xfeffffff | Undefined
+ *  0xff000000 - 0xff000003 | ALT_DAP
+ *  0xff000004 - 0xff1fffff | Undefined
+ *  0xff200000 - 0xff3fffff | ALT_LWFPGASLVS
+ *  0xff400000 - 0xff47ffff | ALT_LWH2F
+ *  0xff480000 - 0xff4fffff | Undefined
+ *  0xff500000 - 0xff507fff | ALT_H2F
+ *  0xff508000 - 0xff5fffff | Undefined
+ *  0xff600000 - 0xff67ffff | ALT_F2H
+ *  0xff680000 - 0xff6fffff | Undefined
+ *  0xff700000 - 0xff701fff | ALT_EMAC0
+ *  0xff702000 - 0xff703fff | ALT_EMAC1
+ *  0xff704000 - 0xff7043ff | ALT_SDMMC
+ *  0xff704400 - 0xff704fff | Undefined
+ *  0xff705000 - 0xff7050ff | ALT_QSPI
+ *  0xff705100 - 0xff705fff | Undefined
+ *  0xff706000 - 0xff706fff | ALT_FPGAMGR
+ *  0xff707000 - 0xff707fff | ALT_ACPIDMAP
+ *  0xff708000 - 0xff70807f | ALT_GPIO0
+ *  0xff708080 - 0xff708fff | Undefined
+ *  0xff709000 - 0xff70907f | ALT_GPIO1
+ *  0xff709080 - 0xff709fff | Undefined
+ *  0xff70a000 - 0xff70a07f | ALT_GPIO2
+ *  0xff70a080 - 0xff7fffff | Undefined
+ *  0xff800000 - 0xff87ffff | ALT_L3
+ *  0xff880000 - 0xff8fffff | Undefined
+ *  0xff900000 - 0xff9fffff | ALT_NANDDATA
+ *  0xffa00000 - 0xffafffff | ALT_QSPIDATA
+ *  0xffb00000 - 0xffb3ffff | ALT_USB0
+ *  0xffb40000 - 0xffb7ffff | ALT_USB1
+ *  0xffb80000 - 0xffb807ff | ALT_NAND
+ *  0xffb80800 - 0xffb8ffff | Undefined
+ *  0xffb90000 - 0xffb90003 | ALT_FPGAMGRDATA
+ *  0xffb90004 - 0xffbfffff | Undefined
+ *  0xffc00000 - 0xffc001ff | ALT_CAN0
+ *  0xffc00200 - 0xffc00fff | Undefined
+ *  0xffc01000 - 0xffc011ff | ALT_CAN1
+ *  0xffc01200 - 0xffc01fff | Undefined
+ *  0xffc02000 - 0xffc020ff | ALT_UART0
+ *  0xffc02100 - 0xffc02fff | Undefined
+ *  0xffc03000 - 0xffc030ff | ALT_UART1
+ *  0xffc03100 - 0xffc03fff | Undefined
+ *  0xffc04000 - 0xffc040ff | ALT_I2C0
+ *  0xffc04100 - 0xffc04fff | Undefined
+ *  0xffc05000 - 0xffc050ff | ALT_I2C1
+ *  0xffc05100 - 0xffc05fff | Undefined
+ *  0xffc06000 - 0xffc060ff | ALT_I2C2
+ *  0xffc06100 - 0xffc06fff | Undefined
+ *  0xffc07000 - 0xffc070ff | ALT_I2C3
+ *  0xffc07100 - 0xffc07fff | Undefined
+ *  0xffc08000 - 0xffc080ff | ALT_SPTMR0
+ *  0xffc08100 - 0xffc08fff | Undefined
+ *  0xffc09000 - 0xffc090ff | ALT_SPTMR1
+ *  0xffc09100 - 0xffc1ffff | Undefined
+ *  0xffc20000 - 0xffc3ffff | ALT_SDR
+ *  0xffc40000 - 0xffcfffff | Undefined
+ *  0xffd00000 - 0xffd000ff | ALT_OSC1TMR0
+ *  0xffd00100 - 0xffd00fff | Undefined
+ *  0xffd01000 - 0xffd010ff | ALT_OSC1TMR1
+ *  0xffd01100 - 0xffd01fff | Undefined
+ *  0xffd02000 - 0xffd020ff | ALT_L4WD0
+ *  0xffd02100 - 0xffd02fff | Undefined
+ *  0xffd03000 - 0xffd030ff | ALT_L4WD1
+ *  0xffd03100 - 0xffd03fff | Undefined
+ *  0xffd04000 - 0xffd041ff | ALT_CLKMGR
+ *  0xffd04200 - 0xffd04fff | Undefined
+ *  0xffd05000 - 0xffd050ff | ALT_RSTMGR
+ *  0xffd05100 - 0xffd07fff | Undefined
+ *  0xffd08000 - 0xffd0bfff | ALT_SYSMGR
+ *  0xffd0c000 - 0xffdfffff | Undefined
  *  0xffe00000 - 0xffe00003 | ALT_DMANONSECURE
- *  0xffe00004 - 0xffe00fff | Undefined       
- *  0xffe01000 - 0xffe01003 | ALT_DMASECURE   
- *  0xffe01004 - 0xffe01fff | Undefined       
- *  0xffe02000 - 0xffe0207f | ALT_SPIS0       
- *  0xffe02080 - 0xffe02fff | Undefined       
- *  0xffe03000 - 0xffe0307f | ALT_SPIS1       
- *  0xffe03080 - 0xffefffff | Undefined       
- *  0xfff00000 - 0xfff000ff | ALT_SPIM0       
- *  0xfff00100 - 0xfff00fff | Undefined       
- *  0xfff01000 - 0xfff010ff | ALT_SPIM1       
- *  0xfff01100 - 0xfff01fff | Undefined       
- *  0xfff02000 - 0xfff0201f | ALT_SCANMGR     
- *  0xfff02020 - 0xfffcffff | Undefined       
- *  0xfffd0000 - 0xfffdffff | ALT_ROM         
- *  0xfffe0000 - 0xfffebfff | Undefined       
- *  0xfffec000 - 0xfffec003 | ALT_MPUSCU      
- *  0xfffec004 - 0xfffeefff | Undefined       
- *  0xfffef000 - 0xfffef003 | ALT_MPUL2       
- *  0xfffef004 - 0xfffeffff | Undefined       
- *  0xffff0000 - 0xffffffff | ALT_OCRAM       
+ *  0xffe00004 - 0xffe00fff | Undefined
+ *  0xffe01000 - 0xffe01003 | ALT_DMASECURE
+ *  0xffe01004 - 0xffe01fff | Undefined
+ *  0xffe02000 - 0xffe0207f | ALT_SPIS0
+ *  0xffe02080 - 0xffe02fff | Undefined
+ *  0xffe03000 - 0xffe0307f | ALT_SPIS1
+ *  0xffe03080 - 0xffefffff | Undefined
+ *  0xfff00000 - 0xfff000ff | ALT_SPIM0
+ *  0xfff00100 - 0xfff00fff | Undefined
+ *  0xfff01000 - 0xfff010ff | ALT_SPIM1
+ *  0xfff01100 - 0xfff01fff | Undefined
+ *  0xfff02000 - 0xfff0201f | ALT_SCANMGR
+ *  0xfff02020 - 0xfffcffff | Undefined
+ *  0xfffd0000 - 0xfffdffff | ALT_ROM
+ *  0xfffe0000 - 0xfffebfff | Undefined
+ *  0xfffec000 - 0xfffec003 | ALT_MPUSCU
+ *  0xfffec004 - 0xfffeefff | Undefined
+ *  0xfffef000 - 0xfffef003 | ALT_MPUL2
+ *  0xfffef004 - 0xfffeffff | Undefined
+ *  0xffff0000 - 0xffffffff | ALT_OCRAM
  */
 
 #ifdef __ASSEMBLY__
