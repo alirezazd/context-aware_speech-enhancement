@@ -1,0 +1,14 @@
+rtGetInf.c.o: \
+ T:/SBU/Thesis/Codes/Matlab/MBSS/codegen/exe/Embedded_MBSS/rtGetInf.c \
+ T:/SBU/Thesis/Codes/Matlab/MBSS/codegen/exe/Embedded_MBSS/rtGetInf.h \
+ T:/SBU/Thesis/Codes/Matlab/MBSS/codegen/exe/Embedded_MBSS/rtwtypes.h \
+ T:/MATLAB~1/extern/include/tmwtypes.h \
+ T:/SBU/Thesis/Codes/Matlab/MBSS/codegen/exe/Embedded_MBSS/rt_nonfinite.h
+
+T:/SBU/Thesis/Codes/Matlab/MBSS/codegen/exe/Embedded_MBSS/rtGetInf.h:
+
+T:/SBU/Thesis/Codes/Matlab/MBSS/codegen/exe/Embedded_MBSS/rtwtypes.h:
+
+T:/MATLAB~1/extern/include/tmwtypes.h:
+
+T:/SBU/Thesis/Codes/Matlab/MBSS/codegen/exe/Embedded_MBSS/rt_nonfinite.h:
