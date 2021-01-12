@@ -9,11 +9,11 @@
 			<param name="part" value="5CSEBA6U23I7" />
 		</device>
 		<avalonmmslave id="dspba">
-			<param name="dataWidth" value="32" />
-			<param name="addressWidth" value="11" />
-			<param name="interfaceName" value="MMSE_BUS" />
-			<param name="separateBusClock" value="false" />
-			<param name="busClockFreq" value="240" />
+			<param name="dataWidth" value="16" />
+			<param name="addressWidth" value="10" />
+			<param name="interfaceName" value="bus" />
+			<param name="separateBusClock" value="true" />
+			<param name="busClockFreq" value="50" />
 			<param name="busClockSynchronous" value="true" />
 			<param name="busEndian" value="Big Endian" />
 		</avalonmmslave>

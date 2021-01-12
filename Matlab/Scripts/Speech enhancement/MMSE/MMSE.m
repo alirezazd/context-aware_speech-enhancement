@@ -95,9 +95,9 @@ function [Enhanced_Magnitude_Spectrum] = Enhance_MMSE(A_Pos_SNR, A_Pri_SNR, Nois
     V_k = A_Pos_SNR .* (A_Pri_SNR ./ (1 + A_Pri_SNR));
     Enhanced_Magnitude_Spectrum = zeros(length(Noisy_Magnitude_Spectrum),1);
     for i = 1 : length(Noisy_Magnitude_Spectrum)
-        Enhanced_Magnitude_Spectrum(i) = ((sqrt(pi*V_k(i)))/(2*A_Pos_SNR(i))) * (((1 + V_k(i)) * besseli0(V_k(i)/2)) + (V_k(i) * besseli1(V_k(i)/2))) * Noisy_Magnitude_Spectrum(i);
+        %Enhanced_Magnitude_Spectrum(i) = ((sqrt(pi*V_k(i)))/(2*A_Pos_SNR(i))) * (((1 + V_k(i)) * besseli0(V_k(i)/2)) + (V_k(i) * besseli1(V_k(i)/2))) * Noisy_Magnitude_Spectrum(i);
         if(V_k(i)/2) <= 29
         end
-        %Enhanced_Magnitude_Spectrum(i) = ((sqrt(pi*V_k(i)))/(2*A_Pos_SNR(i))) * (((1 + V_k(i)) * besseli(0, V_k(i)/2, 1)) + (V_k(i) * besseli(1, V_k(i)/2, 1))) * Noisy_Magnitude_Spectrum(i);
+        Enhanced_Magnitude_Spectrum(i) = ((sqrt(pi*V_k(i)))/(2*A_Pos_SNR(i))) * (((1 + V_k(i)) * besseli(0, V_k(i)/2, 1)) + (V_k(i) * besseli(1, V_k(i)/2, 1))) * Noisy_Magnitude_Spectrum(i);
     end
 end
