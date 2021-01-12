@@ -179,6 +179,7 @@ int IO_mgr::Read_location() {
 		return VOLVO_NOISE;
 	}
 	return UNKNOWN_NOISE;
+
 }
 
 size_t IO_mgr::Get_current_frame_index() {
