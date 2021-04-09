@@ -12,7 +12,7 @@ The overall structure of the presented architecture is demonstrated in Fig. 1. A
 In this project, as the running example, a speech enhancement system consisting of two well-known algorithms namely Multiband Spectral Subtraction (MBSS) and Minimum Min Square Error (MMSE) is implemented according to the design flow. Context-awareness is based on a Tensorflow machine-learning model that is trained for different operational environments in terms of noise source and level. The PESQ score is chosen for the quality measure and preference criterion for each algorithm.
 ## Background
 ### speech Enhancement
-
+Due to the importance of the noise suppression problem in DSP applications like hearing aids, wireless communications, there has been lots of research done which has led to many solutions. In speech enhancement, the main goal is to improve properties of a speech signal like quality and intelligibility which has been degraded by noise. Most speech enhancement algorithms aim to supress additive noise.
 ## System Architecture
 ## Designflow
 ## Development Process
