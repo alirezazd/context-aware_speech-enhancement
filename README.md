@@ -8,11 +8,13 @@ In this project an FPGA-SoC-based context-aware architecture with application in
 ![](./Documentation/Figs/Overview.svg)
 <p align="center"> <i> Fig.1. Overview of proposed FPGA-SoC system. </i> </p>
 
-The overall structure of the presented architecture is demonstrated in Fig. 1. According to Fig. 1, a set of complementary algorithms exist on system storage as bitstreams. The software part of the system which undertakes context-awareness monitors system context e.g. noise level and source and configures the FPGA with the proper algorithm according to system context.  
+The overall structure of the presented system is demonstrated in Fig. 1. According to Fig. 1, a set of complementary algorithms exist on system storage as bitstreams. The software part of the system which undertakes context-awareness monitors system context e.g. noise level and source and configures the FPGA with the proper algorithm according to system context.  
 In this project, as the running example, a speech enhancement system consisting of two well-known algorithms namely Multiband Spectral Subtraction (MBSS) and Minimum Min Square Error (MMSE) is implemented according to the design flow. Context-awareness is based on a Tensorflow machine-learning model that is trained for different operational environments in terms of noise source and level. The PESQ score is chosen for the quality measure and preference criterion for each algorithm.
 ## Background
 ### speech Enhancement
-Due to the importance of the noise suppression problem in DSP applications like hearing aids, wireless communications, there has been lots of research done which has led to many solutions. In speech enhancement, the main goal is to improve properties of a speech signal like quality and intelligibility which has been degraded by noise. Most speech enhancement algorithms aim to supress additive noise.
+Due to rapid changes in temporal and spectral characteristics of speech signals, most enhancement algorithms operate on a frame-by-frame basis. Usually, the frame duration is 10-30 milliseconds during which the properties of the speech signal do not change much. Many speech enhancement algorithms function in the frequency-domain by transferring raw time-domain input signal via the fast Fourier transform (FFT) algorithm that due to its inherent parallelism, is suitable for hardware implementation.
+### Speech enhancement algorithms
+Two important classes of speech enhancement algorithms are (1) Spectral subtractive algorithms that are simple to implement. These algorithms function based on the principle that additive noise spectrum can be estimated and subtracted from the noisy speech signal. This can be expressed as:
 ## System Architecture
 ## Designflow
 ## Development Process
