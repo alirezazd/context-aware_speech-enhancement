@@ -32,16 +32,13 @@ where ![](./Documentation/Figs/D(w)_hat.svg) is the estimate of magnitude noise 
 </p>  
 
 where the gain function ![](./Documentation/Figs/G(w).svg) can vary for each statistical-model-based algorithm e.g., for the MMSE algorithm, the gain function ![](./Documentation/Figs/G(MMSE).svg) is dependent on subfunctions to estimate the a posteriori SNR ![](./Documentation/Figs/\gamma_k.svg) and the a priori SNR ![](./Documentation/Figs/\xi_k.svg) parameters. The enhanced speech signal can be reproduced in time domain by taking the inverse Fourier transform of estimated clean speech spectrum ![](./Documentation/Figs/\X(w)_hat.svg).
-\subsection{Noise estimation}
-As stated earlier, both MMSE and MBSS algorithms require a posterior estimate of the noise spectrum. To estimate the noise spectrum noise estimation algorithms that in each frame estimate and update noise spectrum can be used. A simple yet effective noise estimation algorithm is presented by Arslan et al.\cite{arslan_NE} with following form:
-\begin{equation}\label{eq:NE}\begin{split}
-&S_{tmp}(\lambda, k) = \alpha \hat{\sigma}_d(\lambda-1,k)+(1-\alpha)|Y(\lambda,k)|\\
-&\text{if } \hat{\sigma}_d(\lambda-1,k) < \beta S_{tmp}(\lambda,k) \text{ and } \hat{\sigma}_d(\lambda-1,k) > \gamma S_{tmp}(\lambda,k)\\
-&\indent \hat{\sigma}_d(\lambda,k) = S_{tmp}(\lambda, k)\\
-&\text{else}\\
-&\indent \hat{\sigma}_d(\lambda,k) = \hat{\sigma_d}(\lambda-1,k)
-\end{split}
-\end{equation}
+### Noise estimation
+As stated earlier, both MMSE and MBSS algorithms require a posterior estimate of the noise spectrum. To estimate the noise spectrum noise estimation algorithms that in each frame estimate and update noise spectrum can be used. A simple yet effective noise estimation algorithm is presented by Arslan et al. with following form:  
+
+<p align="center">
+  <img src="./Documentation/Figs/NE.svg" />
+</p>  
+
 Above algorithm updates the estimated noise spectrum \(\hat{\sigma}_d(\lambda,k)\) by comparing it to estimation from previous frame and checking if it lies within a specific boundary which is dermined by \(\beta\) and \(\gamma\) thresholds.
 
 In addition to a posteriori SNR, The MMSE algorithm also reqires a priori SNR estimation algorithm. The decision-directed approach\cite{MMSE} is one of the methods available for estimating a priori SNR and is given by:
