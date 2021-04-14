@@ -20,13 +20,17 @@ Speech enhancement algorithms use mathematical and statistical tools combined wi
 Due to rapid changes in temporal and spectral characteristics of speech signals, most enhancement algorithms operate on a frame-by-frame basis. Usually, the frame duration is 10-30 milliseconds during which the properties of the speech signal do not change much. Many speech enhancement algorithms function in the frequency-domain by transferring raw time-domain input signal via the fast Fourier transform (FFT) algorithm that due to its inherent parallelism, is suitable for hardware implementation.
 ### Speech enhancement algorithms
 Two important classes of speech enhancement algorithms are (1) Spectral subtractive algorithms that are simple to implement. These algorithms function based on the principle that additive noise spectrum can be estimated and subtracted from the noisy speech signal. This can be expressed as:  
+
 <p align="center">
   <img src="./Documentation/Figs/SS.svg" />
 </p>  
-where ![](./Documentation/Figs/D(w).svg) is the estimate of magnitude noise spectrum and ![](./Documentation/Figs/X(w).svg) is the enhanced magnitude spectrum. (2) Statistical-model-based algorithms that view speech enhancement as a statistical estimation problem. These algorithms estimate the clean speech spectrum by multiplying the noisy speech spectrum by a gain function and have the following general form:
+
+where ![](./Documentation/Figs/D(w)_hat.svg) is the estimate of magnitude noise spectrum and ![](./Documentation/Figs/X(w)_hat.svg) is the enhanced magnitude spectrum. (2) Statistical-model-based algorithms that view speech enhancement as a statistical estimation problem. These algorithms estimate the clean speech spectrum by multiplying the noisy speech spectrum by a gain function and have the following general form:  
+
 <p align="center">
   <img src="./Documentation/Figs/SMB.svg" />
-</p>
+</p>  
+
 where the gain function ![](./Documentation/Figs/G(w).svg) can vary for each statistical-model-based algorithm e.g., for the MMSE algorithm, the gain function ![](./Documentation/Figs/G(MMSE).svg) is dependent on subfunctions to estimate the a posteriori SNR ![](./Documentation/Figs/\gamma_k.svg) and the a priori SNR ![](./Documentation/Figs/\xi_k.svg) parameters. The enhanced speech signal can be reproduced in time domain by taking the inverse Fourier transform of estimated clean speech spectrum ![](./Documentation/Figs/\X(w)_hat.svg).
 \subsection{Noise estimation}
 As stated earlier, both MMSE and MBSS algorithms require a posterior estimate of the noise spectrum. To estimate the noise spectrum noise estimation algorithms that in each frame estimate and update noise spectrum can be used. A simple yet effective noise estimation algorithm is presented by Arslan et al.\cite{arslan_NE} with following form:
