@@ -21,6 +21,7 @@ Two important classes of speech enhancement algorithms are (1) Spectral subtract
 <p align="center">
   <img src="./Documentation/Figs/SS.svg" />
 </p>
+
 ## System Architecture
 ## Designflow
 ## Development Process
