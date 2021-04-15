@@ -58,4 +58,5 @@ where ![](./Documentation/Figs/a01.svg) is the weighting factor and ![](./Docume
    * Download [Cyclone V device support](https://download.altera.com/akdlm/software/acdsinst/18.1std/625/ib_installers/cyclonev-18.1.0.625.qdz).
    * Download [Intel SoC FPGA Embedded Development Suite (SoC EDS)](https://download.altera.com/akdlm/software/acdsinst/18.1std/625/ib_installers/SoCEDSSetup-18.1.0.625-windows.exe).
    * Download [Intel DSP Builder 18.1](https://download.altera.com/akdlm/software/acdsinst/18.1std/625/ib_installers/DSPBuilderSetup-18.1.0.625-windows.exe).
+   * Download [ModelSim 18.1](https://download.altera.com/akdlm/software/acdsinst/18.1std/625/ib_installers/ModelSimSetup-18.1.0.625-windows.exe).
 4. 
