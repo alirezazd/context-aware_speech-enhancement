@@ -54,11 +54,16 @@ where ![](./Documentation/Figs/a01.svg) is the weighting factor and ![](./Docume
 ## Prerequisites
 | # |                           Name                           |                                                           Download Link                                                          |
 |:-:|:--------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------:|
-| 1 |                       Matlab R2013a                      | License required                                                                                                                  |
+| 1 |                       Matlab R2013a                      | License reqired                                                                                                                  |
 | 2 |         Intel Quartus Prime 18.1 Standard Edition        | [Download](https://download.altera.com/akdlm/software/acdsinst/18.1std/625/ib_installers/QuartusSetup-18.1.0.625-windows.exe)    |
 | 3 |                 Cyclone V device support                 | [Download](https://download.altera.com/akdlm/software/acdsinst/18.1std/625/ib_installers/cyclonev-18.1.0.625.qdz)                |
 | 4 |                  Intel DSP Builder 18.1                  | [Download](https://download.altera.com/akdlm/software/acdsinst/18.1std/625/ib_installers/DSPBuilderSetup-18.1.0.625-windows.exe) |
 | 5 | Intel SoC FPGA Embedded Development Suite (SoC EDS) 18.1 | [Download](https://download.altera.com/akdlm/software/acdsinst/18.1std/625/ib_installers/SoCEDSSetup-18.1.0.625-windows.exe)     |
 | 6 |                       ModelSim 18.1                      | [Download](https://download.altera.com/akdlm/software/acdsinst/18.1std/625/ib_installers/ModelSimSetup-18.1.0.625-windows.exe)   |
-### Get Started
+| 7 |               Microsoft Visual Studio 2019               | [Donwload](https://visualstudio.microsoft.com/downloads/)                                                                        |
+### Installation
 1. Install Matlab R2013a
+2. To automatically install Device support, put in the same path where Quartus installer is located and run the installer.
+3. Install DSP Buider, it should automatically detect Matlab R2013a installation path during the setup.
+4. Install ModelSim.
+5. 
