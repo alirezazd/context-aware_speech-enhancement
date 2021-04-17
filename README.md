@@ -62,8 +62,8 @@ where ![](./Documentation/Figs/a01.svg) is the weighting factor and ![](./Docume
 | 6 |                       ModelSim 18.1                      | [Download](https://download.altera.com/akdlm/software/acdsinst/18.1std/625/ib_installers/ModelSimSetup-18.1.0.625-windows.exe)   |
 | 7 |               Microsoft Visual Studio 2019               | [Donwload](https://visualstudio.microsoft.com/downloads/)                                                                        |
 ### Installation
-1. Install Matlab R2013a
-2. To automatically install Device support, put in the same path where Quartus installer is located and run the installer.
-3. Install DSP Buider, it should automatically detect Matlab R2013a installation path during the setup.
-4. Install ModelSim.
-5. 
+1. Install Matlab.
+2. Install Visual Studio.
+3. To automatically install device support, put the .qdz file in the same path where Quartus installer is located and run the installer.
+4. Install DSP Buider, it should automatically detect Matlab R2013a installation path during the setup.
+5. Install ModelSim.
