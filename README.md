@@ -61,9 +61,11 @@ where ![](./Documentation/Figs/a01.svg) is the weighting factor and ![](./Docume
 | 5 | Intel SoC FPGA Embedded Development Suite (SoC EDS) 18.1 | [Download](https://download.altera.com/akdlm/software/acdsinst/18.1std/625/ib_installers/SoCEDSSetup-18.1.0.625-windows.exe)     |
 | 6 |                       ModelSim 18.1                      | [Download](https://download.altera.com/akdlm/software/acdsinst/18.1std/625/ib_installers/ModelSimSetup-18.1.0.625-windows.exe)   |
 | 7 |               Microsoft Visual Studio 2019               | [Donwload](https://visualstudio.microsoft.com/downloads/)                                                                        |
-### Installation
+### Getting Started
 1. Install Matlab.
 2. To automatically install device support, put the .qdz file in the same path where the quartus installer is located and then run the installer.
 3. Install DSP Buider, it should automatically detect Matlab R2013a installation path during the setup.
 4. Install ModelSim.
 5. Install Visual Studio.
+### Generating Bitsreams
+1. 
