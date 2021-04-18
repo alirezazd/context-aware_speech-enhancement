@@ -63,7 +63,7 @@ where ![](./Documentation/Figs/a01.svg) is the weighting factor and ![](./Docume
 | 7 |               Microsoft Visual Studio 2019               | [Donwload](https://visualstudio.microsoft.com/downloads/)                                                                        |
 ### Installation
 1. Install Matlab.
-2. To automatically install device support, put the .qdz file in the same path where Quartus installer is located and then run the installer.
+2. To automatically install device support, put the .qdz file in the same path where the quartus installer is located and then run the installer.
 3. Install DSP Buider, it should automatically detect Matlab R2013a installation path during the setup.
 4. Install ModelSim.
 5. Install Visual Studio.
