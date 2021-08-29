@@ -1,0 +1,13 @@
+# This is the Quartus file list for 'DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale'
+
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale.vhd
+source ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_caA0Z6140i0k62a5u.add.tcl
+source ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_caA1Z6140i0k62a5u.add.tcl
+source ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_poA0Zk614004kii5u.add.tcl

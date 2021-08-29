@@ -1,0 +1,10 @@
+# This is the Quartus file list for 'floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_arcTan2Block_typeSFloatIEA0Z0iuq0cp0ju20cp0jtj0u'
+
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_arcTan2Block_typeSFloatIEA0Z0cp0ju20cp0jtj0u.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_arcTan2Block_typeSFloatIEA0Z0cp0ju20cp0jtj0u.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_arcTan2Block_typeSFloatIEA0Z0cp0ju20cp0jtj0u.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_arcTan2Block_typeSFloatIEA0Z0cp0ju20cp0jtj0u.vhd

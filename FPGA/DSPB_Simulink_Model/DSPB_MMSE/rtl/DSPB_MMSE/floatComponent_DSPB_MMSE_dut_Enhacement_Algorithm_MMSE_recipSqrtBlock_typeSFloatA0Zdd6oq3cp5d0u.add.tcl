@@ -1,0 +1,10 @@
+# This is the Quartus file list for 'floatComponent_DSPB_MMSE_dut_Enhacement_Algorithm_MMSE_recipSqrtBlock_typeSFloatA0Z6cd0oq3cdd6oq3cp5d0u'
+
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_Enhacement_Algorithm_MMSE_recipSqrtBlock_typeSFloatA0Zoq3cdd6oq3cp5d0u.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_Enhacement_Algorithm_MMSE_recipSqrtBlock_typeSFloatA0Zoq3cdd6oq3cp5d0u.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_Enhacement_Algorithm_MMSE_recipSqrtBlock_typeSFloatA0Zoq3cdd6oq3cp5d0u.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_Enhacement_Algorithm_MMSE_recipSqrtBlock_typeSFloatA0Zoq3cdd6oq3cp5d0u.vhd

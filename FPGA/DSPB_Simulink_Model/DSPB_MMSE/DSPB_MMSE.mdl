@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.447"
+    ComputedModelVersion    "1.448"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -36,7 +36,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [786.0, 0.0, 1294.0, 1407.0]
+      Location		      [-8.0, -8.0, 2576.0, 1416.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -59,10 +59,10 @@ Model {
 	$ClassName		"Simulink.EditorInfo"
 	IsActive		[1]
 	ViewObjType		"SimulinkSubsys"
-	LoadSaveID		"744"
-	Extents			[1244.0, 1232.0]
-	ZoomFactor		[1.0]
-	Offset			[42.0, 411.18566741084396]
+	LoadSaveID		"1085"
+	Extents			[2526.0, 1241.0]
+	ZoomFactor		[1.75]
+	Offset			[-197.337293924951, -55.104761904761936]
       }
     }
   }
@@ -72,9 +72,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "AliReza"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jan 09 17:21:45 2021"
-  RTWModifiedTimeStamp	  532113703
-  ModelVersionFormat	  "1.%<AutoIncrement:447>"
+  LastModifiedDate	  "Mon Jul 26 05:49:06 2021"
+  RTWModifiedTimeStamp	  549177665
+  ModelVersionFormat	  "1.%<AutoIncrement:448>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -853,7 +853,7 @@ Model {
   }
   System {
     Name		    "DSPB_MMSE"
-    Location		    [786, 0, 2080, 1407]
+    Location		    [945, 42, 2239, 1449]
     Open		    off
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1162,7 +1162,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"dut"
-	Location		[786, 0, 2080, 1407]
+	Location		[-8, -8, 2568, 1408]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1174,7 +1174,7 @@ Model {
 	TiledPaperMargins	[1.270000, 1.270000, 1.270000, 1.270000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"80"
+	ZoomFactor		"100"
 	Block {
 	  BlockType		  Reference
 	  Name			  "Device"
@@ -5333,8 +5333,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "feature_extraction"
-	    Location		    [786, 0, 2080, 1407]
-	    Open		    on
+	    Location		    [135, 135, 1429, 1542]
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -5345,7 +5345,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
+	    ZoomFactor		    "50"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "magnitude_spectrum_valid"
@@ -21819,7 +21819,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "input_adapter"
-	    Location		    [-7, 0, 1287, 1407]
+	    Location		    [-8, -8, 2568, 1408]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -21831,7 +21831,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
+	    ZoomFactor		    "80"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "Input_Signal_Valid"
@@ -21865,7 +21865,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"FFT"
-		Location		[-8, 0, 2568, 1407]
+		Location		[135, 135, 1429, 1542]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -21877,7 +21877,7 @@ Model {
 		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 		TiledPageScale		1
 		ShowPageBoundaries	off
-		ZoomFactor		"175"
+		ZoomFactor		"150"
 		Block {
 		  BlockType		  Inport
 		  Name			  "Valid"
@@ -22189,7 +22189,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"FFT_Adapter"
-		Location		[-7, 0, 1287, 1407]
+		Location		[-8, -8, 2568, 1408]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -25472,7 +25472,7 @@ Model {
 	  System {
 	    Name		    "output_adapter"
 	    Location		    [-8, -8, 2568, 1408]
-	    Open		    off
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -25483,7 +25483,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
+	    ZoomFactor		    "175"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "enhanced_magnitude_spectrum_valid"
@@ -25524,7 +25524,7 @@ Model {
 	      Name		      "IFFT"
 	      SID		      "1090"
 	      Ports		      [2, 2]
-	      Position		      [470, 20, 630, 395]
+	      Position		      [450, 20, 610, 395]
 	      ZOrder		      7358
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
@@ -25876,7 +25876,7 @@ Model {
 	      Name		      "IFFT_Adapter"
 	      SID		      "1105"
 	      Ports		      [4, 2]
-	      Position		      [170, 22, 370, 388]
+	      Position		      [145, 22, 345, 388]
 	      ZOrder		      7065
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off

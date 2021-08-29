@@ -1,0 +1,10 @@
+# This is the Quartus file list for 'floatComponent_DSPB_MMSE_dut_feature_extraction_a_priori_SNR_maxBlock_typeSFloatA0Zqqcdo6u2ocpq6c0owfzo'
+
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_a_priori_SNR_maxBlock_typeSFloatA0Zo6u2ocpq6c0owfzo.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_a_priori_SNR_maxBlock_typeSFloatA0Zo6u2ocpq6c0owfzo.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_a_priori_SNR_maxBlock_typeSFloatA0Zo6u2ocpq6c0owfzo.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_a_priori_SNR_maxBlock_typeSFloatA0Zo6u2ocpq6c0owfzo.vhd

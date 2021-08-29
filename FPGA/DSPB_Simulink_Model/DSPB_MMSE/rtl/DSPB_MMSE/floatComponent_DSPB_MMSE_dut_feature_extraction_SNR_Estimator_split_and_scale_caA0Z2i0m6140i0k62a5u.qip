@@ -1,0 +1,10 @@
+# This is the QIP file for DSP Builder for Intel FPGAs system 'floatComponent_DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_caA0Z46142i0m6140i0k62a5u'
+
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_caA0Z2i0m6140i0k62a5u.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_caA0Z2i0m6140i0k62a5u.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_caA0Z2i0m6140i0k62a5u.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_caA0Z2i0m6140i0k62a5u.vhd

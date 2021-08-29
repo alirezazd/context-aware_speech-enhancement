@@ -1,0 +1,10 @@
+# This is the Quartus file list for 'floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_sqrtBlock_typeSFloatIEEE_A0Zv20054c2a6354c2469bx'
+
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_sqrtBlock_typeSFloatIEEE_A0Z54c2a6354c2469bx.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_sqrtBlock_typeSFloatIEEE_A0Z54c2a6354c2469bx.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_sqrtBlock_typeSFloatIEEE_A0Z54c2a6354c2469bx.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_sqrtBlock_typeSFloatIEEE_A0Z54c2a6354c2469bx.vhd

@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<entity name='DSPB_MMSE_dut_output_adapter_IFFT_FFT_Light_FFT_Pipe_FFT2_FFT1_BFU_BFU_implementation' floating-point-script-prefix='DSPB_MMSE_dut_output_adapter_IFFT_FFT_Light_FFT_Pipe_FFT2_FFT1_BFU_BFU_implementation_fpc'>
+  <clock name='sys' port='clk' reset='areset' reset-type='high' />
+</entity>

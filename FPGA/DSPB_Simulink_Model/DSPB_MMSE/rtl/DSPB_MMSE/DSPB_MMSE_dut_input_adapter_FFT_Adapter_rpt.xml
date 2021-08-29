@@ -1,0 +1,20 @@
+<?xml version='1.0'?>
+<island simulinkPath='DSPB_MMSE/dut/input_adapter/FFT_Adapter' topLevelEntity='DSPB_MMSE_dut_input_adapter_FFT_Adapter'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='in_2_real_FFT_In' clock='clk' reset='areset' width='19' dir='in' role='data' qsys_role='data_in_2_real_FFT_In' stm='DSPB_MMSE/DSPB_MMSE_dut_input_adapter_FFT_Adapter_GPIn1_cunroll_x.stm' highLevelName='FFT_In' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='in_2_imag_FFT_In' clock='clk' reset='areset' width='19' dir='in' role='data' qsys_role='data_in_2_imag_FFT_In' stm='DSPB_MMSE/DSPB_MMSE_dut_input_adapter_FFT_Adapter_GPIn1_cunroll_x.stm' highLevelName='FFT_In' highLevelIndex='2' vector='0' complex='1'/>
+    <port name='in_1_FFT_In_Valid' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_1_FFT_In_Valid' stm='DSPB_MMSE/DSPB_MMSE_dut_input_adapter_FFT_Adapter_GPIn1_cunroll_x.stm' highLevelName='FFT_In_Valid' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='out_1_Spectrum_Valid' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_1_Spectrum_Valid' stm='DSPB_MMSE/DSPB_MMSE_dut_input_adapter_FFT_Adapter_GPOut.stm' highLevelName='Spectrum_Valid' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='out_2_Magnitude_Spectrum' clock='clk' reset='areset' width='18' dir='out' role='data' qsys_role='data_out_2_Magnitude_Spectrum' stm='DSPB_MMSE/DSPB_MMSE_dut_input_adapter_FFT_Adapter_GPOut.stm' highLevelName='Magnitude_Spectrum' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='out_3_Power_Spectrum' clock='clk' reset='areset' width='36' dir='out' role='data' qsys_role='data_out_3_Power_Spectrum' stm='DSPB_MMSE/DSPB_MMSE_dut_input_adapter_FFT_Adapter_GPOut.stm' highLevelName='Power_Spectrum' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='out_4_Phase_Valid' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_4_Phase_Valid' stm='DSPB_MMSE/DSPB_MMSE_dut_input_adapter_FFT_Adapter_GPOut1.stm' highLevelName='Phase_Valid' highLevelIndex='4' vector='0' complex='0'/>
+    <port name='out_5_Phase' clock='clk' reset='areset' width='32' dir='out' role='data' qsys_role='data_out_5_Phase' stm='DSPB_MMSE/DSPB_MMSE_dut_input_adapter_FFT_Adapter_GPOut1.stm' highLevelName='Phase' highLevelIndex='5' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
+    <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/220pack.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/220model.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/altera_lnsim_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='eda/sim_lib/altera_lnsim.sv' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+</island>

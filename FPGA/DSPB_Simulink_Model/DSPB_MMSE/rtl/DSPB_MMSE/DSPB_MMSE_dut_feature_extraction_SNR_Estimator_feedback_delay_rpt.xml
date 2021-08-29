@@ -1,0 +1,16 @@
+<?xml version='1.0'?>
+<island simulinkPath='DSPB_MMSE/dut/feature_extraction/SNR_Estimator/feedback_delay' topLevelEntity='DSPB_MMSE_dut_feature_extraction_SNR_Estimator_feedback_delay'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='in_1_valid' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_1_valid' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_feedback_delay_GPIn.stm' highLevelName='valid' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='in_2_input' clock='clk' reset='areset' width='16' dir='in' role='data' qsys_role='data_in_2_input' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_feedback_delay_GPIn.stm' highLevelName='input' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='out_2_valid_x' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_2_valid_x' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_feedback_delay_GPOut.stm' highLevelName='valid_' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='out_1_output' clock='clk' reset='areset' width='16' dir='out' role='data' qsys_role='data_out_1_output' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_feedback_delay_GPOut.stm' highLevelName='output' highLevelIndex='1' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
+    <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/220pack.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/220model.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/altera_lnsim_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='eda/sim_lib/altera_lnsim.sv' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+</island>

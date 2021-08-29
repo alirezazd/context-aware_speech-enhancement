@@ -1,0 +1,10 @@
+# This is the QIP file for DSP Builder for Intel FPGAs system 'floatComponent_DSPB_MMSE_dut_Enhacement_Algorithm_MMSE_castBlock_typeSFloatIEEE_A1Z122644ck28744ck2675x'
+
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_Enhacement_Algorithm_MMSE_castBlock_typeSFloatIEEE_A1Z44ck28744ck2675x.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_Enhacement_Algorithm_MMSE_castBlock_typeSFloatIEEE_A1Z44ck28744ck2675x.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_Enhacement_Algorithm_MMSE_castBlock_typeSFloatIEEE_A1Z44ck28744ck2675x.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_Enhacement_Algorithm_MMSE_castBlock_typeSFloatIEEE_A1Z44ck28744ck2675x.vhd

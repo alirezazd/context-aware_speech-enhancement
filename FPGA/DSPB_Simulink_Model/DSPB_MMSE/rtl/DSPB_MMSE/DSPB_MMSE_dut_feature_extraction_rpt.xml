@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<island simulinkPath='DSPB_MMSE/dut/feature_extraction' topLevelEntity='DSPB_MMSE_dut_feature_extraction'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='in_1_magnitude_spectrum_valid' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_1_magnitude_spectrum_valid' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_a_posteriori_SNR_x_GPIn1.stm' highLevelName='magnitude_spectrum_valid' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='in_2_magnitude_spectrum' clock='clk' reset='areset' width='18' dir='in' role='data' qsys_role='data_in_2_magnitude_spectrum' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_a_posteriori_SNR_x_GPIn1.stm' highLevelName='magnitude_spectrum' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='in_3_noisy_power_spectrum' clock='clk' reset='areset' width='36' dir='in' role='data' qsys_role='data_in_3_noisy_power_spectrum' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_a_posteriori_SNR_x_GPIn1.stm' highLevelName='noisy_power_spectrum' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='in_4_amplitude_Valid' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_4_amplitude_Valid' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_GPIn2.stm' highLevelName='amplitude_Valid' highLevelIndex='4' vector='0' complex='0'/>
+    <port name='in_5_amplitude' clock='clk' reset='areset' width='16' dir='in' role='data' qsys_role='data_in_5_amplitude' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_GPIn2.stm' highLevelName='amplitude' highLevelIndex='5' vector='0' complex='0'/>
+    <port name='in_6_enhanced_mag_spectrum_valid' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_6_enhanced_mag_spectrum_valid' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_a_priori_SNR_x_GPIn1.stm' highLevelName='enhanced_mag_spectrum_valid' highLevelIndex='6' vector='0' complex='0'/>
+    <port name='in_7_enhanced_mag_spectrum' clock='clk' reset='areset' width='32' dir='in' role='data' qsys_role='data_in_7_enhanced_mag_spectrum' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_a_priori_SNR_x_GPIn1.stm' highLevelName='enhanced_mag_spectrum' highLevelIndex='7' vector='0' complex='0'/>
+    <port name='out_1_a_priori_SNR_valid' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_1_a_priori_SNR_valid' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_a_priori_SNR_x_GPOut1.stm' highLevelName='a_priori_SNR_valid' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='out_2_a_priori_SNR' clock='clk' reset='areset' width='32' dir='out' role='data' qsys_role='data_out_2_a_priori_SNR' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_a_priori_SNR_x_GPOut1.stm' highLevelName='a_priori_SNR' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='out_3_noise_power_spectrum_snr_valid' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_3_noise_power_spectrum_snr_valid' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_a_posteriori_SNR_x_GPOut1.stm' highLevelName='noise_power_spectrum_snr_valid' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='out_4_a_posteriori_SNR' clock='clk' reset='areset' width='32' dir='out' role='data' qsys_role='data_out_4_a_posteriori_SNR' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_a_posteriori_SNR_x_GPOut1.stm' highLevelName='a_posteriori_SNR' highLevelIndex='4' vector='0' complex='0'/>
+    <port name='out_5_estimated_SNR_Valid' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_5_estimated_SNR_Valid' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_STD_to_SNR_dB_GPOut1.stm' highLevelName='estimated_SNR_Valid' highLevelIndex='5' vector='0' complex='0'/>
+    <port name='out_6_estimated_SNR_dB' clock='clk' reset='areset' width='16' dir='out' role='data' qsys_role='data_out_6_estimated_SNR_dB' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_STD_to_SNR_dB_GPOut1.stm' highLevelName='estimated_SNR_dB' highLevelIndex='6' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
+    <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/220pack.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/220model.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/altera_lnsim_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='eda/sim_lib/altera_lnsim.sv' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+</island>

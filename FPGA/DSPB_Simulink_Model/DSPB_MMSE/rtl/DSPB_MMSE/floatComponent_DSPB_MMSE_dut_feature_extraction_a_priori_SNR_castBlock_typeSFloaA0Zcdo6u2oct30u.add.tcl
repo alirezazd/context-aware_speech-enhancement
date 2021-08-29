@@ -1,0 +1,10 @@
+# This is the Quartus file list for 'floatComponent_DSPB_MMSE_dut_feature_extraction_a_priori_SNR_castBlock_typeSFloaA0Zqcd06uqqcdo6u2oct30u'
+
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_a_priori_SNR_castBlock_typeSFloaA0Z6uqqcdo6u2oct30u.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_a_priori_SNR_castBlock_typeSFloaA0Z6uqqcdo6u2oct30u.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_a_priori_SNR_castBlock_typeSFloaA0Z6uqqcdo6u2oct30u.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_a_priori_SNR_castBlock_typeSFloaA0Z6uqqcdo6u2oct30u.vhd

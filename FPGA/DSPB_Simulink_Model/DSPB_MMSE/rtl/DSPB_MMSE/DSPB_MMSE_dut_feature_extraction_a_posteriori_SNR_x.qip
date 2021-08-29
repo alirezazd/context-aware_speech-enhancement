@@ -1,0 +1,13 @@
+# This is the QIP file for DSP Builder for Intel FPGAs system 'DSPB_MMSE_dut_feature_extraction_a_posteriori_SNR_x'
+
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_a_posteriori_SNR_x.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_a_posteriori_SNR_x.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_a_posteriori_SNR_x.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_a_posteriori_SNR_x.vhd
+set_global_assignment -name QIP_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_a_posteriori_SNR_castBlock_typeUA0Z6uqqcdo6u2oct30u.qip
+set_global_assignment -name QIP_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_a_posteriori_SNR_castBlock_typeUA0Z6uqqcdo6u2oct30u.qip
+set_global_assignment -name QIP_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_feature_extraction_a_posteriori_SNR_divideBlock_typA0Z50g24ad20454ck5u.qip

@@ -1,0 +1,16 @@
+# This is the QIP file for DSP Builder for Intel FPGAs system 'DSPB_MMSE_dut_input_adapter_FFT_Adapter'
+
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_input_adapter_FFT_Adapter.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_input_adapter_FFT_Adapter.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_input_adapter_FFT_Adapter.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_input_adapter_FFT_Adapter.vhd
+set_global_assignment -name QIP_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_castBlock_typeSFloatIEEE_A0Z2a6354c2463b0y05.qip
+set_global_assignment -name QIP_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_castBlock_typeSFixed_8_11A0Z2a6354c2463b0y05.qip
+set_global_assignment -name QIP_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_castBlock_typeSFixed_16_2A0Z2a6354c2463b0y05.qip
+set_global_assignment -name QIP_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_castBlock_typeSFixed_8_11A0Z2a6354c2463b0y05.qip
+set_global_assignment -name QIP_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_sqrtBlock_typeSFloatIEEE_A0Z54c2a6354c2469bx.qip
+set_global_assignment -name QIP_FILE ./rtl/DSPB_MMSE/floatComponent_DSPB_MMSE_dut_input_adapter_FFT_Adapter_arcTan2Block_typeSFloatIEA0Z0cp0ju20cp0jtj0u.qip

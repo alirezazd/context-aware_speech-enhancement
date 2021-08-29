@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+<island simulinkPath='' topLevelEntity='floatComponent_DSPB_MMSE_dut_feature_extraction_SNR_Estimator_STD_to_SNR_dB_castA1Zd6oq3cd16oe0cp36hj0u'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='in_0' clock='clk' reset='areset' width='32' dir='in' role='data' qsys_role='data_in_0' stm='' highLevelName='in_0' highLevelIndex='0' vector='0' complex='0'/>
+    <port name='out_primWireOut' clock='clk' reset='areset' width='32' dir='out' role='data' qsys_role='data_out_primWireOut' stm='' highLevelName='primWireOut' highLevelIndex='0' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
+    <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/220pack.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/220model.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/altera_lnsim_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='eda/sim_lib/altera_lnsim.sv' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+</island>

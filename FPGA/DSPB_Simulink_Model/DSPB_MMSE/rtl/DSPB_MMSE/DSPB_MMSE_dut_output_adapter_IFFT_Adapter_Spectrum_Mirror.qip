@@ -1,0 +1,15 @@
+# This is the QIP file for DSP Builder for Intel FPGAs system 'DSPB_MMSE_dut_output_adapter_IFFT_Adapter_Spectrum_Mirror'
+
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_safe_path.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_Spectrum_Mirror.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_Spectrum_Mirror.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_Spectrum_Mirror.vhd
+set_global_assignment -name VHDL_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_Spectrum_Mirror.vhd
+set_global_assignment -name HEX_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_Spectrum_Mirror_DualMem.hex
+set_global_assignment -name HEX_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_Spectrum_Mirror_DualMem.hex
+set_global_assignment -name HEX_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_Spectrum_Mirror_DualMem.hex
+set_global_assignment -name HEX_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_Spectrum_Mirror_DualMem.hex
+set_global_assignment -name HEX_FILE ./rtl/DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_Spectrum_Mirror_DualMem.hex

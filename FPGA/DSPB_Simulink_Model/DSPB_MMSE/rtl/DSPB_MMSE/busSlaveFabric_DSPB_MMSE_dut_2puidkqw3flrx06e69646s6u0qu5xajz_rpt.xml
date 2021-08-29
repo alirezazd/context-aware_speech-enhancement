@@ -1,0 +1,28 @@
+<?xml version='1.0'?>
+<island simulinkPath='' topLevelEntity='busSlaveFabric_DSPB_MMSE_dut_2puidkqw3flrx06e69646s6u0qu5xajz'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='h_areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='busIn_writedata' clock='clk' reset='h_areset' width='16' dir='in' role='busData' qsys_role='writedata' stm=''/>
+    <port name='busIn_address' clock='clk' reset='h_areset' width='10' dir='in' role='busAddress' qsys_role='address' stm=''/>
+    <port name='busIn_write' clock='clk' reset='h_areset' width='1' dir='in' role='busWriteEnable' qsys_role='write' stm=''/>
+    <port name='busIn_read' clock='clk' reset='h_areset' width='1' dir='in' role='busReadEnable' qsys_role='read' stm=''/>
+    <port name='busOut_readdatavalid' clock='clk' reset='h_areset' width='1' dir='out' role='busDataValid' qsys_role='readdatavalid' stm=''/>
+    <port name='busOut_readdata' clock='clk' reset='h_areset' width='16' dir='out' role='busData' qsys_role='readdata' stm=''/>
+    <port name='in_AMMregisterPortData_DSPB_MMSE_dut_Output_IF_RegOut_x' clock='clk' reset='areset' width='16' dir='in' role='data' qsys_role='data_in_AMMregisterPortData_DSPB_MMSE_dut_Output_IF_RegOut_x' stm='' highLevelName='in_AMMregisterPortData_DSPB_MMSE_dut_Output_IF_RegOut_x' highLevelIndex='0' vector='0' complex='0'/>
+    <port name='in_AMMregisterPortWriteEn_DSPB_MMSE_dut_Output_IF_RegOut_x' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_AMMregisterPortWriteEn_DSPB_MMSE_dut_Output_IF_RegOut_x' stm='' highLevelName='in_AMMregisterPortWriteEn_DSPB_MMSE_dut_Output_IF_RegOut_x' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='in_sharedMemPortAddr_DSPB_MMSE_dut_Output_IF_output_fifo_x' clock='clk' reset='areset' width='9' dir='in' role='data' qsys_role='data_in_sharedMemPortAddr_DSPB_MMSE_dut_Output_IF_output_fifo_x' stm='' highLevelName='in_sharedMemPortAddr_DSPB_MMSE_dut_Output_IF_output_fifo_x' highLevelIndex='6' vector='0' complex='0'/>
+    <port name='in_sharedMemPortAddr_DSPB_MMSE_dut_input_IF_input_fifo_x' clock='clk' reset='areset' width='9' dir='in' role='data' qsys_role='data_in_sharedMemPortAddr_DSPB_MMSE_dut_input_IF_input_fifo_x' stm='' highLevelName='in_sharedMemPortAddr_DSPB_MMSE_dut_input_IF_input_fifo_x' highLevelIndex='7' vector='0' complex='0'/>
+    <port name='in_sharedMemPortData_DSPB_MMSE_dut_Output_IF_output_fifo_x' clock='clk' reset='areset' width='16' dir='in' role='data' qsys_role='data_in_sharedMemPortData_DSPB_MMSE_dut_Output_IF_output_fifo_x' stm='' highLevelName='in_sharedMemPortData_DSPB_MMSE_dut_Output_IF_output_fifo_x' highLevelIndex='8' vector='0' complex='0'/>
+    <port name='in_sharedMemPortData_DSPB_MMSE_dut_input_IF_input_fifo_x' clock='clk' reset='areset' width='16' dir='in' role='data' qsys_role='data_in_sharedMemPortData_DSPB_MMSE_dut_input_IF_input_fifo_x' stm='' highLevelName='in_sharedMemPortData_DSPB_MMSE_dut_input_IF_input_fifo_x' highLevelIndex='9' vector='0' complex='0'/>
+    <port name='in_sharedMemPortWriteEn_DSPB_MMSE_dut_Output_IF_output_fifo_x' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_sharedMemPortWriteEn_DSPB_MMSE_dut_Output_IF_output_fifo_x' stm='' highLevelName='in_sharedMemPortWriteEn_DSPB_MMSE_dut_Output_IF_output_fifo_x' highLevelIndex='10' vector='0' complex='0'/>
+    <port name='in_sharedMemPortWriteEn_DSPB_MMSE_dut_input_IF_input_fifo_x' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_sharedMemPortWriteEn_DSPB_MMSE_dut_input_IF_input_fifo_x' stm='' highLevelName='in_sharedMemPortWriteEn_DSPB_MMSE_dut_input_IF_input_fifo_x' highLevelIndex='11' vector='0' complex='0'/>
+    <port name='out_sharedMemWireData_DSPB_MMSE_dut_input_IF_input_fifo_x' clock='clk' reset='areset' width='16' dir='out' role='data' qsys_role='data_out_sharedMemWireData_DSPB_MMSE_dut_input_IF_input_fifo_x' stm='' highLevelName='out_sharedMemWireData_DSPB_MMSE_dut_input_IF_input_fifo_x' highLevelIndex='2' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
+    <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/220pack.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/220model.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/altera_lnsim_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='eda/sim_lib/altera_lnsim.sv' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+</island>

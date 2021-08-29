@@ -1,0 +1,22 @@
+<?xml version='1.0'?>
+<island simulinkPath='DSPB_MMSE/dut/feature_extraction/SNR_Estimator/split_and_scale' topLevelEntity='DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='in_1_amplitude_valid' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_1_amplitude_valid' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_GPIn2.stm' highLevelName='amplitude_valid' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='in_2_amplitude' clock='clk' reset='areset' width='16' dir='in' role='data' qsys_role='data_in_2_amplitude' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_GPIn2.stm' highLevelName='amplitude' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='in_3_noise_STD_valid' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_3_noise_STD_valid' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_GPIn2.stm' highLevelName='noise_STD_valid' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='in_4_noise_STD' clock='clk' reset='areset' width='16' dir='in' role='data' qsys_role='data_in_4_noise_STD' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_GPIn2.stm' highLevelName='noise_STD' highLevelIndex='4' vector='0' complex='0'/>
+    <port name='out_1_scaled_signal_amplitude_valid' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_1_scaled_signal_amplitude_valid' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_GPOut3.stm' highLevelName='scaled_signal_amplitude_valid' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='out_2_scaled_noise_amplitude_valid' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_2_scaled_noise_amplitude_valid' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_GPOut3.stm' highLevelName='scaled_noise_amplitude_valid' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='out_3_scaled_amplitude' clock='clk' reset='areset' width='16' dir='out' role='data' qsys_role='data_out_3_scaled_amplitude' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_GPOut3.stm' highLevelName='scaled_amplitude' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='out_4_noise_count' clock='clk' reset='areset' width='16' dir='out' role='data' qsys_role='data_out_4_noise_count' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_GPOut3.stm' highLevelName='noise_count' highLevelIndex='4' vector='0' complex='0'/>
+    <port name='out_5_signal_count' clock='clk' reset='areset' width='16' dir='out' role='data' qsys_role='data_out_5_signal_count' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_GPOut3.stm' highLevelName='signal_count' highLevelIndex='5' vector='0' complex='0'/>
+    <port name='out_6_reset' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_6_reset' stm='DSPB_MMSE/DSPB_MMSE_dut_feature_extraction_SNR_Estimator_split_and_scale_GPOut3.stm' highLevelName='reset' highLevelIndex='6' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
+    <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/220pack.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/220model.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/altera_lnsim_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='eda/sim_lib/altera_lnsim.sv' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+</island>

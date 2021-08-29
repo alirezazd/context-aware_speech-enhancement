@@ -1,0 +1,19 @@
+<?xml version='1.0'?>
+<island simulinkPath='DSPB_MMSE/dut/output_adapter/IFFT_Adapter/MagPhaseToComplex' topLevelEntity='DSPB_MMSE_dut_output_adapter_IFFT_Adapter_MagPhaseToComplex'>
+    <port name='clk' dir='in' role='clock'/>
+    <port name='areset' dir='in' clock='clk' role='resetHigh'/>
+    <port name='out_1_valid_x' clock='clk' reset='areset' width='1' dir='out' role='data' qsys_role='data_out_1_valid_x' stm='DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_MagPhaseToComplex_GPOut_cunroll_x.stm' highLevelName='_valid' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='out_2_real_out' clock='clk' reset='areset' width='21' dir='out' role='data' qsys_role='data_out_2_real_out' stm='DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_MagPhaseToComplex_GPOut_cunroll_x.stm' highLevelName='out' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='out_2_imag_out' clock='clk' reset='areset' width='21' dir='out' role='data' qsys_role='data_out_2_imag_out' stm='DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_MagPhaseToComplex_GPOut_cunroll_x.stm' highLevelName='out' highLevelIndex='2' vector='0' complex='1'/>
+    <port name='in_1_maginitude_spectrum_valid' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_1_maginitude_spectrum_valid' stm='DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_MagPhaseToComplex_gp0.stm' highLevelName='maginitude_spectrum_valid' highLevelIndex='1' vector='0' complex='0'/>
+    <port name='in_2_magnitude_spectrum' clock='clk' reset='areset' width='32' dir='in' role='data' qsys_role='data_in_2_magnitude_spectrum' stm='DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_MagPhaseToComplex_gp0.stm' highLevelName='magnitude_spectrum' highLevelIndex='2' vector='0' complex='0'/>
+    <port name='in_3_phase_valid' clock='clk' reset='areset' width='1' dir='in' role='data' qsys_role='data_in_3_phase_valid' stm='DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_MagPhaseToComplex_gp1.stm' highLevelName='phase_valid' highLevelIndex='3' vector='0' complex='0'/>
+    <port name='in_4_phase' clock='clk' reset='areset' width='32' dir='in' role='data' qsys_role='data_in_4_phase' stm='DSPB_MMSE/DSPB_MMSE_dut_output_adapter_IFFT_Adapter_MagPhaseToComplex_gp1.stm' highLevelName='phase' highLevelIndex='4' vector='0' complex='0'/>
+    <file path='eda/sim_lib/altera_primitives_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera'/>
+    <file path='eda/sim_lib/altera_mf_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/altera_mf.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_mf'/>
+    <file path='eda/sim_lib/220pack.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/220model.vhd' base='quartus' type='vhdl' usage='simOnly' lib='lpm'/>
+    <file path='eda/sim_lib/altera_lnsim_components.vhd' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+    <file path='eda/sim_lib/altera_lnsim.sv' base='quartus' type='vhdl' usage='simOnly' lib='altera_lnsim'/>
+</island>

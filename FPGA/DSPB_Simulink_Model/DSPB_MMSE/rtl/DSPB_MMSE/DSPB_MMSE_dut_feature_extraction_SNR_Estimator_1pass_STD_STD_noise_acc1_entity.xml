@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<entity name='DSPB_MMSE_dut_feature_extraction_SNR_Estimator_1pass_STD_STD_noise_acc1' floating-point-script-prefix='DSPB_MMSE_dut_feature_extraction_SNR_Estimator_1pass_STD_STD_noise_acc1_fpc'>
+  <clock name='sys' port='clk' reset='areset' reset-type='high' />
+</entity>
