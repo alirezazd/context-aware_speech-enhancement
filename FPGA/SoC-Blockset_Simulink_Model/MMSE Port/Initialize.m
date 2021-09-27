@@ -7,7 +7,7 @@ burstLen = 100;
 SF = 16e3;
 frameDur = 0.025;
 frameSize = frameDur * SF;
-noiseSNR = 20;
+noiseSNR = 5;
 quantizationBits = 20;
 
 %% Initialization Routine
@@ -19,7 +19,6 @@ LUT_Z1 = single(LUT_Z1);
 inputWav = resample(inputWav, SF, wavSF);   %Resample input
 inputWav = single(v_addnoise(inputWav, SF, noiseSNR, 'k')); %Add noise
 inputWav = inputWav(1 : floor(length(inputWav) / frameSize)* frameSize); %Make total multiple of frame length
-
 % Overlap
 overlapWavIn = single(zeros((2 * length(inputWav) - frameSize),1));
 tmp = overlapWavIn;
